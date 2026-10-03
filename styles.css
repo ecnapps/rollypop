@@ -167,6 +167,12 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
   letter-spacing: 0.05em;
 }
 
+@media (max-width: 479px) {
+  .brand__badge {
+    display: none;
+  }
+}
+
 .header__actions {
   display: flex;
   align-items: center;
@@ -257,7 +263,6 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 
 /* Ad Containers */
 .ad-slot-wrapper {
-  margin: 1rem 0;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -268,10 +273,6 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 .ad-slot-container {
   width: 100%;
   max-width: 970px;
-  min-height: 90px;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px dashed rgba(255, 255, 255, 0.06);
   min-height: 0;
   display: flex;
   flex-direction: column;
@@ -281,7 +282,6 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0.5rem;
 }
 
 .ad-slot-label {
@@ -595,6 +595,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 
 .input-text {
   flex: 1;
+  min-width: 0;
   background: var(--bg-tertiary);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-md);
