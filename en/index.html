@@ -4,46 +4,6 @@
   <!-- Instant Browser Language Detection & Auto-Routing -->
   <script>
     (function() {
-      // Only execute redirect on the root homepage
-      var pathname = window.location.pathname;
-      if (pathname !== '/' && pathname !== '/index.html' && pathname !== '') {
-        return;
-      }
-      try {
-        var params = new URLSearchParams(window.location.search);
-        var qLang = params.get('lang');
-        var stored = localStorage.getItem('rollypop_lang');
-        var navLangs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
-        var target = 'en';
-
-        if (qLang && (qLang === 'es' || qLang === 'fr' || qLang === 'en')) {
-          target = qLang;
-        } else if (stored && (stored === 'es' || stored === 'fr' || stored === 'en')) {
-          target = stored;
-        } else {
-          for (var i = 0; i < navLangs.length; i++) {
-            var l = (navLangs[i] || '').toLowerCase();
-            if (l.startsWith('es')) { target = 'es'; break; }
-            if (l.startsWith('fr')) { target = 'fr'; break; }
-            if (l.startsWith('en')) { target = 'en'; break; }
-          }
-        }
-
-        var search = window.location.search || '';
-        var hash = window.location.hash || '';
-        window.location.replace('/' + target + '/' + search + hash);
-      } catch (e) {
-        window.location.replace('/en/');
-      }
-    })();
-  </script>
-  <noscript>
-    <meta http-equiv="refresh" content="0; url=/en/">
-  </noscript>
-
-  <!-- Instant Browser Language Detection & Auto-Routing -->
-  <script>
-    (function() {
       try {
         var params = new URLSearchParams(window.location.search);
         var qLang = params.get('lang');
@@ -168,7 +128,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-          <link rel="canonical" href="https://rollypop.ecn-apps.com/">
+          <link rel="canonical" href="https://rollypop.ecn-apps.com/en/">
   <link rel="alternate" type="application/rss+xml" title="RollyPop RSS" href="https://rollypop.ecn-apps.com/feed.xml">
   <link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/">
   <link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/en/">

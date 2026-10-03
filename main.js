@@ -81,7 +81,44 @@
       faq3Q: "Can I save or share my customized wheel?",
       faq3A: "Yes! Use the Share tab to generate a direct URL that encodes your exact list of slices and colors. You can send this link to anyone or bookmark it.",
       faq4Q: "Can I remove winners for giveaways or raffles?",
-      faq4A: "Absolutely. When the wheel lands on a winner, simply click 'Remove Winner' in the celebration modal to take it off the wheel for the next round."
+      faq4A: "Absolutely. When the wheel lands on a winner, simply click 'Remove Winner' in the celebration modal to take it off the wheel for the next round.",
+      btnInstallApp: "Install App",
+      pwaBannerTitle: "Install RollyPop App",
+      pwaBannerDesc: "Install on your home screen for full-screen & offline spins!",
+      pwaBannerBtn: "Install",
+      iosModalTitle: "Install RollyPop on iPhone / iPad",
+      iosModalSubtitle: "Follow these 3 simple steps in Safari to add RollyPop to your Home Screen:",
+      iosStep1: "Tap the Share button in Safari's bottom toolbar.",
+      iosStep2: "Scroll down and select 'Add to Home Screen'.",
+      iosStep3: "Tap 'Add' in the top-right corner to finish.",
+      iosModalGotIt: "Got it!",
+      pwaInstalledSuccess: "RollyPop installed successfully! Open it from your home screen.",
+      howToTitle: "How to Use the RollyPop Decision Wheel",
+      howToSubtitle: "Pick random winners, make unbiased decisions, or randomize names in three easy steps:",
+      howStep1Title: "Add Your Choices",
+      howStep1Desc: "Type choices individually, bulk-paste lists in the Entries tab, or pick from ready presets like Food, Yes/No, and Numbers.",
+      howStep2Title: "Spin the Wheel",
+      howStep2Desc: "Click the central SPIN button, hit the toolbar button, or simply press the spacebar to watch the realistic physics in action.",
+      howStep3Title: "Celebrate or Eliminate",
+      howStep3Desc: "Enjoy confetti animations and realistic sound. For raffles and drawings, click \"Remove Winner\" to continue to the next round.",
+      useCasesTitle: "Popular Ways to Spin & Decide",
+      useCasesSubtitle: "From daily choices to classroom activities and live stream raffles:",
+      useCaseClassroomTitle: "Classroom Random Name Picker",
+      useCaseClassroomDesc: "Teachers paste student lists to choose volunteers, assign speaking turns, and maintain unbiased classroom participation.",
+      useCaseGiveawayTitle: "Giveaways & Stream Raffles",
+      useCaseGiveawayDesc: "Twitch, YouTube, and TikTok creators host live prize giveaways using distraction-free fullscreen mode with realistic ratchet audio.",
+      useCaseFoodTitle: "Food & Restaurant Roulette",
+      useCaseFoodDesc: "Solve meal indecision with friends or coworkers. Spin between takeout, sushi, pizza, tacos, and burgers in seconds.",
+      useCasePartyTitle: "Party Games: Truth or Dare",
+      useCasePartyDesc: "Spice up game nights, party challenges, icebreakers, and social gatherings with customizable prompts and dice alternatives.",
+      useCaseTeamTitle: "Team & Group Assignment",
+      useCaseTeamDesc: "Divide students or colleagues into balanced groups for hackathons, agile sprints, class projects, and workshops.",
+      useCaseYesNoTitle: "Yes or No Decision Maker",
+      useCaseYesNoDesc: "Need a rapid, impartial binary choice? Spin the Yes/No preset with equal odds and sound synthesis for instant resolution.",
+      faq5Q: "Can I install RollyPop on my mobile phone?",
+      faq5A: "Yes! RollyPop is a Progressive Web App (PWA). You can install it on Android and iOS (iPhone/iPad) to spin offline and enjoy an immersive full-screen experience.",
+      faq6Q: "Does RollyPop store my entries or private lists on a server?",
+      faq6A: "No. All your wheel entries, presets, and settings remain 100% private in your local browser storage. We never upload or track your lists."
     },
     es: {
       siteTitle: "RollyPop — Ruleta Aleatoria de Decisiones y Sorteos Online",
@@ -153,7 +190,44 @@
       faq3Q: "¿Puedo guardar o compartir mi ruleta creada?",
       faq3A: "¡Claro! En la pestaña 'Compartir' puedes generar un enlace único con tu lista y colores para enviarlo o guardarlo en favoritos.",
       faq4Q: "¿Cómo elimino a los ganadores en sorteos?",
-      faq4A: "Cuando la ruleta se detenga, haz clic en el botón 'Eliminar Ganador' del cuadro de diálogo para sacarlo de la lista para el siguiente sorteo."
+      faq4A: "Cuando la ruleta se detenga, haz clic en el botón 'Eliminar Ganador' del cuadro de diálogo para sacarlo de la lista para el siguiente sorteo.",
+      btnInstallApp: "Instalar App",
+      pwaBannerTitle: "Instala RollyPop en tu teléfono",
+      pwaBannerDesc: "Añádela a tu pantalla de inicio para jugar a pantalla completa y sin conexión.",
+      pwaBannerBtn: "Instalar",
+      iosModalTitle: "Instalar RollyPop en iPhone / iPad",
+      iosModalSubtitle: "Sigue estos 3 sencillos pasos en Safari para agregar RollyPop a tu pantalla de inicio:",
+      iosStep1: "Toca el botón Compartir en la barra inferior de Safari.",
+      iosStep2: "Desplázate hacia abajo y elige 'Añadir a pantalla de inicio'.",
+      iosStep3: "Toca 'Añadir' en la esquina superior derecha para finalizar.",
+      iosModalGotIt: "¡Entendido!",
+      pwaInstalledSuccess: "¡RollyPop se instaló correctamente! Ábrela desde tu pantalla de inicio.",
+      howToTitle: "Cómo usar la Ruleta de Decisiones RollyPop",
+      howToSubtitle: "Elige ganadores al azar, toma decisiones imparciales o sortea nombres en 3 simples pasos:",
+      howStep1Title: "Agrega tus opciones",
+      howStep1Desc: "Escribe tus opciones una a una, pega listas completas en la pestaña Opciones o elige plantillas listas como Comida o Sí/No.",
+      howStep2Title: "Gira la ruleta",
+      howStep2Desc: "Haz clic en el botón central GIRAR, en la barra inferior o presiona la barra espaciadora para ver la física realista en acción.",
+      howStep3Title: "Celebra o elimina al ganador",
+      howStep3Desc: "Disfruta de la lluvia de confeti y efectos de sonido. En sorteos o rifas, pulsa 'Eliminar Ganador' para continuar la ronda.",
+      useCasesTitle: "Usos Populares de la Ruleta",
+      useCasesSubtitle: "Desde decisiones cotidianas hasta actividades escolares y sorteos en vivo:",
+      useCaseClassroomTitle: "Selector de Alumnos al Azar",
+      useCaseClassroomDesc: "Profesores y maestros pegan listas de alumnos para elegir turnos de participación justa y sin preferencias.",
+      useCaseGiveawayTitle: "Sorteos y Rifas en Vivo",
+      useCaseGiveawayDesc: "Creadores de Twitch, YouTube y TikTok realizan sorteos en directo con modo pantalla completa y sonido realista.",
+      useCaseFoodTitle: "Ruleta de Comida y Restaurantes",
+      useCaseFoodDesc: "Resuelve el dilema de qué comer con amigos o en la oficina entre tacos, pizza, sushi o hamburguesas en segundos.",
+      useCasePartyTitle: "Juegos de Fiesta: Verdad o Reto",
+      useCasePartyDesc: "Anima reuniones con amigos y dinámicas de grupo con retos divertidos o simulando tiradas de dados.",
+      useCaseTeamTitle: "División y Asignación de Equipos",
+      useCaseTeamDesc: "Organiza equipos equilibrados para proyectos de trabajo, torneos deportivos, hackatones o dinámicas grupales.",
+      useCaseYesNoTitle: "Ruleta de Sí o No",
+      useCaseYesNoDesc: "¿Necesitas una respuesta rápida e imparcial? Gira con probabilidades iguales y resuelve cualquier duda al instante.",
+      faq5Q: "¿Puedo instalar RollyPop como aplicación en mi teléfono móvil?",
+      faq5A: "¡Sí! RollyPop es una Progressive Web App (PWA). Puedes instalarla en Android y iPhone/iPad para usarla sin conexión y a pantalla completa.",
+      faq6Q: "¿RollyPop almacena mis listas o datos en algún servidor?",
+      faq6A: "No. Todas tus listas, plantillas y configuraciones se guardan exclusivamente en la memoria de tu navegador de forma 100% privada."
     },
     fr: {
       siteTitle: "RollyPop — Roue de la Fortune & Roulette de Décision en Ligne",
@@ -225,7 +299,44 @@
       faq3Q: "Puis-je enregistrer ou partager ma roue ?",
       faq3A: "Oui ! Utilisez l'onglet Partager pour obtenir une URL unique contenant vos tranches et couleurs.",
       faq4Q: "Comment éliminer les gagnants au fur et à mesure ?",
-      faq4A: "Dès que la roue s'arrête, cliquez sur 'Retirer Gagnant' dans la boîte de dialogue pour préparer le prochain tour."
+      faq4A: "Dès que la roue s'arrête, cliquez sur 'Retirer Gagnant' dans la boîte de dialogue pour préparer le prochain tour.",
+      btnInstallApp: "Installer l'app",
+      pwaBannerTitle: "Installer RollyPop sur votre téléphone",
+      pwaBannerDesc: "Ajoutez à l'écran d'accueil pour jouer en plein écran et sans connexion.",
+      pwaBannerBtn: "Installer",
+      iosModalTitle: "Installer RollyPop sur iPhone / iPad",
+      iosModalSubtitle: "Suivez ces 3 étapes simples dans Safari pour ajouter RollyPop à votre écran d'accueil :",
+      iosStep1: "Touchez le bouton Partager en bas dans Safari.",
+      iosStep2: "Faites défiler et sélectionnez 'Sur l'écran d'accueil'.",
+      iosStep3: "Touchez 'Ajouter' en haut à droite pour terminer.",
+      iosModalGotIt: "Compris !",
+      pwaInstalledSuccess: "RollyPop a été installée avec succès ! Ouvrez-la depuis votre écran d'accueil.",
+      howToTitle: "Comment utiliser la Roue de Décision RollyPop",
+      howToSubtitle: "Tirez au sort des gagnants, prenez des décisions impartiales ou choisissez des noms en 3 étapes simples :",
+      howStep1Title: "Ajoutez vos options",
+      howStep1Desc: "Saisissez vos options une à une, collez une liste complète ou choisissez parmi nos modèles prêts à l'emploi (Repas, Oui/Non, etc.).",
+      howStep2Title: "Faites tourner la roue",
+      howStep2Desc: "Cliquez sur le bouton central TOURNER, la barre d'outils ou appuyez sur la barre d'espace pour admirer la rotation fluide.",
+      howStep3Title: "Célébrez ou éliminez le gagnant",
+      howStep3Desc: "Profitez des confettis et des bruitages réalistes. Pour les tirages au sort, cliquez sur 'Retirer Gagnant' pour enchaîner.",
+      useCasesTitle: "Utilisations Populaires de la Roue",
+      useCasesSubtitle: "Des choix quotidiens aux animations en classe et tirages en direct :",
+      useCaseClassroomTitle: "Tirage au Sort d'Élèves en Classe",
+      useCaseClassroomDesc: "Les enseignants collent la liste de leurs élèves pour interroger au hasard de manière ludique et équitable.",
+      useCaseGiveawayTitle: "Jeux-Concours et Tirages en Live",
+      useCaseGiveawayDesc: "Les créateurs sur Twitch, YouTube et TikTok animent des tirages au sort immersifs en plein écran avec cliquet sonore.",
+      useCaseFoodTitle: "Que Mange-t-on ce Soir ?",
+      useCaseFoodDesc: "Mettez fin aux hésitations entre amis : pizza, sushi, burgers ou cuisine maison en un tour de roue.",
+      useCasePartyTitle: "Jeux de Soirée : Action ou Vérité",
+      useCasePartyDesc: "Pimentez vos soirées entre amis avec des gages personnalisés, défis ou lancers de dés virtuels.",
+      useCaseTeamTitle: "Création et Répartition d'Équipes",
+      useCaseTeamDesc: "Répartissez facilement étudiants et collègues en groupes équilibrés pour des projets, ateliers ou tournois.",
+      useCaseYesNoTitle: "Roue Oui ou Non",
+      useCaseYesNoDesc: "Besoin d'un arbitrage neutre et instantané ? Faites tourner la roue avec chances égales pour trancher sans hésiter.",
+      faq5Q: "Puis-je installer RollyPop sur mon téléphone portable ?",
+      faq5A: "Oui ! RollyPop est une PWA. Vous pouvez l'installer sur Android et iOS (iPhone/iPad) pour l'utiliser hors ligne et en plein écran.",
+      faq6Q: "RollyPop enregistre-t-il mes données sur un serveur distant ?",
+      faq6A: "Non. Toutes vos options et réglages restent 100% privés dans le stockage local de votre navigateur."
     }
   };
 
@@ -1195,6 +1306,171 @@
     }
   });
 
+  // -------------------------------------------------------------------------
+  // Progressive Web App (PWA) Management
+  // -------------------------------------------------------------------------
+  let deferredInstallPrompt = null;
+
+  function initPWA() {
+    // 1. Register Service Worker with relative path
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+          .then((reg) => {
+            console.log('[PWA] Service Worker registered with scope:', reg.scope);
+            reg.addEventListener('updatefound', () => {
+              const newWorker = reg.installing;
+              if (newWorker) {
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    console.log('[PWA] New version ready.');
+                  }
+                });
+              }
+            });
+          })
+          .catch((err) => {
+            console.warn('[PWA] Service Worker registration failed:', err);
+          });
+      });
+    }
+
+    // 2. Check if running in standalone mode (already installed app)
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
+                         window.navigator.standalone === true ||
+                         document.referrer.includes('android-app://');
+
+    if (isStandalone) {
+      document.body.classList.add('is-pwa-standalone');
+      console.log('[PWA] Running in standalone mode.');
+      return;
+    }
+
+    const installAppBtn = document.getElementById('installAppBtn');
+    const pwaBanner = document.getElementById('pwaInstallBanner');
+    const pwaBannerInstallBtn = document.getElementById('pwaBannerInstallBtn');
+    const pwaBannerDismissBtn = document.getElementById('pwaBannerDismissBtn');
+    const iosModal = document.getElementById('iosInstallModal');
+    const iosModalCloseBtn = document.getElementById('iosModalCloseBtn');
+    const iosModalGotItBtn = document.getElementById('iosModalGotItBtn');
+
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    function handleInstallTrigger() {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        deferredInstallPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('[PWA] User accepted install');
+            trackEvent('pwa_installed', { outcome: 'accepted' });
+          } else {
+            console.log('[PWA] User dismissed install prompt');
+            trackEvent('pwa_install_dismissed', { outcome: 'dismissed' });
+          }
+          deferredInstallPrompt = null;
+          if (installAppBtn) installAppBtn.style.display = 'none';
+          if (pwaBanner) pwaBanner.style.display = 'none';
+        });
+      } else if (isIOS) {
+        if (iosModal && typeof iosModal.showModal === 'function') {
+          iosModal.showModal();
+        }
+      } else {
+        const currentLang = state.lang || 'en';
+        const msg = currentLang === 'es'
+          ? 'Para instalar la app, busca el ícono de "Instalar" en la barra de tu navegador o pulsa en el menú (⋮) > "Instalar RollyPop".'
+          : (currentLang === 'fr'
+            ? 'Pour installer l\'application, recherchez l\'icône "Installer" dans la barre du navigateur ou le menu (⋮) > "Installer RollyPop".'
+            : 'To install the app, look for the "Install" icon in your browser address bar or menu (⋮) > "Install RollyPop".');
+        alert(msg);
+      }
+    }
+
+    if (installAppBtn) {
+      installAppBtn.addEventListener('click', handleInstallTrigger);
+    }
+    if (pwaBannerInstallBtn) {
+      pwaBannerInstallBtn.addEventListener('click', handleInstallTrigger);
+    }
+
+    if (pwaBannerDismissBtn) {
+      pwaBannerDismissBtn.addEventListener('click', () => {
+        if (pwaBanner) pwaBanner.style.display = 'none';
+        localStorage.setItem('rollypop_pwa_dismissed', Date.now().toString());
+      });
+    }
+
+    if (iosModalCloseBtn) {
+      iosModalCloseBtn.addEventListener('click', () => iosModal.close());
+    }
+    if (iosModalGotItBtn) {
+      iosModalGotItBtn.addEventListener('click', () => iosModal.close());
+    }
+    if (iosModal) {
+      iosModal.addEventListener('click', (e) => {
+        const rect = iosModal.getBoundingClientRect();
+        const isInDialog = (
+          rect.top <= e.clientY &&
+          e.clientY <= rect.top + rect.height &&
+          rect.left <= e.clientX &&
+          e.clientX <= rect.left + rect.width
+        );
+        if (!isInDialog) iosModal.close();
+      });
+    }
+
+    // Android & Chrome beforeinstallprompt event
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      console.log('[PWA] beforeinstallprompt captured');
+
+      if (installAppBtn) {
+        installAppBtn.style.display = 'inline-flex';
+      }
+
+      const lastDismissed = localStorage.getItem('rollypop_pwa_dismissed');
+      const now = Date.now();
+      const fiveDaysMs = 5 * 24 * 60 * 60 * 1000;
+      const isMobile = window.innerWidth <= 768;
+
+      if (pwaBanner && isMobile && (!lastDismissed || (now - parseInt(lastDismissed, 10)) > fiveDaysMs)) {
+        setTimeout(() => {
+          if (!isStandalone && deferredInstallPrompt && pwaBanner) {
+            pwaBanner.style.display = 'flex';
+          }
+        }, 2000);
+      }
+    });
+
+    // iOS Safari: show install button in header & banner
+    if (isIOS && !isStandalone) {
+      if (installAppBtn) {
+        installAppBtn.style.display = 'inline-flex';
+      }
+      const lastDismissed = localStorage.getItem('rollypop_pwa_dismissed');
+      const now = Date.now();
+      const fiveDaysMs = 5 * 24 * 60 * 60 * 1000;
+      if (pwaBanner && (!lastDismissed || (now - parseInt(lastDismissed, 10)) > fiveDaysMs)) {
+        setTimeout(() => {
+          if (!isStandalone && pwaBanner) {
+            pwaBanner.style.display = 'flex';
+          }
+        }, 2500);
+      }
+    }
+
+    // App installed event
+    window.addEventListener('appinstalled', () => {
+      console.log('[PWA] App successfully installed');
+      deferredInstallPrompt = null;
+      if (installAppBtn) installAppBtn.style.display = 'none';
+      if (pwaBanner) pwaBanner.style.display = 'none';
+      document.body.classList.add('is-pwa-standalone');
+      trackEvent('pwa_installed_success', {});
+    });
+  }
+
   function init() {
     const urlParams = new URLSearchParams(window.location.search);
     const langParam = urlParams.get('lang');
@@ -1217,6 +1493,7 @@
     loadFromStorageOrURL();
     resizeWheelCanvas();
     validateAffiliateAds();
+    initPWA();
   }
 
   // Validate Amazon affiliate product cards: omit any card whose product is 404 or missing

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "RollyPop - Interactive Decision Roulette & Spin The Wheel for US, Canada, and LATAM markets in EN, ES, FR.",
   "scripts": {
-    "start": "npx serve ."
+    "start": "npx serve .",
+    "build": "node build_pages.js"
   },
   "keywords": [
     "spin the wheel",

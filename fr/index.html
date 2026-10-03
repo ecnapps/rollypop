@@ -1,46 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <!-- Instant Browser Language Detection & Auto-Routing -->
-  <script>
-    (function() {
-      // Only execute redirect on the root homepage
-      var pathname = window.location.pathname;
-      if (pathname !== '/' && pathname !== '/index.html' && pathname !== '') {
-        return;
-      }
-      try {
-        var params = new URLSearchParams(window.location.search);
-        var qLang = params.get('lang');
-        var stored = localStorage.getItem('rollypop_lang');
-        var navLangs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
-        var target = 'en';
-
-        if (qLang && (qLang === 'es' || qLang === 'fr' || qLang === 'en')) {
-          target = qLang;
-        } else if (stored && (stored === 'es' || stored === 'fr' || stored === 'en')) {
-          target = stored;
-        } else {
-          for (var i = 0; i < navLangs.length; i++) {
-            var l = (navLangs[i] || '').toLowerCase();
-            if (l.startsWith('es')) { target = 'es'; break; }
-            if (l.startsWith('fr')) { target = 'fr'; break; }
-            if (l.startsWith('en')) { target = 'en'; break; }
-          }
-        }
-
-        var search = window.location.search || '';
-        var hash = window.location.hash || '';
-        window.location.replace('/' + target + '/' + search + hash);
-      } catch (e) {
-        window.location.replace('/en/');
-      }
-    })();
-  </script>
-  <noscript>
-    <meta http-equiv="refresh" content="0; url=/en/">
-  </noscript>
-
   <!-- Instant Browser Language Detection & Auto-Routing -->
   <script>
     (function() {
@@ -157,8 +117,8 @@
   <meta name="theme-color" content="#090d16">
 
   <!-- Primary Meta Tags -->
-  <title>RollyPop — Free Interactive Decision Wheel & Lucky Roulette</title>
-  <meta name="description" content="Make random choices, pick names, decide what to eat, and run giveaways with the most responsive, animated online decision wheel.">
+  <title>RollyPop — Roue de la Fortune & Roulette de Décision en Ligne</title>
+  <meta name="description" content="Prenez des décisions aléatoires, tirez au sort des noms, choisissez un repas et animez vos tirages avec la roue la plus fluide et moderne.">
   <meta name="keywords" content="spin the wheel, decision roulette, ruleta de la suerte, roue de la fortune, random picker, lucky wheel, random choice generator, giveaways wheel, classroom picker, decision maker, random name picker, ecn-apps">
   <meta name="author" content="ecn-apps">
   <meta name="application-name" content="RollyPop">
@@ -168,7 +128,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-          <link rel="canonical" href="https://rollypop.ecn-apps.com/">
+          <link rel="canonical" href="https://rollypop.ecn-apps.com/fr/">
   <link rel="alternate" type="application/rss+xml" title="RollyPop RSS" href="https://rollypop.ecn-apps.com/feed.xml">
   <link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/">
   <link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/en/">
@@ -177,16 +137,16 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://rollypop.ecn-apps.com/en/">
+  <meta property="og:url" content="https://rollypop.ecn-apps.com/fr/">
   <meta property="og:site_name" content="RollyPop">
-  <meta property="og:title" content="RollyPop — Free Interactive Decision Wheel & Lucky Roulette">
-  <meta property="og:description" content="Make random choices, pick names, decide what to eat, and run giveaways with the most responsive, animated online decision wheel.">
+  <meta property="og:title" content="RollyPop — Roue de la Fortune & Roulette de Décision en Ligne">
+  <meta property="og:description" content="Prenez des décisions aléatoires, tirez au sort des noms, choisissez un repas et animez vos tirages avec la roue la plus fluide et moderne.">
   <meta property="og:image" content="https://rollypop.ecn-apps.com/favicon.svg">
   <meta property="og:image:type" content="image/svg+xml">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
   <meta property="og:image:alt" content="RollyPop Interactive Decision Wheel">
-  <meta property="og:locale" content="en_US">
+  <meta property="og:locale" content="fr_FR">
   <meta property="og:locale:alternate" content="es_LA">
   <meta property="og:locale:alternate" content="es_ES">
   <meta property="og:locale:alternate" content="fr_FR">
@@ -196,8 +156,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@ecn_apps">
   <meta name="twitter:creator" content="@ecn_apps">
-  <meta name="twitter:title" content="RollyPop — Free Interactive Decision Wheel & Lucky Roulette">
-  <meta name="twitter:description" content="Make random choices, pick names, decide what to eat, and run giveaways with the most responsive, animated online decision wheel.">
+  <meta name="twitter:title" content="RollyPop — Roue de la Fortune & Roulette de Décision en Ligne">
+  <meta name="twitter:description" content="Prenez des décisions aléatoires, tirez au sort des noms, choisissez un repas et animez vos tirages avec la roue la plus fluide et moderne.">
   <meta name="twitter:image" content="https://rollypop.ecn-apps.com/favicon.svg">
   <meta name="twitter:image:alt" content="RollyPop Decision Wheel Logo">
 
@@ -380,7 +340,7 @@
   <canvas id="confettiCanvas"></canvas>
 
   <!-- Fullscreen Exit Button -->
-  <button id="exitFullscreenBtn" class="wheel-exit-fullscreen" type="button" data-i18n="btnExitFullscreen">Exit Fullscreen</button>
+  <button id="exitFullscreenBtn" class="wheel-exit-fullscreen" type="button" data-i18n="btnExitFullscreen">Quitter Plein Écran</button>
 
   <!-- Header / Navigation Bar -->
   <header class="header">
@@ -405,7 +365,7 @@
         </svg>
         <span class="brand__text">
           RollyPop
-          <span class="brand__badge" data-i18n="brandSub">Decision Wheel</span>
+          <span class="brand__badge" data-i18n="brandSub">Roue de Décision</span>
         </span>
       </a>
 
@@ -417,7 +377,7 @@
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
-          <span class="btn-install-text" data-i18n="btnInstallApp">Install App</span>
+          <span class="btn-install-text" data-i18n="btnInstallApp">Installer l'app</span>
         </button>
 
         
@@ -450,8 +410,8 @@
   <!-- Hero Header -->
   <main class="container">
     <section class="hero">
-      <h1 class="hero__title" data-i18n="heroTitle">Spin the Wheel to <span>Decide Anything</span></h1>
-      <p class="hero__subtitle" data-i18n="heroSubtitle">High-precision random decision maker. Customize slices, import lists, enjoy realistic sound effects and confetti celebrations.</p>
+      <h1 class="hero__title" data-i18n="heroTitle">Faites Tourner la Roue pour <span>Tout Décider</span></h1>
+      <p class="hero__subtitle" data-i18n="heroSubtitle">Générateur de choix aléatoires ultra-précis. Personnalisez vos options, profitez d'effets sonores réalistes et de pluie de confettis.</p>
     </section>
 
     <!-- Main App Stage (Wheel + Interactive Panels) -->
@@ -481,7 +441,7 @@
 
           <!-- 3D Center Hub Spin Button -->
           <button id="wheelCenterBtn" class="wheel-center-btn" type="button" aria-label="Spin the wheel">
-            <span data-i18n="btnSpinShort">SPIN</span>
+            <span data-i18n="btnSpinShort">TOURNER</span>
           </button>
         </div>
 
@@ -489,15 +449,15 @@
         <div class="wheel-controls">
           <button id="spinBarBtn" class="btn-primary-spin" type="button">
             <span>🎲</span>
-            <span data-i18n="btnSpin">Spin Wheel</span>
+            <span data-i18n="btnSpin">Tourner la Roue</span>
           </button>
           <button id="shuffleBtn" class="btn-secondary" type="button" title="Shuffle Slices">
             <span>🔀</span>
-            <span data-i18n="btnShuffle">Shuffle</span>
+            <span data-i18n="btnShuffle">Mélanger</span>
           </button>
           <button id="sortBtn" class="btn-secondary" type="button" title="Sort Alphabetically">
             <span>🔤</span>
-            <span data-i18n="btnSort">Sort A-Z</span>
+            <span data-i18n="btnSort">Trier A-Z</span>
           </button>
         </div>
       </div>
@@ -506,33 +466,33 @@
       <div class="panel-card">
         <nav class="panel-tabs" role="tablist">
           <button class="tab-btn active" data-tab="entries" role="tab" aria-selected="true">
-            <span>📝</span> <span data-i18n="tabEntries">Entries</span>
+            <span>📝</span> <span data-i18n="tabEntries">Options</span>
           </button>
           <button class="tab-btn" data-tab="import" role="tab" aria-selected="false">
-            <span>📋</span> <span data-i18n="tabImport">Import</span>
+            <span>📋</span> <span data-i18n="tabImport">Importer</span>
           </button>
           <button class="tab-btn" data-tab="presets" role="tab" aria-selected="false">
-            <span>✨</span> <span data-i18n="tabPresets">Presets</span>
+            <span>✨</span> <span data-i18n="tabPresets">Modèles</span>
           </button>
           <button class="tab-btn" data-tab="settings" role="tab" aria-selected="false">
-            <span>⚙️</span> <span data-i18n="tabSettings">Settings</span>
+            <span>⚙️</span> <span data-i18n="tabSettings">Options</span>
           </button>
           <button class="tab-btn" data-tab="share" role="tab" aria-selected="false">
-            <span>🔗</span> <span data-i18n="tabShare">Share</span>
+            <span>🔗</span> <span data-i18n="tabShare">Partager</span>
           </button>
         </nav>
 
         <!-- Tab 1: Live Entries List -->
         <div class="tab-pane active" id="tab-entries">
           <form id="addItemForm" class="add-item-bar">
-            <input type="text" id="newItemInput" class="input-text" placeholder="Enter choice / name..." data-i18n-ph="addPlaceholder" maxlength="60">
+            <input type="text" id="newItemInput" class="input-text" placeholder="Entrez un choix ou nom..." data-i18n-ph="addPlaceholder" maxlength="60">
             <button type="submit" class="btn-add">
-              <span>+</span> <span data-i18n="btnAdd">Add</span>
+              <span>+</span> <span data-i18n="btnAdd">Ajouter</span>
             </button>
           </form>
 
           <div class="entries-summary">
-            <div><span data-i18n="entriesCount">Total Choices:</span> <strong id="entriesCountNum">0</strong></div>
+            <div><span data-i18n="entriesCount">Total d'options :</span> <strong id="entriesCountNum">0</strong></div>
             <div style="font-size:0.75rem; color:var(--text-muted);">Press Spacebar to spin</div>
           </div>
 
@@ -543,17 +503,17 @@
 
         <!-- Tab 2: Bulk Import -->
         <div class="tab-pane" id="tab-import">
-          <textarea id="bulkInput" class="bulk-textarea" placeholder="Paste choices here...
-One item per line or separated by commas.
+          <textarea id="bulkInput" class="bulk-textarea" placeholder="Collez vos options ici...
+Une par ligne ou séparées par des virgules.
 
-Example:
+Exemple :
 Pizza
 Burgers
 Sushi
 Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
-          <p class="bulk-helper" data-i18n="bulkNote">Pasting will replace current wheel entries.</p>
+          <p class="bulk-helper" data-i18n="bulkNote">L'application remplacera les options actuelles.</p>
           <button id="bulkImportBtn" class="btn-primary-spin" style="width:100%; border-radius:var(--radius-md); font-size:1rem; padding:0.75rem;" type="button">
-            <span data-i18n="bulkBtn">Apply to Wheel</span>
+            <span data-i18n="bulkBtn">Appliquer à la Roue</span>
           </button>
         </div>
 
@@ -562,42 +522,42 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
           <div class="presets-grid">
             <button type="button" class="preset-card" data-preset="yesno">
               <span class="preset-icon">⚖️</span>
-              <span class="preset-name" data-i18n="presetYesNo">Yes or No</span>
+              <span class="preset-name" data-i18n="presetYesNo">Oui ou Non</span>
               <span class="preset-count">4 items</span>
             </button>
             <button type="button" class="preset-card" data-preset="food">
               <span class="preset-icon">🍕</span>
-              <span class="preset-name" data-i18n="presetFood">What to Eat?</span>
+              <span class="preset-name" data-i18n="presetFood">Que mange-t-on ?</span>
               <span class="preset-count">8 items</span>
             </button>
             <button type="button" class="preset-card" data-preset="numbers">
               <span class="preset-icon">🔢</span>
-              <span class="preset-name" data-i18n="presetNumbers">Lucky Numbers 1-10</span>
+              <span class="preset-name" data-i18n="presetNumbers">Chiffres Chanceux 1-10</span>
               <span class="preset-count">10 items</span>
             </button>
             <button type="button" class="preset-card" data-preset="truthdare">
               <span class="preset-icon">🔥</span>
-              <span class="preset-name" data-i18n="presetTruthDare">Truth or Dare</span>
+              <span class="preset-name" data-i18n="presetTruthDare">Action ou Vérité</span>
               <span class="preset-count">6 items</span>
             </button>
             <button type="button" class="preset-card" data-preset="magic8">
               <span class="preset-icon">🎱</span>
-              <span class="preset-name" data-i18n="presetMagic8">Magic 8-Ball</span>
+              <span class="preset-name" data-i18n="presetMagic8">Boule Magique 8</span>
               <span class="preset-count">6 items</span>
             </button>
             <button type="button" class="preset-card" data-preset="dice">
               <span class="preset-icon">🎲</span>
-              <span class="preset-name" data-i18n="presetDice">Dice Roll (1-6)</span>
+              <span class="preset-name" data-i18n="presetDice">Lancer de Dé (1-6)</span>
               <span class="preset-count">6 items</span>
             </button>
             <button type="button" class="preset-card" data-preset="team">
               <span class="preset-icon">👥</span>
-              <span class="preset-name" data-i18n="presetTeam">Team Assign (1-8)</span>
+              <span class="preset-name" data-i18n="presetTeam">Assigner Équipes (1-8)</span>
               <span class="preset-count">8 items</span>
             </button>
             <button type="button" class="preset-card" data-preset="rainbow">
               <span class="preset-icon">🌈</span>
-              <span class="preset-name" data-i18n="presetRainbow">Rainbow Colors</span>
+              <span class="preset-name" data-i18n="presetRainbow">Couleurs de l'Arc-en-ciel</span>
               <span class="preset-count">8 items</span>
             </button>
           </div>
@@ -608,8 +568,8 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
           <div class="settings-group">
             <div class="setting-item">
               <div class="setting-info">
-                <span class="setting-title" data-i18n="settingSound">Sound Effects</span>
-                <span class="setting-desc" data-i18n="settingSoundDesc">Synthesized ratchet tick and victory fanfare</span>
+                <span class="setting-title" data-i18n="settingSound">Effets Sonores</span>
+                <span class="setting-desc" data-i18n="settingSoundDesc">Cliquet mécanique et fanfare de victoire</span>
               </div>
               <label class="switch">
                 <input type="checkbox" id="soundToggle" checked>
@@ -619,8 +579,8 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
 
             <div class="setting-item">
               <div class="setting-info">
-                <span class="setting-title" data-i18n="settingConfetti">Celebration Confetti</span>
-                <span class="setting-desc" data-i18n="settingConfettiDesc">Blast colorful particles upon wheel stop</span>
+                <span class="setting-title" data-i18n="settingConfetti">Confettis de Célébration</span>
+                <span class="setting-desc" data-i18n="settingConfettiDesc">Jet de particules festives à l'arrêt</span>
               </div>
               <label class="switch">
                 <input type="checkbox" id="confettiToggle" checked>
@@ -630,13 +590,13 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
 
             <div class="setting-item">
               <div class="setting-info">
-                <span class="setting-title" data-i18n="settingDuration">Spin Duration</span>
-                <span class="setting-desc" data-i18n="settingDurationDesc">Time the wheel spins before landing</span>
+                <span class="setting-title" data-i18n="settingDuration">Durée du Tour</span>
+                <span class="setting-desc" data-i18n="settingDurationDesc">Temps de rotation avant l'arrêt complet</span>
               </div>
               <select id="durationSelect" class="select-custom">
-                <option value="3000" data-i18n="durationFast">Quick (3s)</option>
+                <option value="3000" data-i18n="durationFast">Rapide (3s)</option>
                 <option value="5000" selected data-i18n="durationNormal">Standard (5s)</option>
-                <option value="8000" data-i18n="durationSlow">Dramatic (8s)</option>
+                <option value="8000" data-i18n="durationSlow">Dramatique (8s)</option>
               </select>
             </div>
           </div>
@@ -645,10 +605,10 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
         <!-- Tab 5: Share URL -->
         <div class="tab-pane" id="tab-share">
           <div class="share-box">
-            <p style="font-size:0.875rem; color:var(--text-secondary);" data-i18n="shareDesc">Send this customized wheel link to your friends, students, or coworkers:</p>
+            <p style="font-size:0.875rem; color:var(--text-secondary);" data-i18n="shareDesc">Envoyez ce lien personnalisé à vos amis, élèves ou collègues :</p>
             <div class="share-input-group">
               <input type="text" id="shareUrlInput" class="input-text" readonly style="font-size:0.8rem;">
-              <button type="button" id="copyLinkBtn" class="btn-add" style="white-space:nowrap;" data-i18n="btnCopyLink">Copy Link</button>
+              <button type="button" id="copyLinkBtn" class="btn-add" style="white-space:nowrap;" data-i18n="btnCopyLink">Copier le Lien</button>
             </div>
           </div>
         </div>
@@ -662,14 +622,14 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
       <div class="modal-content">
         <button id="modalCloseBtn" class="modal-close-btn" type="button" aria-label="Close modal">✕</button>
         <div class="winner-crown">👑</div>
-        <div class="winner-subtitle" data-i18n="winnerAnnounce">WINNER!</div>
-        <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:0.75rem;" data-i18n="winnerTitle">The wheel has decided:</p>
+        <div class="winner-subtitle" data-i18n="winnerAnnounce">GAGNANT !</div>
+        <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:0.75rem;" data-i18n="winnerTitle">La roue a désigné :</p>
         <div id="winnerResultText" class="winner-result">
           <!-- Winning slice text inserted here -->
         </div>
         <div class="winner-actions">
-          <button id="modalSpinAgainBtn" class="btn-primary-spin" type="button" data-i18n="btnSpinAgain">Spin Again</button>
-          <button id="modalRemoveWinnerBtn" class="btn-secondary" style="justify-content:center;" type="button" data-i18n="btnRemoveWinner">Remove Winner</button>
+          <button id="modalSpinAgainBtn" class="btn-primary-spin" type="button" data-i18n="btnSpinAgain">Rejouer</button>
+          <button id="modalRemoveWinnerBtn" class="btn-secondary" style="justify-content:center;" type="button" data-i18n="btnRemoveWinner">Retirer Gagnant</button>
         </div>
       </div>
     </dialog>
@@ -679,31 +639,31 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
       <div class="modal-content ios-modal-content">
         <button id="iosModalCloseBtn" class="modal-close-btn" type="button" aria-label="Close modal">✕</button>
         <div class="ios-install-badge">📲</div>
-        <h3 class="ios-modal-title" data-i18n="iosModalTitle">Install RollyPop on iPhone / iPad</h3>
-        <p class="ios-modal-subtitle" data-i18n="iosModalSubtitle">Follow these 3 simple steps in Safari to add RollyPop to your Home Screen:</p>
+        <h3 class="ios-modal-title" data-i18n="iosModalTitle">Installer RollyPop sur iPhone / iPad</h3>
+        <p class="ios-modal-subtitle" data-i18n="iosModalSubtitle">Suivez ces 3 étapes simples dans Safari pour ajouter RollyPop à votre écran d'accueil :</p>
         <div class="ios-steps">
           <div class="ios-step">
             <div class="ios-step__num">1</div>
-            <div class="ios-step__desc" data-i18n="iosStep1">Tap the Share button in Safari's bottom toolbar.</div>
+            <div class="ios-step__desc" data-i18n="iosStep1">Touchez le bouton Partager en bas dans Safari.</div>
           </div>
           <div class="ios-step">
             <div class="ios-step__num">2</div>
-            <div class="ios-step__desc" data-i18n="iosStep2">Scroll down and select 'Add to Home Screen'.</div>
+            <div class="ios-step__desc" data-i18n="iosStep2">Faites défiler et sélectionnez 'Sur l'écran d'accueil'.</div>
           </div>
           <div class="ios-step">
             <div class="ios-step__num">3</div>
-            <div class="ios-step__desc" data-i18n="iosStep3">Tap 'Add' in the top-right corner to finish.</div>
+            <div class="ios-step__desc" data-i18n="iosStep3">Touchez 'Ajouter' en haut à droite pour terminer.</div>
           </div>
         </div>
-        <button id="iosModalGotItBtn" class="btn-primary-spin" style="margin-top:1.25rem; width:100%;" type="button" data-i18n="iosModalGotIt">Got it!</button>
+        <button id="iosModalGotItBtn" class="btn-primary-spin" style="margin-top:1.25rem; width:100%;" type="button" data-i18n="iosModalGotIt">Compris !</button>
       </div>
     </dialog>
 
     <!-- Amazon Associates Recommendations Section -->
     <section class="amazon-affiliate-section" id="amazonProducts">
       <div class="section-badge">🛍️ Amazon Associates Picks</div>
-      <h2 class="section-title" data-i18n="affiliateTitle">Trending Gaming & Decision Gear</h2>
-      <p class="section-subtitle" data-i18n="affiliateSubtitle">Handpicked board games, fidget dice, and streaming accessories from our Amazon Associates network.</p>
+      <h2 class="section-title" data-i18n="affiliateTitle">Jeux de Société & Accessoires Tendance</h2>
+      <p class="section-subtitle" data-i18n="affiliateSubtitle">Sélection d'accessoires de streaming et de jeux amusants via notre réseau Amazon Partenaires.</p>
 
       <div class="products-grid">
         <!-- Product 1: Mechanical Keyboard -->
@@ -715,7 +675,7 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
           <h3 class="product-title">Keychron K2 Wireless Bluetooth/USB Mechanical Keyboard</h3>
           <p class="product-desc">Tactile typing feedback, compact 75% layout, seamless Bluetooth switching, and long-lasting battery for marathon gaming and work sessions.</p>
           <a href="https://www.amazon.com/dp/B0DHVM575Z?tag=ecnapps-20" target="_blank" rel="sponsored noopener noreferrer" class="product-cta">
-            <span data-i18n="btnViewAmazon">View on Amazon</span> &rarr;
+            <span data-i18n="btnViewAmazon">Voir sur Amazon</span> &rarr;
           </a>
         </article>
 
@@ -728,7 +688,7 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
           <h3 class="product-title">Raspberry Pi 5 (8GB RAM) Complete Starter Kit</h3>
           <p class="product-desc">Fast 64-bit quad-core mini PC powerhouse for retro arcade emulation, home decision servers, and automated Discord bots.</p>
           <a href="https://www.amazon.com/dp/B0CRSNCJ6Y?tag=ecnapps-20" target="_blank" rel="sponsored noopener noreferrer" class="product-cta">
-            <span data-i18n="btnViewAmazon">View on Amazon</span> &rarr;
+            <span data-i18n="btnViewAmazon">Voir sur Amazon</span> &rarr;
           </a>
         </article>
 
@@ -741,7 +701,7 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
           <h3 class="product-title">Logitech MX Master 3S Wireless Performance Mouse</h3>
           <p class="product-desc">Ultra-quiet clicks, 8K DPI glass tracking, and MagSpeed electromagnetic scroll wheel for peak workstation productivity.</p>
           <a href="https://www.amazon.com/dp/B09HM94VDS?tag=ecnapps-20" target="_blank" rel="sponsored noopener noreferrer" class="product-cta">
-            <span data-i18n="btnViewAmazon">View on Amazon</span> &rarr;
+            <span data-i18n="btnViewAmazon">Voir sur Amazon</span> &rarr;
           </a>
         </article>
 
@@ -754,12 +714,12 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
           <h3 class="product-title">TP-Link 8-Port Gigabit Easy Smart Managed Switch</h3>
           <p class="product-desc">Low-latency hardware QoS traffic prioritization and VLAN traffic management to eliminate lag for competitive gaming and streaming.</p>
           <a href="https://www.amazon.com/dp/B00K4DS5KU?tag=ecnapps-20" target="_blank" rel="sponsored noopener noreferrer" class="product-cta">
-            <span data-i18n="btnViewAmazon">View on Amazon</span> &rarr;
+            <span data-i18n="btnViewAmazon">Voir sur Amazon</span> &rarr;
           </a>
         </article>
       </div>
 
-      <p class="affiliate-disclaimer" data-i18n="affiliateDisclaimer">As an Amazon Associate, we earn from qualifying purchases at no extra cost to you.</p>
+      <p class="affiliate-disclaimer" data-i18n="affiliateDisclaimer">En tant que Partenaire Amazon, nous réalisons un bénéfice sur les achats remplissant les conditions requises.</p>
     </section>
 
     <!-- SEO Rich Features & Benefits Section -->
@@ -773,123 +733,123 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
       <div class="features-grid">
         <div class="feature-box">
           <div class="feature-icon-wrapper">🔒</div>
-          <h3 class="feature-title" data-i18n="feature1Title">100% Client-Side Privacy</h3>
-          <p class="feature-text" data-i18n="feature1Desc">Your entries and lists stay securely in your browser. No account required, no server tracking.</p>
+          <h3 class="feature-title" data-i18n="feature1Title">100% Local et Privé</h3>
+          <p class="feature-text" data-i18n="feature1Desc">Vos choix restent strictement dans votre navigateur web sans compte ni stockage distant.</p>
         </div>
 
         <div class="feature-box">
           <div class="feature-icon-wrapper">🎲</div>
-          <h3 class="feature-title" data-i18n="feature2Title">Cryptographic RNG Physics</h3>
-          <p class="feature-text" data-i18n="feature2Desc">Built with window.crypto random values for mathematically fair and unbiased spins every time.</p>
+          <h3 class="feature-title" data-i18n="feature2Title">Physique et Hasard Cryptographique</h3>
+          <p class="feature-text" data-i18n="feature2Desc">Utilise crypto.getRandomValues pour garantir une équité absolue et un tirage impartial.</p>
         </div>
 
         <div class="feature-box">
           <div class="feature-icon-wrapper">🎉</div>
-          <h3 class="feature-title" data-i18n="feature3Title">Web Audio & Confetti FX</h3>
-          <p class="feature-text" data-i18n="feature3Desc">Realistic mechanical ticking sounds that slow down dynamically, followed by a grand confetti blast.</p>
+          <h3 class="feature-title" data-i18n="feature3Title">Son Réaliste et Confettis</h3>
+          <p class="feature-text" data-i18n="feature3Desc">Effet de cliquet mécanique fluide et fanfare festive avec confettis animés haute définition.</p>
         </div>
       </div>
 
       <!-- How to Use / Step-by-Step Guide for HowTo Schema & Ranking -->
       <div style="margin-top: 2.5rem; text-align: center;">
-        <h3 class="section-title" style="font-size: 1.5rem;" data-i18n="howToTitle">How to Use the RollyPop Decision Wheel</h3>
-        <p class="section-subtitle" data-i18n="howToSubtitle">Pick random winners, make unbiased decisions, or randomize names in three easy steps:</p>
+        <h3 class="section-title" style="font-size: 1.5rem;" data-i18n="howToTitle">Comment utiliser la Roue de Décision RollyPop</h3>
+        <p class="section-subtitle" data-i18n="howToSubtitle">Tirez au sort des gagnants, prenez des décisions impartiales ou choisissez des noms en 3 étapes simples :</p>
       </div>
 
       <div class="features-grid" style="margin-bottom: 2.5rem;">
         <div class="feature-box">
           <div class="feature-icon-wrapper">1️⃣</div>
-          <h4 class="feature-title" data-i18n="howStep1Title">Add Your Choices</h4>
-          <p class="feature-text" data-i18n="howStep1Desc">Type choices individually, bulk-paste lists in the Entries tab, or pick from ready presets like Food, Yes/No, and Numbers.</p>
+          <h4 class="feature-title" data-i18n="howStep1Title">Ajoutez vos options</h4>
+          <p class="feature-text" data-i18n="howStep1Desc">Saisissez vos options une à une, collez une liste complète ou choisissez parmi nos modèles prêts à l'emploi (Repas, Oui/Non, etc.).</p>
         </div>
 
         <div class="feature-box">
           <div class="feature-icon-wrapper">2️⃣</div>
-          <h4 class="feature-title" data-i18n="howStep2Title">Spin the Wheel</h4>
-          <p class="feature-text" data-i18n="howStep2Desc">Click the central SPIN button, hit the toolbar button, or simply press the spacebar to watch the realistic physics in action.</p>
+          <h4 class="feature-title" data-i18n="howStep2Title">Faites tourner la roue</h4>
+          <p class="feature-text" data-i18n="howStep2Desc">Cliquez sur le bouton central TOURNER, la barre d'outils ou appuyez sur la barre d'espace pour admirer la rotation fluide.</p>
         </div>
 
         <div class="feature-box">
           <div class="feature-icon-wrapper">3️⃣</div>
-          <h4 class="feature-title" data-i18n="howStep3Title">Celebrate or Eliminate</h4>
-          <p class="feature-text" data-i18n="howStep3Desc">Enjoy confetti animations and realistic sound. For raffles and drawings, click "Remove Winner" to continue to the next round.</p>
+          <h4 class="feature-title" data-i18n="howStep3Title">Célébrez ou éliminez le gagnant</h4>
+          <p class="feature-text" data-i18n="howStep3Desc">Profitez des confettis et des bruitages réalistes. Pour les tirages au sort, cliquez sur 'Retirer Gagnant' pour enchaîner.</p>
         </div>
       </div>
 
       <!-- Use Cases for Organic Search Intent -->
       <div style="margin-top: 1rem; text-align: center;">
-        <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);" data-i18n="useCasesTitle">Popular Ways to Spin & Decide</h3>
-        <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 600px; margin: 0 auto 1.5rem;" data-i18n="useCasesSubtitle">From daily choices to classroom activities and live stream raffles:</p>
+        <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);" data-i18n="useCasesTitle">Utilisations Populaires de la Roue</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 600px; margin: 0 auto 1.5rem;" data-i18n="useCasesSubtitle">Des choix quotidiens aux animations en classe et tirages en direct :</p>
       </div>
 
       <div class="features-grid" style="margin-bottom: 2.5rem;">
         <div class="feature-box">
           <div class="feature-icon-wrapper">🎓</div>
-          <h4 class="feature-title" data-i18n="useCaseClassroomTitle">Classroom Random Name Picker</h4>
-          <p class="feature-text" data-i18n="useCaseClassroomDesc">Teachers paste student lists to choose volunteers, assign speaking turns, and maintain unbiased classroom participation.</p>
+          <h4 class="feature-title" data-i18n="useCaseClassroomTitle">Tirage au Sort d'Élèves en Classe</h4>
+          <p class="feature-text" data-i18n="useCaseClassroomDesc">Les enseignants collent la liste de leurs élèves pour interroger au hasard de manière ludique et équitable.</p>
         </div>
 
         <div class="feature-box">
           <div class="feature-icon-wrapper">🎁</div>
-          <h4 class="feature-title" data-i18n="useCaseGiveawayTitle">Giveaways & Stream Raffles</h4>
-          <p class="feature-text" data-i18n="useCaseGiveawayDesc">Twitch, YouTube, and TikTok creators host live prize giveaways using distraction-free fullscreen mode with realistic ratchet audio.</p>
+          <h4 class="feature-title" data-i18n="useCaseGiveawayTitle">Jeux-Concours et Tirages en Live</h4>
+          <p class="feature-text" data-i18n="useCaseGiveawayDesc">Les créateurs sur Twitch, YouTube et TikTok animent des tirages au sort immersifs en plein écran avec cliquet sonore.</p>
         </div>
 
         <div class="feature-box">
           <div class="feature-icon-wrapper">🍕</div>
-          <h4 class="feature-title" data-i18n="useCaseFoodTitle">Food & Restaurant Roulette</h4>
-          <p class="feature-text" data-i18n="useCaseFoodDesc">Solve meal indecision with friends or coworkers. Spin between takeout, sushi, pizza, tacos, and burgers in seconds.</p>
+          <h4 class="feature-title" data-i18n="useCaseFoodTitle">Que Mange-t-on ce Soir ?</h4>
+          <p class="feature-text" data-i18n="useCaseFoodDesc">Mettez fin aux hésitations entre amis : pizza, sushi, burgers ou cuisine maison en un tour de roue.</p>
         </div>
 
         <div class="feature-box">
           <div class="feature-icon-wrapper">🎉</div>
-          <h4 class="feature-title" data-i18n="useCasePartyTitle">Party Games: Truth or Dare</h4>
-          <p class="feature-text" data-i18n="useCasePartyDesc">Spice up game nights, party challenges, icebreakers, and social gatherings with customizable prompts and dice alternatives.</p>
+          <h4 class="feature-title" data-i18n="useCasePartyTitle">Jeux de Soirée : Action ou Vérité</h4>
+          <p class="feature-text" data-i18n="useCasePartyDesc">Pimentez vos soirées entre amis avec des gages personnalisés, défis ou lancers de dés virtuels.</p>
         </div>
 
         <div class="feature-box">
           <div class="feature-icon-wrapper">👥</div>
-          <h4 class="feature-title" data-i18n="useCaseTeamTitle">Team & Group Assignment</h4>
-          <p class="feature-text" data-i18n="useCaseTeamDesc">Divide students or colleagues into balanced groups for hackathons, agile sprints, class projects, and workshops.</p>
+          <h4 class="feature-title" data-i18n="useCaseTeamTitle">Création et Répartition d'Équipes</h4>
+          <p class="feature-text" data-i18n="useCaseTeamDesc">Répartissez facilement étudiants et collègues en groupes équilibrés pour des projets, ateliers ou tournois.</p>
         </div>
 
         <div class="feature-box">
           <div class="feature-icon-wrapper">⚖️</div>
-          <h4 class="feature-title" data-i18n="useCaseYesNoTitle">Yes or No Decision Maker</h4>
-          <p class="feature-text" data-i18n="useCaseYesNoDesc">Need a rapid, impartial binary choice? Spin the Yes/No preset with equal odds and sound synthesis for instant resolution.</p>
+          <h4 class="feature-title" data-i18n="useCaseYesNoTitle">Roue Oui ou Non</h4>
+          <p class="feature-text" data-i18n="useCaseYesNoDesc">Besoin d'un arbitrage neutre et instantané ? Faites tourner la roue avec chances égales pour trancher sans hésiter.</p>
         </div>
       </div>
 
       <!-- FAQ Accordion -->
       <div class="faq-list">
         <details class="faq-item" open>
-          <summary class="faq-summary" data-i18n="faq1Q">Is RollyPop completely free to use?</summary>
-          <div class="faq-content" data-i18n="faq1A">Yes, RollyPop is 100% free with unlimited spins and no signup required.</div>
+          <summary class="faq-summary" data-i18n="faq1Q">RollyPop est-il entièrement gratuit ?</summary>
+          <div class="faq-content" data-i18n="faq1A">Oui, RollyPop est 100% gratuit, sans inscription et sans limitation de tours.</div>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-summary" data-i18n="faq2Q">How fair is the wheel spin?</summary>
-          <div class="faq-content" data-i18n="faq2A">RollyPop utilizes native browser cryptographic random numbers (Crypto.getRandomValues) to compute the final landing angle, guaranteeing true mathematical randomness.</div>
+          <summary class="faq-summary" data-i18n="faq2Q">Le tirage est-il équitable ?</summary>
+          <div class="faq-content" data-i18n="faq2A">RollyPop utilise l'algorithme cryptographique natif du navigateur garantissant une distribution purement aléatoire.</div>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-summary" data-i18n="faq3Q">Can I save or share my customized wheel?</summary>
-          <div class="faq-content" data-i18n="faq3A">Yes! Use the Share tab to generate a direct URL that encodes your exact list of slices and colors. You can send this link to anyone or bookmark it.</div>
+          <summary class="faq-summary" data-i18n="faq3Q">Puis-je enregistrer ou partager ma roue ?</summary>
+          <div class="faq-content" data-i18n="faq3A">Oui ! Utilisez l'onglet Partager pour obtenir une URL unique contenant vos tranches et couleurs.</div>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-summary" data-i18n="faq4Q">Can I remove winners for giveaways or raffles?</summary>
-          <div class="faq-content" data-i18n="faq4A">Absolutely. When the wheel lands on a winner, simply click 'Remove Winner' in the celebration modal to take it off the wheel for the next round.</div>
+          <summary class="faq-summary" data-i18n="faq4Q">Comment éliminer les gagnants au fur et à mesure ?</summary>
+          <div class="faq-content" data-i18n="faq4A">Dès que la roue s'arrête, cliquez sur 'Retirer Gagnant' dans la boîte de dialogue pour préparer le prochain tour.</div>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-summary" data-i18n="faq5Q">Can I install RollyPop on my mobile phone?</summary>
-          <div class="faq-content" data-i18n="faq5A">Yes! RollyPop is a Progressive Web App (PWA). You can install it on Android and iOS (iPhone/iPad) to spin offline and enjoy an immersive full-screen experience.</div>
+          <summary class="faq-summary" data-i18n="faq5Q">Puis-je installer RollyPop sur mon téléphone portable ?</summary>
+          <div class="faq-content" data-i18n="faq5A">Oui ! RollyPop est une PWA. Vous pouvez l'installer sur Android et iOS (iPhone/iPad) pour l'utiliser hors ligne et en plein écran.</div>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-summary" data-i18n="faq6Q">Does RollyPop store my entries or private lists on a server?</summary>
-          <div class="faq-content" data-i18n="faq6A">No. All your wheel entries, presets, and settings remain 100% private in your local browser storage. We never upload or track your lists.</div>
+          <summary class="faq-summary" data-i18n="faq6Q">RollyPop enregistre-t-il mes données sur un serveur distant ?</summary>
+          <div class="faq-content" data-i18n="faq6A">Non. Toutes vos options et réglages restent 100% privés dans le stockage local de votre navigateur.</div>
         </details>
       </div>
     </section>
@@ -950,12 +910,12 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
     <div class="pwa-banner__main">
       <img src="/icons/icon-192x192.png" alt="RollyPop App Icon" class="pwa-banner__icon" width="46" height="46">
       <div class="pwa-banner__info">
-        <h4 class="pwa-banner__title" data-i18n="pwaBannerTitle">Install RollyPop App</h4>
-        <p class="pwa-banner__desc" data-i18n="pwaBannerDesc">Install on your home screen for full-screen & offline spins!</p>
+        <h4 class="pwa-banner__title" data-i18n="pwaBannerTitle">Installer RollyPop sur votre téléphone</h4>
+        <p class="pwa-banner__desc" data-i18n="pwaBannerDesc">Ajoutez à l'écran d'accueil pour jouer en plein écran et sans connexion.</p>
       </div>
     </div>
     <div class="pwa-banner__actions">
-      <button id="pwaBannerInstallBtn" class="btn-pwa-install" type="button" data-i18n="pwaBannerBtn">Install</button>
+      <button id="pwaBannerInstallBtn" class="btn-pwa-install" type="button" data-i18n="pwaBannerBtn">Installer</button>
       <button id="pwaBannerDismissBtn" class="btn-pwa-dismiss" type="button" aria-label="Dismiss">✕</button>
     </div>
   </aside>
