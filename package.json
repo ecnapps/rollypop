@@ -1,0 +1,18 @@
+{
+  "name": "rollypop",
+  "version": "1.0.0",
+  "description": "RollyPop - Interactive Decision Roulette & Spin The Wheel for US, Canada, and LATAM markets in EN, ES, FR.",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "spin the wheel",
+    "decision roulette",
+    "ruleta de la suerte",
+    "roue de la fortune",
+    "random picker",
+    "lucky wheel"
+  ],
+  "author": "ecn-apps",
+  "license": "MIT"
+}
