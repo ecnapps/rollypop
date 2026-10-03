@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RollyPop - Decision Wheel</title>
+    <link>https://rollypop.ecn-apps.com/</link>
+    <description>Free, privacy-focused interactive decision roulette and wheel spinner. Part of the ecn-apps suite of modern browser utilities.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 03 Oct 2026 08:24:00 -0600</lastBuildDate>
+    <atom:link href="https://rollypop.ecn-apps.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RollyPop - Spin the Wheel to Decide Anything</title>
+      <link>https://rollypop.ecn-apps.com/</link>
+      <guid isPermaLink="true">https://rollypop.ecn-apps.com/</guid>
+      <pubDate>Sat, 03 Oct 2026 08:24:00 -0600</pubDate>
+      <description>High-precision random decision maker. Customize slices, import lists, enjoy realistic sound effects and confetti celebrations.</description>
+    </item>
+  </channel>
+</rss>

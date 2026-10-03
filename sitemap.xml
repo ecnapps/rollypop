@@ -38,4 +38,10 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/?lang=es" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/?lang=fr" />
   </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/feed.xml</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
