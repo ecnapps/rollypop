@@ -1216,6 +1216,31 @@
     setLanguage(initialLang);
     loadFromStorageOrURL();
     resizeWheelCanvas();
+    validateAffiliateAds();
+  }
+
+  // Validate Amazon affiliate product cards: omit any card whose product is 404 or missing
+  function validateAffiliateAds() {
+    const cards = document.querySelectorAll('#amazonProducts .product-card');
+    if (!cards.length) return;
+
+    cards.forEach(card => {
+      const link = card.querySelector('a.product-cta');
+      if (!link || !link.href) return;
+
+      const checkUrl = 'https://ecn-apps.com/api/og-image?url=' + encodeURIComponent(link.href) + '&validate=1';
+      fetch(checkUrl, { method: 'GET' })
+        .then(res => {
+          if (res.status === 404) {
+            card.remove();
+            const grid = document.querySelector('#amazonProducts .products-grid');
+            if (grid && grid.querySelectorAll('.product-card').length === 0) {
+              document.getElementById('amazonProducts')?.remove();
+            }
+          }
+        })
+        .catch(() => {});
+    });
   }
 
   if (document.readyState === 'loading') {
