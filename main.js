@@ -34,6 +34,7 @@
       addPlaceholder: "Enter choice / name...",
       btnAdd: "Add",
       entriesCount: "Total Choices:",
+      spaceHint: "Press Spacebar to spin",
       bulkPlaceholder: "Paste choices here...\nOne item per line or separated by commas.\n\nExample:\nPizza\nBurgers\nSushi\nTacos",
       bulkBtn: "Apply to Wheel",
       bulkNote: "Pasting will replace current wheel entries.",
@@ -143,6 +144,7 @@
       addPlaceholder: "Escribe una opción o nombre...",
       btnAdd: "Agregar",
       entriesCount: "Opciones totales:",
+      spaceHint: "Presiona Espacio para girar",
       bulkPlaceholder: "Pega tus opciones aquí...\nUna por línea o separadas por comas.\n\nEjemplo:\nPizza\nHamburguesas\nSushi\nTacos",
       bulkBtn: "Aplicar a la Ruleta",
       bulkNote: "Al aplicar, se reemplazarán las opciones actuales.",
@@ -263,6 +265,7 @@
       addPlaceholder: "Entrez un choix ou nom...",
       btnAdd: "Ajouter",
       entriesCount: "Total d'options :",
+      spaceHint: "Appuyez sur Espace pour tourner",
       bulkPlaceholder: "Collez vos options ici...\nUne par ligne ou séparées par des virgules.\n\nExemple :\nPizza\nBurgers\nSushi\nTacos",
       bulkBtn: "Appliquer à la Roue",
       bulkNote: "L'application remplacera les options actuelles.",
@@ -1040,12 +1043,28 @@
     trackEvent('language_changed', { lang: lang });
   }
 
+  function normalizeForCompare(str) {
+    return String(str || '')
+      .trim()
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+  }
+
   function checkAndTranslateDefaultPreset(lang) {
-    const prevItems = state.slices.map(s => s.text);
+    if (!state.slices || state.slices.length === 0) return;
+    const currentNorm = state.slices.map(s => normalizeForCompare(s.text)).join('|||');
+
     for (const [key, data] of Object.entries(PRESET_DATA)) {
-      for (const [l, items] of Object.entries(data)) {
-        if (JSON.stringify(prevItems) === JSON.stringify(items)) {
-          setSlices(data[lang] || data['en']);
+      for (const [presetLang, items] of Object.entries(data)) {
+        const presetNorm = items.map(s => normalizeForCompare(s)).join('|||');
+        if (currentNorm === presetNorm) {
+          const targetItems = data[lang] || data['en'];
+          const updatedSlices = state.slices.map((slice, idx) => ({
+            ...slice,
+            text: targetItems[idx] !== undefined ? targetItems[idx] : slice.text
+          }));
+          setSlices(updatedSlices);
           return;
         }
       }
@@ -1504,8 +1523,9 @@
     const initialLang = I18N[pageLang] ? pageLang : 'en';
 
     setupEventListeners();
-    setLanguage(initialLang);
     loadFromStorageOrURL();
+    setLanguage(initialLang);
+    checkAndTranslateDefaultPreset(initialLang);
     resizeWheelCanvas();
     validateAffiliateAds();
     initPWA();
