@@ -75,7 +75,6 @@ self.addEventListener('fetch', (event) => {
     url.hostname.includes('google-analytics.com') ||
     url.hostname.includes('googletagmanager.com') ||
     url.hostname.includes('googlesyndication.com') ||
-    url.hostname.includes('amazon') ||
     url.pathname.includes('/api/')
   ) {
     return;

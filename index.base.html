@@ -88,6 +88,7 @@
   <meta name="author" content="ecn-apps">
   <meta name="application-name" content="RollyPop">
   <meta name="apple-mobile-web-app-title" content="RollyPop">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -113,8 +114,8 @@
   <meta property="og:site_name" content="RollyPop">
   <meta property="og:title" content="RollyPop — Free Interactive Decision Wheel & Random Picker">
   <meta property="og:description" content="Make decisions effortlessly with RollyPop! Spin the customizable wheel for dinners, raffles, classrooms, and games with audio & confetti celebrations.">
-  <meta property="og:image" content="https://rollypop.ecn-apps.com/favicon.svg">
-  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image" content="https://rollypop.ecn-apps.com/icons/icon-512x512.png">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
   <meta property="og:image:alt" content="RollyPop Interactive Decision Wheel">
@@ -130,12 +131,13 @@
   <meta name="twitter:creator" content="@ecn_apps">
   <meta name="twitter:title" content="RollyPop — Free Interactive Decision Wheel">
   <meta name="twitter:description" content="Decide what to eat, pick names, or run raffles with RollyPop. Fast, free, and beautiful.">
-  <meta name="twitter:image" content="https://rollypop.ecn-apps.com/favicon.svg">
+  <meta name="twitter:image" content="https://rollypop.ecn-apps.com/icons/icon-512x512.png">
   <meta name="twitter:image:alt" content="RollyPop Decision Wheel Logo">
 
   <!-- Favicon & PWA -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
 
   <!-- Google Fonts: Outfit & Inter -->
@@ -299,6 +301,16 @@
       </a>
 
       <div class="header__actions">
+        <!-- Install App Button (PWA) -->
+        <button id="installAppBtn" class="btn-install" type="button" style="display: none;" title="Install RollyPop" aria-label="Install RollyPop" data-i18n-title="btnInstallApp" data-i18n-aria="btnInstallApp">
+          <svg class="btn-install-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span class="btn-install-text" data-i18n="btnInstallApp">Install App</span>
+        </button>
+
         <!-- Language Selector -->
         <div class="lang-selector">
           <button id="langDropdownBtn" class="lang-btn-current" type="button" aria-haspopup="true" aria-expanded="false">
@@ -563,72 +575,31 @@
       </div>
     </dialog>
 
-    <!-- Amazon Associates Recommendations Section -->
-    <section class="amazon-affiliate-section" id="amazonProducts">
-      <div class="section-badge" data-i18n="affiliateBadge">🛍️ Amazon Associates Picks</div>
-      <h2 class="section-title" data-i18n="affiliateTitle">Trending Gaming & Decision Gear</h2>
-      <p class="section-subtitle" data-i18n="affiliateSubtitle">
-        Handpicked board games, fidget dice, and streaming accessories from our Amazon Associates network.
-      </p>
-
-      <div class="products-grid">
-        <!-- Product 1: Mechanical Keyboard -->
-        <article class="product-card">
-          <div class="product-img-wrapper">
-            <img src="https://m.media-amazon.com/images/I/71D-AH14cvL.jpg" alt="Keychron K2 Wireless Mechanical Keyboard" class="product-img" loading="lazy" width="160" height="160" referrerpolicy="no-referrer">
+    <!-- iOS Add to Home Screen Instructions Modal -->
+    <dialog id="iosInstallModal">
+      <div class="modal-content ios-modal-content">
+        <button id="iosModalCloseBtn" class="modal-close-btn" type="button" aria-label="Close modal">✕</button>
+        <div class="ios-install-badge">📲</div>
+        <h3 class="ios-modal-title" data-i18n="iosModalTitle">Install RollyPop on iPhone / iPad</h3>
+        <p class="ios-modal-subtitle" data-i18n="iosModalSubtitle">Follow these 3 simple steps in Safari to add RollyPop to your Home Screen:</p>
+        <div class="ios-steps">
+          <div class="ios-step">
+            <div class="ios-step__num">1</div>
+            <div class="ios-step__desc" data-i18n="iosStep1">Tap the Share button in Safari's bottom toolbar.</div>
           </div>
-          <span class="product-category" data-i18n="prod1Category">Gaming & Typing</span>
-          <h3 class="product-title" data-i18n="prod1Title">Keychron K2 Wireless Bluetooth/USB Mechanical Keyboard</h3>
-          <p class="product-desc" data-i18n="prod1Desc">Tactile typing feedback, compact 75% layout, seamless Bluetooth switching, and long-lasting battery for marathon gaming and work sessions.</p>
-          <a href="https://www.amazon.com/dp/B0DHVM575Z?tag=ecnapps-20" target="_blank" rel="sponsored noopener noreferrer" class="product-cta">
-            <span data-i18n="btnViewAmazon">View on Amazon</span> &rarr;
-          </a>
-        </article>
-
-        <!-- Product 2: Raspberry Pi 5 Gaming & Server -->
-        <article class="product-card">
-          <div class="product-img-wrapper">
-            <img src="https://m.media-amazon.com/images/I/71g0TkSTeKL.jpg" alt="Raspberry Pi 5 Desktop Starter Kit" class="product-img" loading="lazy" width="160" height="160" referrerpolicy="no-referrer">
+          <div class="ios-step">
+            <div class="ios-step__num">2</div>
+            <div class="ios-step__desc" data-i18n="iosStep2">Scroll down and select 'Add to Home Screen'.</div>
           </div>
-          <span class="product-category" data-i18n="prod2Category">Retro Gaming & Tech</span>
-          <h3 class="product-title" data-i18n="prod2Title">Raspberry Pi 5 (8GB RAM) Complete Starter Kit</h3>
-          <p class="product-desc" data-i18n="prod2Desc">Fast 64-bit quad-core mini PC powerhouse for retro arcade emulation, home decision servers, and automated Discord bots.</p>
-          <a href="https://www.amazon.com/dp/B0CRSNCJ6Y?tag=ecnapps-20" target="_blank" rel="sponsored noopener noreferrer" class="product-cta">
-            <span data-i18n="btnViewAmazon">View on Amazon</span> &rarr;
-          </a>
-        </article>
-
-        <!-- Product 3: Logitech MX Master 3S Mouse -->
-        <article class="product-card">
-          <div class="product-img-wrapper">
-            <img src="https://m.media-amazon.com/images/I/61ni3t1ryQL.jpg" alt="Logitech MX Master 3S Mouse" class="product-img" loading="lazy" width="160" height="160" referrerpolicy="no-referrer">
+          <div class="ios-step">
+            <div class="ios-step__num">3</div>
+            <div class="ios-step__desc" data-i18n="iosStep3">Tap 'Add' in the top-right corner to finish.</div>
           </div>
-          <span class="product-category" data-i18n="prod3Category">Workstation</span>
-          <h3 class="product-title" data-i18n="prod3Title">Logitech MX Master 3S Wireless Performance Mouse</h3>
-          <p class="product-desc" data-i18n="prod3Desc">Ultra-quiet clicks, 8K DPI glass tracking, and MagSpeed electromagnetic scroll wheel for peak workstation productivity.</p>
-          <a href="https://www.amazon.com/dp/B09HM94VDS?tag=ecnapps-20" target="_blank" rel="sponsored noopener noreferrer" class="product-cta">
-            <span data-i18n="btnViewAmazon">View on Amazon</span> &rarr;
-          </a>
-        </article>
-
-        <!-- Product 4: TP-Link Gigabit Managed Switch -->
-        <article class="product-card">
-          <div class="product-img-wrapper">
-            <img src="https://m.media-amazon.com/images/I/71pVqkRwKsL.jpg" alt="TP-Link Gigabit Smart Managed Switch" class="product-img" loading="lazy" width="160" height="160" referrerpolicy="no-referrer">
-          </div>
-          <span class="product-category" data-i18n="prod4Category">Gaming Network</span>
-          <h3 class="product-title" data-i18n="prod4Title">TP-Link 8-Port Gigabit Easy Smart Managed Switch</h3>
-          <p class="product-desc" data-i18n="prod4Desc">Low-latency hardware QoS traffic prioritization and VLAN traffic management to eliminate lag for competitive gaming and streaming.</p>
-          <a href="https://www.amazon.com/dp/B00K4DS5KU?tag=ecnapps-20" target="_blank" rel="sponsored noopener noreferrer" class="product-cta">
-            <span data-i18n="btnViewAmazon">View on Amazon</span> &rarr;
-          </a>
-        </article>
+        </div>
+        <button id="iosModalGotItBtn" class="btn-primary-spin" style="margin-top:1.25rem; width:100%;" type="button" data-i18n="iosModalGotIt">Got it!</button>
       </div>
+    </dialog>
 
-      <p class="affiliate-disclaimer" data-i18n="affiliateDisclaimer">
-        As an Amazon Associate, we earn from qualifying purchases at no extra cost to you. Product prices and availability are accurate as of the date indicated and subject to change.
-      </p>
-    </section>
 
     <!-- SEO Rich Features & Benefits Section -->
     <section class="seo-section">
@@ -789,8 +760,21 @@
   <!-- Application Logic -->
   <script defer src="main.js"></script>
 
-  <!-- Amazon Associates Dynamic Engine (ecn-apps ecosystem) -->
-  <script defer src="https://ecn-apps.com/js/amazon-affiliate.js?v=3.0"></script>
+  <!-- Progressive Web App Mobile Install Banner -->
+  <aside id="pwaInstallBanner" class="pwa-banner" style="display: none;" aria-label="Install RollyPop App">
+    <div class="pwa-banner__main">
+      <img src="/icons/icon-192x192.png" alt="RollyPop App Icon" class="pwa-banner__icon" width="46" height="46">
+      <div class="pwa-banner__info">
+        <h4 class="pwa-banner__title" data-i18n="pwaBannerTitle">Install RollyPop App</h4>
+        <p class="pwa-banner__desc" data-i18n="pwaBannerDesc">Install on your home screen for full-screen & offline spins!</p>
+      </div>
+    </div>
+    <div class="pwa-banner__actions">
+      <button id="pwaBannerInstallBtn" class="btn-pwa-install" type="button" data-i18n="pwaBannerBtn">Install</button>
+      <button id="pwaBannerDismissBtn" class="btn-pwa-dismiss" type="button" aria-label="Dismiss">✕</button>
+    </div>
+  </aside>
+
 </body>
 </html>
 

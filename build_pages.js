@@ -399,13 +399,6 @@ function renderHtmlForLang(template, lang) {
     html = html.replace(regexAria2, `$1${val.replace(/"/g, '&quot;')}$2`);
   }
 
-  // Strip Amazon affiliate section and script for all non-English pages
-  if (lang !== 'en') {
-    // Remove Amazon affiliate section
-    html = html.replace(/\s*<!-- Amazon Associates Recommendations Section -->[\s\S]*?<\/section>/, '');
-    // Remove Amazon affiliate dynamic script
-    html = html.replace(/\s*<!-- Amazon Associates Dynamic Engine[\s\S]*?<script defer src="https:\/\/ecn-apps\.com\/js\/amazon-affiliate\.js[^"]*"><\/script>/, '');
-  }
 
   return html;
 }
