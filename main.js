@@ -980,7 +980,6 @@
   function setLanguage(lang) {
     if (!I18N[lang]) lang = 'en';
     state.lang = lang;
-    localStorage.setItem('rollypop_lang', lang);
     document.documentElement.lang = lang === 'es' ? 'es' : (lang === 'fr' ? 'fr' : 'en');
 
     document.querySelectorAll('.lang-option').forEach(opt => {
@@ -1472,21 +1471,16 @@
   }
 
   function init() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const langParam = urlParams.get('lang');
-    const storedLang = localStorage.getItem('rollypop_lang');
-    const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    // Language is dictated by the URL (/ = en, /es/, /fr/) via <html lang>.
+    const pageLang = (document.documentElement.lang || 'en').toLowerCase().slice(0, 2);
+    const initialLang = I18N[pageLang] ? pageLang : 'en';
 
-    let initialLang = 'en';
-    if (langParam && I18N[langParam]) {
-      initialLang = langParam;
-    } else if (storedLang && I18N[storedLang]) {
-      initialLang = storedLang;
-    } else if (browserLang.startsWith('es')) {
-      initialLang = 'es';
-    } else if (browserLang.startsWith('fr')) {
-      initialLang = 'fr';
-    }
+    // Remember explicit language choice made through footer language links
+    document.querySelectorAll('a[data-set-lang]').forEach(a => {
+      a.addEventListener('click', () => {
+        try { localStorage.setItem('rollypop_lang', a.dataset.setLang); } catch (e) {}
+      });
+    });
 
     setupEventListeners();
     setLanguage(initialLang);

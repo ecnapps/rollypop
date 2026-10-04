@@ -25,9 +25,9 @@ if (!baseHtml.includes('href="/es/"')) {
         <div>
           <h4 class="footer__col-title">Languages</h4>
           <ul class="footer__links">
-            <li><a href="/en/" class="footer__link">English (US/CA)</a></li>
-            <li><a href="/es/" class="footer__link">Español (ES/LATAM)</a></li>
-            <li><a href="/fr/" class="footer__link">Français (FR/CA)</a></li>
+            <li><a href="/?lang=en" data-set-lang="en" class="footer__link">English (US/CA)</a></li>
+            <li><a href="/es/" data-set-lang="es" class="footer__link">Español (ES/LATAM)</a></li>
+            <li><a href="/fr/" data-set-lang="fr" class="footer__link">Français (FR/CA)</a></li>
           </ul>
         </div>`;
   baseHtml = baseHtml.replace(/<div>\s*<h4 class="footer__col-title">Platform<\/h4>/, footerLangs + '\n\n        <div>\n          <h4 class="footer__col-title">Platform</h4>');
@@ -43,9 +43,11 @@ baseHtml = baseHtml.replace(/href="icons\//g, 'href="/icons/');
 baseHtml = baseHtml.replace(/src="icons\//g, 'src="/icons/');
 
 // Ensure directories exist
-['en', 'es', 'fr'].forEach(dir => {
+['es', 'fr'].forEach(dir => {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 });
+
+const urlFor = l => l === 'en' ? 'https://rollypop.ecn-apps.com/' : `https://rollypop.ecn-apps.com/${l}/`;
 
 // Function to replace i18n placeholders in HTML
 function renderHtmlForLang(template, lang) {
@@ -56,10 +58,10 @@ function renderHtmlForLang(template, lang) {
   html = html.replace(/<html lang="[^"]*">/, `<html lang="${lang}">`);
 
   // Canonical and hreflangs
-  const hreflangs = `  <link rel="canonical" href="https://rollypop.ecn-apps.com/${lang}/">
+  const hreflangs = `  <link rel="canonical" href="${urlFor(lang)}">
   <link rel="alternate" type="application/rss+xml" title="RollyPop RSS" href="https://rollypop.ecn-apps.com/feed.xml">
   <link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/">
-  <link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/en/">
+  <link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/">
   <link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/">
   <link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/">`;
 
@@ -78,7 +80,7 @@ function renderHtmlForLang(template, lang) {
   }
 
   // Open Graph URL & Locale
-  html = html.replace(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="https://rollypop.ecn-apps.com/${lang}/">`);
+  html = html.replace(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${urlFor(lang)}">`);
   const ogLocale = lang === 'es' ? 'es_ES' : (lang === 'fr' ? 'fr_FR' : 'en_US');
   html = html.replace(/<meta property="og:locale" content="[^"]*">/, `<meta property="og:locale" content="${ogLocale}">`);
 
@@ -147,63 +149,56 @@ function renderHtmlForLang(template, lang) {
   return html;
 }
 
-// 3. Render en/index.html, es/index.html, fr/index.html
-// Notice: THESE DO NOT CONTAIN ANY REDIRECT SCRIPT!
-['en', 'es', 'fr'].forEach(lang => {
+// 3. Render es/index.html and fr/index.html (no redirect script)
+['es', 'fr'].forEach(lang => {
   const langHtml = renderHtmlForLang(baseHtml, lang);
   fs.writeFileSync(path.join(lang, 'index.html'), langHtml, 'utf8');
   console.log(`Generated ${lang}/index.html (${langHtml.length} bytes)`);
 });
 
-// 4. Render root index.html with language detection script
-// Only index.html gets this script, and only executes if pathname is root!
-const routingScript = `  <!-- Instant Browser Language Detection & Auto-Routing -->
+// 4. Root index.html = default ENGLISH page (indexable, canonical "/").
+// A tiny script sends ONLY visitors whose browser prefers es/fr to their variant.
+// Crawlers (Googlebot = en-US) are never redirected and always index the English page.
+const routingScript = `  <!-- Browser Language Routing (English is default) -->
   <script>
     (function() {
-      // Only execute redirect on the root homepage
-      var pathname = window.location.pathname;
-      if (pathname !== '/' && pathname !== '/index.html' && pathname !== '') {
-        return;
-      }
       try {
-        var params = new URLSearchParams(window.location.search);
-        var qLang = params.get('lang');
-        var stored = localStorage.getItem('rollypop_lang');
-        var navLangs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
-        var target = 'en';
-
-        if (qLang && (qLang === 'es' || qLang === 'fr' || qLang === 'en')) {
-          target = qLang;
-        } else if (stored && (stored === 'es' || stored === 'fr' || stored === 'en')) {
-          target = stored;
+        var p = window.location.pathname;
+        if (p !== '/' && p !== '/index.html') return;
+        var q = new URLSearchParams(window.location.search).get('lang');
+        var ok = { en: 1, es: 1, fr: 1 };
+        var target = null;
+        if (q && ok[q]) {
+          try { localStorage.setItem('rollypop_lang', q); } catch (e) {}
+          target = q;
+          if (q === 'en' && window.history && history.replaceState) {
+            history.replaceState(null, '', '/' + window.location.hash);
+          }
         } else {
-          for (var i = 0; i < navLangs.length; i++) {
-            var l = (navLangs[i] || '').toLowerCase();
-            if (l.startsWith('es')) { target = 'es'; break; }
-            if (l.startsWith('fr')) { target = 'fr'; break; }
-            if (l.startsWith('en')) { target = 'en'; break; }
+          var stored = null;
+          try { stored = localStorage.getItem('rollypop_lang'); } catch (e) {}
+          if (stored && ok[stored]) {
+            target = stored;
+          } else {
+            var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+            for (var i = 0; i < langs.length; i++) {
+              var c = String(langs[i] || '').toLowerCase().slice(0, 2);
+              if (ok[c]) { target = c; break; }
+            }
           }
         }
-
-        var search = window.location.search || '';
-        var hash = window.location.hash || '';
-        window.location.replace('/' + target + '/' + search + hash);
-      } catch (e) {
-        window.location.replace('/en/');
-      }
+        if (target === 'es' || target === 'fr') {
+          window.location.replace('/' + target + '/' + window.location.hash);
+        }
+      } catch (e) {}
     })();
   </script>
-  <noscript>
-    <meta http-equiv="refresh" content="0; url=/en/">
-  </noscript>
 `;
 
 let rootHtml = renderHtmlForLang(baseHtml, 'en');
-rootHtml = rootHtml.replace(/<link rel="canonical" href="https:\/\/rollypop\.ecn-apps\.com\/en\/">/, '<link rel="canonical" href="https://rollypop.ecn-apps.com/">');
 rootHtml = rootHtml.replace('<head>', '<head>\n' + routingScript);
-
 fs.writeFileSync('index.html', rootHtml, 'utf8');
-console.log(`Updated root index.html with automatic language router (${rootHtml.length} bytes)`);
+console.log(`Updated root index.html (English default + router) (${rootHtml.length} bytes)`);
 
 // 5. Update sitemap.xml
 const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
@@ -215,17 +210,7 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/en/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
-  </url>
-  <url>
-    <loc>https://rollypop.ecn-apps.com/en/</loc>
-    <lastmod>2026-10-03</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/en/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
   </url>
@@ -235,7 +220,7 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/en/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
   </url>
@@ -245,7 +230,7 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/en/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
   </url>

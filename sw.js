@@ -3,12 +3,11 @@
  * Provides offline capabilities, instant loading, and PWA installation support.
  */
 
-const CACHE_NAME = 'rollypop-v1.0.1';
+const CACHE_NAME = 'rollypop-v1.1.0';
 
 // Core assets to pre-cache on install
 const PRECACHE_ASSETS = [
   '/',
-  '/en/',
   '/es/',
   '/fr/',
   '/styles.css',
@@ -90,8 +89,7 @@ self.addEventListener('fetch', (event) => {
           if (cachedResponse) return cachedResponse;
           if (req.url.includes('/es/')) return caches.match('/es/');
           if (req.url.includes('/fr/')) return caches.match('/fr/');
-          if (req.url.includes('/en/')) return caches.match('/en/');
-          return caches.match('/') || caches.match('/en/');
+          return caches.match('/');
         })
     );
     return;
