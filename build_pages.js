@@ -497,9 +497,10 @@ function makeXhtmlLinks() {
 }
 
 // Root URL entry
+const todayIso = new Date().toISOString().split('T')[0];
 sitemapUrls.push(`  <url>
     <loc>https://rollypop.ecn-apps.com/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>${todayIso}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
 ${makeXhtmlLinks()}
@@ -509,7 +510,7 @@ ${makeXhtmlLinks()}
 ALL_LANGS.forEach(l => {
   sitemapUrls.push(`  <url>
     <loc>https://rollypop.ecn-apps.com/${l}/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>${todayIso}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
 ${makeXhtmlLinks()}
@@ -519,7 +520,7 @@ ${makeXhtmlLinks()}
 // Feeds
 sitemapUrls.push(`  <url>
     <loc>https://rollypop.ecn-apps.com/feed.xml</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>${todayIso}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>`);
@@ -527,7 +528,7 @@ sitemapUrls.push(`  <url>
 ALL_LANGS.forEach(l => {
   sitemapUrls.push(`  <url>
     <loc>https://rollypop.ecn-apps.com/${l}/feed.xml</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>${todayIso}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>`);

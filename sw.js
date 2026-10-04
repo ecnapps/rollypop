@@ -3,7 +3,7 @@
  * Provides offline capabilities, instant loading, and PWA installation support.
  */
 
-const CACHE_NAME = 'rollypop-v1.3.1';
+const CACHE_NAME = 'rollypop-v1.3.2';
 
 // Core assets to pre-cache on install
 const PRECACHE_ASSETS = [
@@ -96,7 +96,7 @@ self.addEventListener('fetch', (event) => {
           if (cachedResponse) return cachedResponse;
           const langs = ['es', 'fr', 'de', 'pt', 'it', 'nl', 'ja', 'ko', 'zh', 'ru'];
           for (const l of langs) {
-            if (req.url.includes('/' + l + '/')) return caches.match('/' + l + '/');
+            if (req.url.includes('/' + l + '/') || req.url.endsWith('/' + l)) return caches.match('/' + l + '/');
           }
           return caches.match('/');
         })
@@ -136,7 +136,7 @@ self.addEventListener('fetch', (event) => {
       caches.match(req).then((cachedResponse) => {
         if (cachedResponse) return cachedResponse;
         return fetch(req).then((networkResponse) => {
-          if (networkResponse && networkResponse.status === 200) {
+          if (networkResponse && (networkResponse.status === 200 || networkResponse.type === 'opaque')) {
             const responseClone = networkResponse.clone();
             caches.open(CACHE_NAME).then((cache) => cache.put(req, responseClone));
           }

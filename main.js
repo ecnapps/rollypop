@@ -421,7 +421,8 @@
       ariaBrandHome: "Accueil RollyPop",
       ariaCloseModal: "Fermer la boîte de dialogue",
       btnToggleFullscreen: "Plein Écran"
-    },
+    }
+,
     de: {
           "siteTitle": "RollyPop — Kostenloses Online-Glücksrad & Entscheidungs-Roulette",
           "siteDesc": "Treffen Sie zufällige Entscheidungen, losen Sie Namen aus und veranstalten Sie Verlosungen mit dem interaktiven Online-Glücksrad.",
@@ -1664,7 +1665,7 @@
     if (!state.soundEnabled) return;
     try {
       const ctx = getAudioContext();
-      if (!ctx || ctx.state !== 'running') return;
+      if (!ctx || ctx.state === 'closed') return;
       
       const now = ctx.currentTime;
       const osc = ctx.createOscillator();
@@ -1689,7 +1690,7 @@
     if (!state.soundEnabled) return;
     try {
       const ctx = getAudioContext();
-      if (!ctx || ctx.state !== 'running') return;
+      if (!ctx || ctx.state === 'closed') return;
 
       const chord = [523.25, 659.25, 783.99, 1046.50];
       const now = ctx.currentTime;
@@ -2041,10 +2042,12 @@
       winnerText.style.borderColor = winner.color;
       winnerText.style.boxShadow = `0 0 30px ${winner.color}66`;
 
-      if (typeof modal.showModal === 'function') {
-        modal.showModal();
-      } else {
-        modal.setAttribute('open', '');
+      if (!modal.open) {
+        if (typeof modal.showModal === 'function') {
+          modal.showModal();
+        } else {
+          modal.setAttribute('open', '');
+        }
       }
     }
   }
@@ -2223,7 +2226,7 @@
 
   function closeWinnerModal() {
     const modal = document.getElementById('winnerModal');
-    if (modal) {
+    if (modal && modal.open) {
       if (typeof modal.close === 'function') {
         modal.close();
       } else {
@@ -2375,6 +2378,15 @@
     } catch (e) {}
   }
 
+  function syncSettingsUI() {
+    const soundToggle = document.getElementById('soundToggle');
+    if (soundToggle) soundToggle.checked = state.soundEnabled;
+    const confettiToggle = document.getElementById('confettiToggle');
+    if (confettiToggle) confettiToggle.checked = state.confettiEnabled;
+    const durationSelect = document.getElementById('durationSelect');
+    if (durationSelect) durationSelect.value = state.spinDurationMs;
+  }
+
   function loadFromStorageOrURL() {
     try {
       if (window.location.hash && window.location.hash.startsWith('#wheel=')) {
@@ -2398,6 +2410,7 @@
           state.soundEnabled = parsed.soundEnabled !== false;
           state.confettiEnabled = parsed.confettiEnabled !== false;
           state.spinDurationMs = parsed.spinDurationMs || 5000;
+          syncSettingsUI();
           setSlices(parsed.slices);
           checkAndTranslateDefaultPreset(state.lang);
           return;
@@ -2644,6 +2657,11 @@
       document.body.classList.remove('is-fullscreen');
     }
   });
+  document.addEventListener('webkitfullscreenchange', () => {
+    if (!document.webkitFullscreenElement) {
+      document.body.classList.remove('is-fullscreen');
+    }
+  });
 
   // -------------------------------------------------------------------------
   // Progressive Web App (PWA) Management
@@ -2823,6 +2841,13 @@
     resizeWheelCanvas();
     monitorAdSlots();
     initPWA();
+
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('action') === 'spin') {
+        setTimeout(spinWheel, 600);
+      }
+    } catch (e) {}
   }
 
   function monitorAdSlots() {

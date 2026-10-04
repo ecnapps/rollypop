@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://rollypop.ecn-apps.com/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
@@ -21,7 +21,7 @@
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/es/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/fr/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/de/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
@@ -75,7 +75,7 @@
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/pt/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
@@ -93,7 +93,7 @@
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/it/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
@@ -111,7 +111,7 @@
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/nl/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
@@ -129,7 +129,7 @@
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/ja/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
@@ -147,7 +147,7 @@
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/ko/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
@@ -165,7 +165,7 @@
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/zh/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
@@ -183,7 +183,7 @@
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/ru/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
@@ -201,67 +201,67 @@
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/feed.xml</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/es/feed.xml</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/fr/feed.xml</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/de/feed.xml</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/pt/feed.xml</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/it/feed.xml</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/nl/feed.xml</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/ja/feed.xml</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/ko/feed.xml</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/zh/feed.xml</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/ru/feed.xml</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>
