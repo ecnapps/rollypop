@@ -980,6 +980,7 @@
   function setLanguage(lang) {
     if (!I18N[lang]) lang = 'en';
     state.lang = lang;
+    try { localStorage.setItem('rollypop_lang', lang); } catch (e) {}
     document.documentElement.lang = lang === 'es' ? 'es' : (lang === 'fr' ? 'fr' : 'en');
 
     document.querySelectorAll('.lang-option').forEach(opt => {
