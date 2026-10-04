@@ -266,6 +266,16 @@ function generateSchemaJsonLd(lang) {
   }, null, 2);
 }
 
+function escapeXml(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 function generateRssFeed(lang) {
   const dict = I18N[lang];
   const url = urlFor(lang);
@@ -273,35 +283,43 @@ function generateRssFeed(lang) {
   const reg = REGION_INFO[lang] || REGION_INFO.en;
   const now = new Date().toUTCString();
 
+  const title = escapeXml(dict.siteTitle);
+  const desc = escapeXml(dict.siteDesc);
+  const heroDesc = escapeXml(dict.heroSubtitle || dict.siteDesc);
+  const featureTitle = escapeXml(`${dict.feature2Title} — ${dict.feature3Title}`);
+  const featureDesc = escapeXml(`${dict.feature2Desc} ${dict.feature3Desc}`);
+  const tabTitle = escapeXml(`${dict.tabPresets} & ${dict.tabShare}`);
+  const tabDesc = escapeXml(dict.howStep1Desc || dict.siteDesc);
+
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>${dict.siteTitle}</title>
+    <title>${title}</title>
     <link>${url}</link>
-    <description>${dict.siteDesc}</description>
+    <description>${desc}</description>
     <language>${reg.localeLang}</language>
     <lastBuildDate>${now}</lastBuildDate>
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />
     <item>
-      <title>${dict.siteTitle}</title>
+      <title>${title}</title>
       <link>${url}</link>
       <guid isPermaLink="true">${url}</guid>
       <pubDate>${now}</pubDate>
-      <description>${dict.heroSubtitle || dict.siteDesc}</description>
+      <description>${heroDesc}</description>
     </item>
     <item>
-      <title>${dict.feature2Title} — ${dict.feature3Title}</title>
+      <title>${featureTitle}</title>
       <link>${url}#features</link>
       <guid isPermaLink="true">${url}#features</guid>
       <pubDate>${now}</pubDate>
-      <description>${dict.feature2Desc} ${dict.feature3Desc}</description>
+      <description>${featureDesc}</description>
     </item>
     <item>
-      <title>${dict.tabPresets} &amp; ${dict.tabShare}</title>
+      <title>${tabTitle}</title>
       <link>${url}#presets</link>
       <guid isPermaLink="true">${url}#presets</guid>
       <pubDate>${now}</pubDate>
-      <description>${dict.howStep1Desc}</description>
+      <description>${tabDesc}</description>
     </item>
   </channel>
 </rss>
@@ -315,6 +333,9 @@ function renderHtmlForLang(template, lang) {
 
   // Replace <html lang="...">
   html = html.replace(/<html lang="[^"]*">/, `<html lang="${lang}">`);
+
+  // Brand link: point directly to current language root
+  html = html.replace(/<a href="https:\/\/rollypop\.ecn-apps\.com\/" class="brand"/, `<a href="${urlFor(lang)}" class="brand"`);
 
   // Canonical and comprehensive regional hreflangs & RSS
   const rssHref = lang === 'en' ? 'https://rollypop.ecn-apps.com/feed.xml' : `https://rollypop.ecn-apps.com/${lang}/feed.xml`;
@@ -357,7 +378,7 @@ function renderHtmlForLang(template, lang) {
   const reg = REGION_INFO[lang] || REGION_INFO.en;
   let ogLocales = `  <meta property="og:locale" content="${reg.ogLocale}">\n` +
     reg.ogAlts.map(alt => `  <meta property="og:locale:alternate" content="${alt}">`).join('\n');
-  html = html.replace(/<meta property="og:locale" content="[^"]*">[\s\S]*?<meta property="og:locale:alternate" content="[^"]*">/, ogLocales.trim());
+  html = html.replace(/<meta property="og:locale" content="[^"]*">[\s\S]*?(?=\s*<!-- Twitter Card -->)/, ogLocales.trim() + '\n');
 
   // Replace Schema.org JSON-LD with dedicated localized graph
   const localizedSchema = generateSchemaJsonLd(lang);

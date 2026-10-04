@@ -1664,7 +1664,7 @@
     if (!state.soundEnabled) return;
     try {
       const ctx = getAudioContext();
-      if (!ctx) return;
+      if (!ctx || ctx.state !== 'running') return;
       
       const now = ctx.currentTime;
       const osc = ctx.createOscillator();
@@ -1689,7 +1689,7 @@
     if (!state.soundEnabled) return;
     try {
       const ctx = getAudioContext();
-      if (!ctx) return;
+      if (!ctx || ctx.state !== 'running') return;
 
       const chord = [523.25, 659.25, 783.99, 1046.50];
       const now = ctx.currentTime;

@@ -88,6 +88,7 @@
   <meta name="author" content="ecn-apps">
   <meta name="application-name" content="RollyPop">
   <meta name="apple-mobile-web-app-title" content="RollyPop">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -113,8 +114,8 @@
   <meta property="og:site_name" content="RollyPop">
   <meta property="og:title" content="RollyPop — Roue de la Fortune & Roulette de Décision en Ligne">
   <meta property="og:description" content="Prenez des décisions aléatoires, tirez au sort des noms, choisissez un repas et animez vos tirages avec la roue la plus fluide et moderne.">
-  <meta property="og:image" content="https://rollypop.ecn-apps.com/favicon.svg">
-  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image" content="https://rollypop.ecn-apps.com/icons/icon-512x512.png">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
   <meta property="og:image:alt" content="RollyPop Interactive Decision Wheel">
@@ -124,9 +125,7 @@
   <meta property="og:locale:alternate" content="es_ES">
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="it_IT">
-  <meta property="og:locale:alternate" content="es_ES">
-  <meta property="og:locale:alternate" content="fr_FR">
-  <meta property="og:locale:alternate" content="fr_CA">
+
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -134,12 +133,13 @@
   <meta name="twitter:creator" content="@ecn_apps">
   <meta name="twitter:title" content="RollyPop — Roue de la Fortune & Roulette de Décision en Ligne">
   <meta name="twitter:description" content="Prenez des décisions aléatoires, tirez au sort des noms, choisissez un repas et animez vos tirages avec la roue la plus fluide et moderne.">
-  <meta name="twitter:image" content="https://rollypop.ecn-apps.com/favicon.svg">
+  <meta name="twitter:image" content="https://rollypop.ecn-apps.com/icons/icon-512x512.png">
   <meta name="twitter:image:alt" content="RollyPop Decision Wheel Logo">
 
   <!-- Favicon & PWA -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
   <!-- Google Fonts: Outfit & Inter -->
@@ -309,7 +309,7 @@
   <!-- Header / Navigation Bar -->
   <header class="header">
     <div class="container header__content">
-      <a href="https://rollypop.ecn-apps.com/" class="brand" aria-label="Accueil RollyPop" data-i18n-aria="ariaBrandHome">
+      <a href="https://rollypop.ecn-apps.com/fr/" class="brand" aria-label="Accueil RollyPop" data-i18n-aria="ariaBrandHome">
         <svg class="brand__logo-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="32" cy="32" r="26" stroke="url(#hG1)" stroke-width="3"/>
           <path d="M32 32 L32 8 A24 24 0 0 1 52 20 Z" fill="#f43f5e"/>
@@ -334,6 +334,16 @@
       </a>
 
       <div class="header__actions">
+        <!-- Install App Button (PWA) -->
+        <button id="installAppBtn" class="btn-install" type="button" style="display: none;" title="Installer l'app" aria-label="Installer l'app" data-i18n-title="btnInstallApp" data-i18n-aria="btnInstallApp">
+          <svg class="btn-install-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span class="btn-install-text" data-i18n="btnInstallApp">Installer l'app</span>
+        </button>
+
         <!-- Language Selector -->
         <div class="lang-selector">
           <button id="langDropdownBtn" class="lang-btn-current" type="button" aria-haspopup="true" aria-expanded="false">
@@ -591,6 +601,31 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
       </div>
     </dialog>
 
+    <!-- iOS Add to Home Screen Instructions Modal -->
+    <dialog id="iosInstallModal">
+      <div class="modal-content ios-modal-content">
+        <button id="iosModalCloseBtn" class="modal-close-btn" type="button" aria-label="Close modal">✕</button>
+        <div class="ios-install-badge">📲</div>
+        <h3 class="ios-modal-title" data-i18n="iosModalTitle">Installer RollyPop sur iPhone / iPad</h3>
+        <p class="ios-modal-subtitle" data-i18n="iosModalSubtitle">Suivez ces 3 étapes simples dans Safari pour ajouter RollyPop à votre écran d'accueil :</p>
+        <div class="ios-steps">
+          <div class="ios-step">
+            <div class="ios-step__num">1</div>
+            <div class="ios-step__desc" data-i18n="iosStep1">Touchez le bouton Partager en bas dans Safari.</div>
+          </div>
+          <div class="ios-step">
+            <div class="ios-step__num">2</div>
+            <div class="ios-step__desc" data-i18n="iosStep2">Faites défiler et sélectionnez 'Sur l'écran d'accueil'.</div>
+          </div>
+          <div class="ios-step">
+            <div class="ios-step__num">3</div>
+            <div class="ios-step__desc" data-i18n="iosStep3">Touchez 'Ajouter' en haut à droite pour terminer.</div>
+          </div>
+        </div>
+        <button id="iosModalGotItBtn" class="btn-primary-spin" style="margin-top:1.25rem; width:100%;" type="button" data-i18n="iosModalGotIt">Compris !</button>
+      </div>
+    </dialog>
+
 
     <!-- SEO Rich Features & Benefits Section -->
     <section class="seo-section">
@@ -720,6 +755,21 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
 
   <!-- Application Logic -->
   <script defer src="/main.js"></script>
+
+  <!-- Progressive Web App Mobile Install Banner -->
+  <aside id="pwaInstallBanner" class="pwa-banner" style="display: none;" aria-label="Install RollyPop App">
+    <div class="pwa-banner__main">
+      <img src="/icons/icon-192x192.png" alt="RollyPop App Icon" class="pwa-banner__icon" width="46" height="46">
+      <div class="pwa-banner__info">
+        <h4 class="pwa-banner__title" data-i18n="pwaBannerTitle">Installer RollyPop sur votre téléphone</h4>
+        <p class="pwa-banner__desc" data-i18n="pwaBannerDesc">Ajoutez à l'écran d'accueil pour jouer en plein écran et sans connexion.</p>
+      </div>
+    </div>
+    <div class="pwa-banner__actions">
+      <button id="pwaBannerInstallBtn" class="btn-pwa-install" type="button" data-i18n="pwaBannerBtn">Installer</button>
+      <button id="pwaBannerDismissBtn" class="btn-pwa-dismiss" type="button" aria-label="Dismiss">✕</button>
+    </div>
+  </aside>
 
 </body>
 </html>

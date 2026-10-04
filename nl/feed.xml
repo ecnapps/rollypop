@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>RollyPop — Gratis Rad van Fortuin & Beslissingsrad Online</title>
+    <title>RollyPop — Gratis Rad van Fortuin &amp; Beslissingsrad Online</title>
     <link>https://rollypop.ecn-apps.com/nl/</link>
     <description>Maak willekeurige keuzes, loot namen, kies wat te eten en organiseer winacties met het soepelste en snelste online beslissingsrad.</description>
     <language>nl-NL</language>
-    <lastBuildDate>Sun, 04 Oct 2026 03:59:28 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 04:05:21 GMT</lastBuildDate>
     <atom:link href="https://rollypop.ecn-apps.com/nl/feed.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>RollyPop — Gratis Rad van Fortuin & Beslissingsrad Online</title>
+      <title>RollyPop — Gratis Rad van Fortuin &amp; Beslissingsrad Online</title>
       <link>https://rollypop.ecn-apps.com/nl/</link>
       <guid isPermaLink="true">https://rollypop.ecn-apps.com/nl/</guid>
-      <pubDate>Sun, 04 Oct 2026 03:59:28 GMT</pubDate>
+      <pubDate>Sun, 04 Oct 2026 04:05:21 GMT</pubDate>
       <description>Uiterst nauwkeurige willekeurige beslisser. Pas vakken aan, importeer lijsten, geniet van realistische geluidseffecten en confetti.</description>
     </item>
     <item>
-      <title>Cryptografische RNG-Fysica — Web Audio & Confetti FX</title>
+      <title>Cryptografische RNG-Fysica — Web Audio &amp; Confetti FX</title>
       <link>https://rollypop.ecn-apps.com/nl/#features</link>
       <guid isPermaLink="true">https://rollypop.ecn-apps.com/nl/#features</guid>
-      <pubDate>Sun, 04 Oct 2026 03:59:28 GMT</pubDate>
+      <pubDate>Sun, 04 Oct 2026 04:05:21 GMT</pubDate>
       <description>Gebouwd met window.crypto voor wiskundig eerlijke en onbevooroordeelde draaibeurten. Realistisch mechanisch tikgeluid dat geleidelijk vertraagt, gevolgd door een feestelijke confettiexplosie.</description>
     </item>
     <item>
       <title>Sjablonen &amp; Delen</title>
       <link>https://rollypop.ecn-apps.com/nl/#presets</link>
       <guid isPermaLink="true">https://rollypop.ecn-apps.com/nl/#presets</guid>
-      <pubDate>Sun, 04 Oct 2026 03:59:28 GMT</pubDate>
+      <pubDate>Sun, 04 Oct 2026 04:05:21 GMT</pubDate>
       <description>Typ opties één voor één, plak hele lijsten in het tabblad Opties of kies uit kant-en-klare sjablonen zoals Eten of Ja/Nee.</description>
     </item>
   </channel>
