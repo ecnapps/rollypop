@@ -289,7 +289,24 @@
       </a>
 
       <div class="header__actions">
-        
+        <!-- Language Selector -->
+        <div class="lang-selector">
+          <button id="langDropdownBtn" class="lang-btn-current" type="button" aria-haspopup="true" aria-expanded="false">
+            <span id="currentLangLabel">🌎/🇲🇽 ES</span>
+            <span>▾</span>
+          </button>
+          <div id="langDropdown" class="lang-dropdown">
+            <button type="button" class="lang-option" data-lang="en">
+              <span>🇺🇸 / 🇨🇦</span> English
+            </button>
+            <button type="button" class="lang-option active" data-lang="es">
+              <span>🌎 / 🇲🇽</span> Español
+            </button>
+            <button type="button" class="lang-option" data-lang="fr">
+              <span>🇨🇦 / 🇫🇷</span> Français
+            </button>
+          </div>
+        </div>
 
         <!-- Fullscreen Button -->
         <button id="fullscreenBtn" class="btn-icon" type="button" title="Toggle Fullscreen" aria-label="Toggle Fullscreen">
@@ -715,16 +732,6 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
             <li><a href="https://passgen.ecn-apps.com/" target="_blank" rel="noopener noreferrer" class="footer__link">Password Generator</a></li>
             <li><a href="https://word-counter.ecn-apps.com/" target="_blank" rel="noopener noreferrer" class="footer__link">Word & Character Counter</a></li>
             <li><a href="https://qr-generator.ecn-apps.com/" target="_blank" rel="noopener noreferrer" class="footer__link">QR Code Generator</a></li>
-          </ul>
-        </div>
-
-        
-        <div>
-          <h4 class="footer__col-title">Languages</h4>
-          <ul class="footer__links">
-            <li><a href="/?lang=en" data-set-lang="en" class="footer__link">English (US/CA)</a></li>
-            <li><a href="/es/" data-set-lang="es" class="footer__link">Español (ES/LATAM)</a></li>
-            <li><a href="/fr/" data-set-lang="fr" class="footer__link">Français (FR/CA)</a></li>
           </ul>
         </div>
 

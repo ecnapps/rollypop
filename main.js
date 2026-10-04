@@ -1271,8 +1271,12 @@
       document.querySelectorAll('.lang-option').forEach(opt => {
         opt.addEventListener('click', () => {
           const lang = opt.dataset.lang;
-          setLanguage(lang);
+          try { localStorage.setItem('rollypop_lang', lang); } catch (e) {}
           langDropdown.classList.remove('active');
+          const targetUrl = lang === 'en' ? '/' : ('/' + lang + '/');
+          if (window.location.pathname !== targetUrl) {
+            window.location.href = targetUrl + (window.location.hash || '');
+          }
         });
       });
     }
@@ -1474,13 +1478,6 @@
     // Language is dictated by the URL (/ = en, /es/, /fr/) via <html lang>.
     const pageLang = (document.documentElement.lang || 'en').toLowerCase().slice(0, 2);
     const initialLang = I18N[pageLang] ? pageLang : 'en';
-
-    // Remember explicit language choice made through footer language links
-    document.querySelectorAll('a[data-set-lang]').forEach(a => {
-      a.addEventListener('click', () => {
-        try { localStorage.setItem('rollypop_lang', a.dataset.setLang); } catch (e) {}
-      });
-    });
 
     setupEventListeners();
     setLanguage(initialLang);

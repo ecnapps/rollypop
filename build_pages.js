@@ -15,23 +15,12 @@ const I18N = global.I18N;
 // 2. Read clean base HTML (index.base.html)
 let baseHtml = fs.readFileSync('index.base.html', 'utf8');
 
-// Remove existing lang dropdown
+// Ensure NO languages column in footer (user specifically asked to remove languages from footer)
 baseHtml = baseHtml.replace(/<!-- Language Selector -->[\s\S]*?<\/div>\s*<\/div>/, '');
 baseHtml = baseHtml.replace(/<div class="lang-selector">[\s\S]*?<\/div>\s*<\/div>/, '');
 
-// Add clean Language links into footer if not present
-if (!baseHtml.includes('href="/es/"')) {
-  const footerLangs = `
-        <div>
-          <h4 class="footer__col-title">Languages</h4>
-          <ul class="footer__links">
-            <li><a href="/?lang=en" data-set-lang="en" class="footer__link">English (US/CA)</a></li>
-            <li><a href="/es/" data-set-lang="es" class="footer__link">Español (ES/LATAM)</a></li>
-            <li><a href="/fr/" data-set-lang="fr" class="footer__link">Français (FR/CA)</a></li>
-          </ul>
-        </div>`;
-  baseHtml = baseHtml.replace(/<div>\s*<h4 class="footer__col-title">Platform<\/h4>/, footerLangs + '\n\n        <div>\n          <h4 class="footer__col-title">Platform</h4>');
-}
+// Re-read index.base.html fresh: it has the header dropdown and clean footer without language links
+baseHtml = fs.readFileSync('index.base.html', 'utf8');
 
 // Ensure asset URLs are absolute root paths
 baseHtml = baseHtml.replace(/href="styles\.css"/g, 'href="/styles.css"');
@@ -83,6 +72,14 @@ function renderHtmlForLang(template, lang) {
   html = html.replace(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${urlFor(lang)}">`);
   const ogLocale = lang === 'es' ? 'es_ES' : (lang === 'fr' ? 'fr_FR' : 'en_US');
   html = html.replace(/<meta property="og:locale" content="[^"]*">/, `<meta property="og:locale" content="${ogLocale}">`);
+
+  // Update current language label in the dropdown
+  const flagLabel = lang === 'es' ? '\u{1F30E}/\u{1F1F2}\u{1F1FD} ES' : (lang === 'fr' ? '\u{1F1E8}\u{1F1E6}/\u{1F1EB}\u{1F1F7} FR' : '\u{1F1FA}\u{1F1F8}/\u{1F1E8}\u{1F1E6} EN');
+  html = html.replace(/<span id="currentLangLabel">[^<]*<\/span>/, `<span id="currentLangLabel">${flagLabel}</span>`);
+
+  // Update active class on dropdown options
+  html = html.replace(/class="lang-option active"/g, 'class="lang-option"');
+  html = html.replace(new RegExp(`class="lang-option"(\\s+data-lang="${lang}")`), 'class="lang-option active"$1');
 
   // Translate all elements with data-i18n
   for (const [key, val] of Object.entries(dict)) {
@@ -157,14 +154,13 @@ function renderHtmlForLang(template, lang) {
 });
 
 // 4. Root index.html = default ENGLISH page (indexable, canonical "/").
-// A tiny script sends ONLY visitors whose browser prefers es/fr to their variant.
-// Crawlers (Googlebot = en-US) are never redirected and always index the English page.
+// Script detects browser language and routes automatically to /es/ or /fr/ if preferred.
 const routingScript = `  <!-- Browser Language Routing (English is default) -->
   <script>
     (function() {
       try {
         var p = window.location.pathname;
-        if (p !== '/' && p !== '/index.html') return;
+        if (p !== '/' && p !== '/index.html' && p !== '') return;
         var q = new URLSearchParams(window.location.search).get('lang');
         var ok = { en: 1, es: 1, fr: 1 };
         var target = null;
