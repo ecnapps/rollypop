@@ -1066,6 +1066,7 @@
           state.confettiEnabled = parsed.confettiEnabled !== false;
           state.spinDurationMs = parsed.spinDurationMs || 5000;
           setSlices(parsed.slices);
+          checkAndTranslateDefaultPreset(state.lang);
           return;
         }
       }

@@ -503,8 +503,8 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90px;
-  height: 90px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #ffffff 0%, #cbd5e1 45%, #64748b 90%, #334155 100%);
   border: 4px solid #0f172a;
@@ -517,15 +517,54 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 6px;
   color: #0f172a;
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 900;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   z-index: 15;
   cursor: pointer;
   transition: transform var(--transition-spring), box-shadow var(--transition-normal);
+  text-align: center;
+}
+
+.wheel-center-btn span {
+  display: block;
+  max-width: 82px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+html[lang="fr"] .wheel-center-btn {
+  font-size: 0.88rem;
+  letter-spacing: 0;
+}
+
+html[lang="es"] .wheel-center-btn {
+  font-size: 0.98rem;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 640px) {
+  .wheel-center-btn {
+    width: 80px;
+    height: 80px;
+    font-size: 0.92rem;
+    padding: 4px;
+  }
+  .wheel-center-btn span {
+    max-width: 70px;
+  }
+  html[lang="fr"] .wheel-center-btn {
+    font-size: 0.76rem;
+  }
+  html[lang="es"] .wheel-center-btn {
+    font-size: 0.84rem;
+  }
 }
 
 .wheel-center-btn:hover {
