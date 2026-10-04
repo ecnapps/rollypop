@@ -324,7 +324,18 @@
       </a>
 
       <div class="header__actions">
-        
+        <!-- Language Selector -->
+        <div class="lang-selector">
+          <button id="langDropdownBtn" class="lang-btn-current" type="button" aria-haspopup="true" aria-expanded="false">
+            <span id="currentLangLabel">Español</span>
+            <span>▾</span>
+          </button>
+          <div id="langDropdown" class="lang-dropdown">
+            <button type="button" class="lang-option" data-lang="en">English</button>
+            <button type="button" class="lang-option active" data-lang="es">Español</button>
+            <button type="button" class="lang-option" data-lang="fr">Français</button>
+          </div>
+        </div>
 
         <!-- Fullscreen Button -->
         <button id="fullscreenBtn" class="btn-icon" type="button" title="Pantalla Completa" aria-label="Pantalla Completa" data-i18n-title="btnToggleFullscreen" data-i18n-aria="btnToggleFullscreen">

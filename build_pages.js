@@ -15,10 +15,6 @@ const I18N = global.I18N;
 // 2. Read clean base HTML (index.base.html)
 let baseHtml = fs.readFileSync('index.base.html', 'utf8');
 
-// Ensure NO languages column in footer
-baseHtml = baseHtml.replace(/<!-- Language Selector -->[\s\S]*?<\/div>\s*<\/div>/, '');
-baseHtml = baseHtml.replace(/<div class="lang-selector">[\s\S]*?<\/div>\s*<\/div>/, '');
-
 // Ensure asset URLs are absolute root paths
 baseHtml = baseHtml.replace(/href="styles\.css"/g, 'href="/styles.css"');
 baseHtml = baseHtml.replace(/src="main\.js"/g, 'src="/main.js"');
@@ -231,8 +227,8 @@ function renderHtmlForLang(template, lang) {
   html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, `<script type="application/ld+json">\n${localizedSchema}\n  </script>`);
 
   // Update current language label in the dropdown
-  const flagLabel = lang === 'es' ? '🌎/🇲🇽 ES' : (lang === 'fr' ? '🇨🇦/🇫🇷 FR' : '🇺🇸/🇨🇦 EN');
-  html = html.replace(/<span id="currentLangLabel">[^<]*<\/span>/, `<span id="currentLangLabel">${flagLabel}</span>`);
+  const langName = lang === 'es' ? 'Español' : (lang === 'fr' ? 'Français' : 'English');
+  html = html.replace(/<span id="currentLangLabel">[^<]*<\/span>/, `<span id="currentLangLabel">${langName}</span>`);
 
   // Update active class on dropdown options
   html = html.replace(/class="lang-option active"/g, 'class="lang-option"');

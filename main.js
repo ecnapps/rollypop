@@ -1123,9 +1123,9 @@
       opt.classList.toggle('active', opt.dataset.lang === lang);
     });
 
-    const currentFlag = lang === 'es' ? '🌎/🇲🇽 ES' : (lang === 'fr' ? '🇨🇦/🇫🇷 FR' : '🇺🇸/🇨🇦 EN');
+    const langName = lang === 'es' ? 'Español' : (lang === 'fr' ? 'Français' : 'English');
     const currentLabel = document.getElementById('currentLangLabel');
-    if (currentLabel) currentLabel.textContent = currentFlag;
+    if (currentLabel) currentLabel.textContent = langName;
 
     const dict = I18N[lang];
     document.querySelectorAll('[data-i18n]').forEach(el => {
