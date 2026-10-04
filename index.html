@@ -8,7 +8,7 @@
         var p = window.location.pathname;
         if (p !== '/' && p !== '/index.html' && p !== '') return;
         var q = new URLSearchParams(window.location.search).get('lang');
-        var ok = { en: 1, es: 1, fr: 1 };
+        var ok = { en: 1, es: 1, fr: 1, de: 1, pt: 1, it: 1, nl: 1, ja: 1, ko: 1, zh: 1, ru: 1 };
         var target = null;
         if (q && ok[q]) {
           try { localStorage.setItem('rollypop_lang', q); } catch (e) {}
@@ -29,7 +29,7 @@
             }
           }
         }
-        if (target === 'es' || target === 'fr') {
+        if (target && target !== 'en') {
           window.location.replace('/' + target + '/' + window.location.hash);
         }
       } catch (e) {}
@@ -128,17 +128,19 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
     <link rel="canonical" href="https://rollypop.ecn-apps.com/">
-  <link rel="alternate" type="application/rss+xml" title="RollyPop RSS" href="https://rollypop.ecn-apps.com/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="RollyPop RSS (English)" href="https://rollypop.ecn-apps.com/feed.xml">
   <link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/">
   <link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/">
-  <link rel="alternate" hreflang="en-US" href="https://rollypop.ecn-apps.com/">
-  <link rel="alternate" hreflang="en-CA" href="https://rollypop.ecn-apps.com/">
   <link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/">
-  <link rel="alternate" hreflang="es-ES" href="https://rollypop.ecn-apps.com/es/">
-  <link rel="alternate" hreflang="es-MX" href="https://rollypop.ecn-apps.com/es/">
   <link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/">
-  <link rel="alternate" hreflang="fr-FR" href="https://rollypop.ecn-apps.com/fr/">
-  <link rel="alternate" hreflang="fr-CA" href="https://rollypop.ecn-apps.com/fr/">
+  <link rel="alternate" hreflang="de" href="https://rollypop.ecn-apps.com/de/">
+  <link rel="alternate" hreflang="pt" href="https://rollypop.ecn-apps.com/pt/">
+  <link rel="alternate" hreflang="it" href="https://rollypop.ecn-apps.com/it/">
+  <link rel="alternate" hreflang="nl" href="https://rollypop.ecn-apps.com/nl/">
+  <link rel="alternate" hreflang="ja" href="https://rollypop.ecn-apps.com/ja/">
+  <link rel="alternate" hreflang="ko" href="https://rollypop.ecn-apps.com/ko/">
+  <link rel="alternate" hreflang="zh" href="https://rollypop.ecn-apps.com/zh/">
+  <link rel="alternate" hreflang="ru" href="https://rollypop.ecn-apps.com/ru/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -152,9 +154,17 @@
   <meta property="og:image:height" content="512">
   <meta property="og:image:alt" content="RollyPop Interactive Decision Wheel">
   <meta property="og:locale" content="en_US">
-  <meta property="og:locale:alternate" content="en_CA">
   <meta property="og:locale:alternate" content="es_ES">
-  <meta property="og:locale:alternate" content="es_MX">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta property="og:locale:alternate" content="it_IT">
+  <meta property="og:locale:alternate" content="nl_NL">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:locale:alternate" content="ru_RU">
+  <meta property="og:locale:alternate" content="es_ES">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="fr_CA">
 
@@ -187,12 +197,18 @@
       "@type": "WebSite",
       "@id": "https://rollypop.ecn-apps.com/#website",
       "url": "https://rollypop.ecn-apps.com/",
-      "name": "RollyPop",
+      "name": "RollyPop — Free Interactive Decision Wheel",
       "alternateName": [
+        "RollyPop",
+        "Decision Wheel",
         "Ruleta de la Suerte",
         "Roue de la Fortune",
-        "Decision Roulette",
-        "Spin The Wheel"
+        "Glücksrad",
+        "Roleta da Sorte",
+        "ルーレット",
+        "돌림판",
+        "幸运转盘",
+        "Колесо Фортуны"
       ],
       "description": "Make random choices, pick names, decide what to eat, and run giveaways with the most responsive, animated online decision wheel.",
       "inLanguage": [
@@ -237,7 +253,7 @@
         "Cryptographically secure randomness with window.crypto",
         "Synthesized audio ticking and victory fanfare",
         "Confetti celebration animations",
-        "Instant multi-language support (English, Spanish, French)",
+        "Instant multi-language support (11 languages)",
         "Shareable URL wheels with custom slice options",
         "One-click winner elimination for raffles and giveaways",
         "Fullscreen distraction-free presentation mode"
@@ -255,13 +271,13 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "ecn-apps Home",
+          "name": "ecn-apps",
           "item": "https://ecn-apps.com/"
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "RollyPop Decision Wheel",
+          "name": "RollyPop — Free Interactive Decision Wheel",
           "item": "https://rollypop.ecn-apps.com/"
         }
       ]
@@ -370,6 +386,14 @@
             <button type="button" class="lang-option active" data-lang="en">English</button>
             <button type="button" class="lang-option" data-lang="es">Español</button>
             <button type="button" class="lang-option" data-lang="fr">Français</button>
+            <button type="button" class="lang-option" data-lang="de">Deutsch</button>
+            <button type="button" class="lang-option" data-lang="pt">Português</button>
+            <button type="button" class="lang-option" data-lang="it">Italiano</button>
+            <button type="button" class="lang-option" data-lang="nl">Nederlands</button>
+            <button type="button" class="lang-option" data-lang="ja">日本語</button>
+            <button type="button" class="lang-option" data-lang="ko">한국어</button>
+            <button type="button" class="lang-option" data-lang="zh">中文</button>
+            <button type="button" class="lang-option" data-lang="ru">Русский</button>
           </div>
         </div>
 
