@@ -1731,14 +1731,14 @@
       en: ['🍕 Pizza', '🍔 Burgers', '🍣 Sushi', '🌮 Tacos', '🥗 Salad', '🍝 Pasta', '🍜 Ramen', '🥩 BBQ'],
       es: ['🍕 Pizza', '🍔 Hamburguesa', '🍣 Sushi', '🌮 Tacos', '🥗 Ensalada', '🍝 Pasta', '🍜 Ramen', '🥩 Carnita Asada'],
       fr: ['🍕 Pizza', '🍔 Burgers', '🍣 Sushi', '🌮 Tacos', '🥗 Salade', '🍝 Pâtes', '🍜 Ramen', '🥩 Grillades'],
-      ru: ["🍕 Пицца","🍔 Бургеры","🍣 Суши","🌮 Тако","🥗 Салат","🍝 Паста","🍜 Рамен","🥩 Шашлык"],
-      zh: ["🍕 披萨","🍔 汉堡","🍣 寿司","🌮 塔可","🥗 沙拉","🍝 意面","🍜 拉面","🥩 烤肉"],
-      ko: ["🍕 피자","🍔 햄버거","🍣 초밥","🌮 타코","🥗 샐러드","🍝 파스타","🍜 라면","🥩 삼겹살"],
-      ja: ["🍕 ピザ","🍔 ハンバーガー","🍣 寿司","🌮 タコス","🥗 サラダ","🍝 パスタ","🍜 ラーメン","🥩 焼肉"],
-      nl: ["🍕 Pizza","🍔 Burgers","🍣 Sushi","🌮 Tacos","🥗 Salade","🍝 Pasta","🍜 Ramen","🥩 BBQ"],
-      it: ["🍕 Pizza","🍔 Burger","🍣 Sushi","🌮 Tacos","🥗 Insalata","🍝 Pasta","🍜 Ramen","🥩 Bistecca"],
-      pt: ["🍕 Pizza","🍔 Hambúrguer","🍣 Sushi","🌮 Tacos","🥗 Salada","🍝 Massa","🍜 Lámen","🥩 Churrasco"],
-      de: ["🍕 Pizza","🍔 Burger","🍣 Sushi","🌮 Tacos","🥗 Salat","🍝 Pasta","🍜 Ramen","🥩 Grillfleisch"]
+      de: ['🍕 Pizza', '🍔 Burger', '🍣 Sushi', '🥙 Döner Kebab', '🥗 Salat', '🍝 Pasta', '🍜 Ramen', '🥩 Schnitzel'],
+      pt: ['🍕 Pizza', '🍔 Hambúrguer', '🍣 Sushi', '🌮 Pastel', '🥗 Salada', '🍝 Massa', '🍲 Feijoada', '🥩 Churrasco'],
+      it: ['🍕 Pizza', '🍔 Hamburger', '🍣 Sushi', '🥪 Panino', '🥗 Insalata', '🍝 Pasta', '🍚 Risotto', '🥩 Bistecca'],
+      nl: ['🍕 Pizza', '🍔 Hamburger', '🍣 Sushi', '🍟 Friet', '🥗 Salade', '🥞 Pannenkoeken', '🍜 Noedels', '🥩 Biefstuk'],
+      ja: ['🍕 ピザ', '🍔 ハンバーガー', '🍣 寿司', '🍛 カレー', '🥗 サラダ', '🍝 パスタ', '🍜 ラーメン', '🥩 焼肉'],
+      ko: ['🍕 피자', '🍔 햄버거', '🍣 초밥', '🍗 치킨', '🥗 샐러드', '🍝 파스타', '🍜 라면', '🥩 삼겹살'],
+      zh: ['🍕 披萨', '🍔 汉堡', '🍣 寿司', '🍲 火锅', '🥗 沙拉', '🍝 意面', '🍜 拉面', '🥩 烤肉'],
+      ru: ['🍕 Пицца', '🍔 Бургеры', '🍣 Суши', '🥟 Пельмени', '🥗 Салат', '🍝 Паста', '🍜 Борщ', '🥩 Шашлык']
     },
     numbers: {
       en: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
@@ -2480,6 +2480,13 @@
 
     renderEntriesList();
     checkAndTranslateDefaultPreset(lang);
+
+    // Amazon ads are only displayed for English language
+    const amazonSection = document.getElementById('amazonProducts');
+    if (amazonSection) {
+      amazonSection.style.display = (lang === 'en') ? '' : 'none';
+    }
+
     trackEvent('language_changed', { lang: lang });
   }
 
@@ -2494,6 +2501,28 @@
   function checkAndTranslateDefaultPreset(lang) {
     if (!state.slices || state.slices.length === 0) return;
     const currentNorm = state.slices.map(s => normalizeForCompare(s.text)).join('|||');
+
+    // Known legacy food lists from previous builds so returning visitors get instant localization
+    const legacyVariants = [
+      ['🍕 Pizza', '🍔 Burgers', '🍣 Sushi', '🌮 Tacos', '🥗 Salad', '🍝 Pasta', '🍜 Ramen', '🥩 BBQ'],
+      ['🍕 Pizza', '🍔 Hamburguesa', '🍣 Sushi', '🌮 Tacos', '🥗 Ensalada', '🍝 Pasta', '🍜 Ramen', '🥩 Carnita Asada'],
+      ['🍕 Pizza', '🍔 Burgers', '🍣 Sushi', '🌮 Tacos', '🥗 Salade', '🍝 Pâtes', '🍜 Ramen', '🥩 Grillades'],
+      ['🍕 Pizza', '🍔 Burger', '🍣 Sushi', '🌮 Tacos', '🥗 Salat', '🍝 Pasta', '🍜 Ramen', '🥩 Grillfleisch'],
+      ['🍕 Pizza', '🍔 Burger', '🍣 Sushi', '🌮 Tacos', '🥗 Insalata', '🍝 Pasta', '🍜 Ramen', '🥩 Bistecca'],
+      ['🍕 Pizza', '🍔 Burgers', '🍣 Sushi', '🌮 Tacos', '🥗 Salade', '🍝 Pasta', '🍜 Ramen', '🥩 BBQ']
+    ];
+
+    for (const legacyList of legacyVariants) {
+      if (currentNorm === legacyList.map(s => normalizeForCompare(s)).join('|||')) {
+        const targetItems = PRESET_DATA.food[lang] || PRESET_DATA.food['en'];
+        const updatedSlices = state.slices.map((slice, idx) => ({
+          ...slice,
+          text: targetItems[idx] !== undefined ? targetItems[idx] : slice.text
+        }));
+        setSlices(updatedSlices);
+        return;
+      }
+    }
 
     for (const [key, data] of Object.entries(PRESET_DATA)) {
       for (const [presetLang, items] of Object.entries(data)) {
@@ -2962,10 +2991,11 @@
     // Language is dictated by the URL (/ = en, /es/, /fr/) via <html lang>.
     const pageLang = (document.documentElement.lang || 'en').toLowerCase().slice(0, 2);
     const initialLang = I18N[pageLang] ? pageLang : 'en';
+    state.lang = initialLang;
 
     setupEventListeners();
-    loadFromStorageOrURL();
     setLanguage(initialLang);
+    loadFromStorageOrURL();
     checkAndTranslateDefaultPreset(initialLang);
     resizeWheelCanvas();
     monitorAdSlots();
