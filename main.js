@@ -227,7 +227,18 @@
       faq5Q: "¿Puedo instalar RollyPop como aplicación en mi teléfono móvil?",
       faq5A: "¡Sí! RollyPop es una Progressive Web App (PWA). Puedes instalarla en Android y iPhone/iPad para usarla sin conexión y a pantalla completa.",
       faq6Q: "¿RollyPop almacena mis listas o datos en algún servidor?",
-      faq6A: "No. Todas tus listas, plantillas y configuraciones se guardan exclusivamente en la memoria de tu navegador de forma 100% privada."
+      faq6A: "No. Todas tus listas, plantillas y configuraciones se guardan exclusivamente en la memoria de tu navegador de forma 100% privada.",
+      footerBrandDesc: "Ruleta de decisiones y sorteos interactiva, gratuita y privada. Parte de la suite de utilidades web de ecn-apps.",
+      footerColEcosystem: "Herramientas del Ecosistema",
+      footerToolBgRemover: "Eliminar Fondo de Imágenes",
+      footerToolColorPicker: "Selector de Color y Paletas",
+      footerToolPassGen: "Generador de Contraseñas",
+      footerToolWordCounter: "Contador de Palabras y Caracteres",
+      footerToolQrGen: "Generador de Códigos QR",
+      footerColPlatform: "Plataforma",
+      footerPlatformSitemap: "Mapa del Sitio (Sitemap)",
+      footerCopyright: "© 2026 ecn-apps. Todos los derechos reservados. RollyPop es un producto registrado de ecn-apps.com.",
+      footerPoweredBy: "Desarrollado por"
     },
     fr: {
       siteTitle: "RollyPop — Roue de la Fortune & Roulette de Décision en Ligne",
@@ -336,7 +347,18 @@
       faq5Q: "Puis-je installer RollyPop sur mon téléphone portable ?",
       faq5A: "Oui ! RollyPop est une PWA. Vous pouvez l'installer sur Android et iOS (iPhone/iPad) pour l'utiliser hors ligne et en plein écran.",
       faq6Q: "RollyPop enregistre-t-il mes données sur un serveur distant ?",
-      faq6A: "Non. Toutes vos options et réglages restent 100% privés dans le stockage local de votre navigateur."
+      faq6A: "Non. Toutes vos options et réglages restent 100% privés dans le stockage local de votre navigateur.",
+      footerBrandDesc: "Roue de décision et tirage au sort interactive, gratuite et respectueuse de la vie privée. Fait partie des outils en ligne ecn-apps.",
+      footerColEcosystem: "Outils de l'Écosystème",
+      footerToolBgRemover: "Suppression d'Arrière-Plan",
+      footerToolColorPicker: "Sélecteur de Couleurs & Palette",
+      footerToolPassGen: "Générateur de Mots de Passe",
+      footerToolWordCounter: "Compteur de Mots et Caractères",
+      footerToolQrGen: "Générateur de QR Code",
+      footerColPlatform: "Plateforme",
+      footerPlatformSitemap: "Plan du Site (Sitemap)",
+      footerCopyright: "© 2026 ecn-apps. Tous droits réservés. RollyPop est une marque déposée d'ecn-apps.com.",
+      footerPoweredBy: "Propulsé par"
     }
   };
 
