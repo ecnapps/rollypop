@@ -15,12 +15,9 @@ const I18N = global.I18N;
 // 2. Read clean base HTML (index.base.html)
 let baseHtml = fs.readFileSync('index.base.html', 'utf8');
 
-// Ensure NO languages column in footer (user specifically asked to remove languages from footer)
+// Ensure NO languages column in footer
 baseHtml = baseHtml.replace(/<!-- Language Selector -->[\s\S]*?<\/div>\s*<\/div>/, '');
 baseHtml = baseHtml.replace(/<div class="lang-selector">[\s\S]*?<\/div>\s*<\/div>/, '');
-
-// Re-read index.base.html fresh: it has the header dropdown and clean footer without language links
-baseHtml = fs.readFileSync('index.base.html', 'utf8');
 
 // Ensure asset URLs are absolute root paths
 baseHtml = baseHtml.replace(/href="styles\.css"/g, 'href="/styles.css"');
@@ -38,6 +35,131 @@ baseHtml = baseHtml.replace(/src="icons\//g, 'src="/icons/');
 
 const urlFor = l => l === 'en' ? 'https://rollypop.ecn-apps.com/' : `https://rollypop.ecn-apps.com/${l}/`;
 
+function generateSchemaJsonLd(lang) {
+  const dict = I18N[lang];
+  const url = urlFor(lang);
+  const isEs = lang === 'es';
+  const isFr = lang === 'fr';
+
+  const inLanguage = isEs ? ['es-ES', 'es-MX', 'es-419'] : (isFr ? ['fr-FR', 'fr-CA'] : ['en-US', 'en-CA', 'en-GB']);
+
+  const siteName = isEs ? 'RollyPop — Ruleta de la Suerte y Decisiones' : (isFr ? 'RollyPop — Roue de la Fortune et de Décision' : 'RollyPop');
+  const appName = isEs ? 'RollyPop — Ruleta Aleatoria de Decisiones y Sorteos' : (isFr ? 'RollyPop — Roue de la Fortune & Roulette de Décision' : 'RollyPop Decision Wheel');
+
+  const featureList = isEs ? [
+    "Generación de números aleatorios criptográficos seguros (window.crypto)",
+    "Efectos de sonido de engranaje mecánico y fanfarria de victoria sintetizados",
+    "Animaciones festivas de confeti en alta resolución",
+    "Soporte multi-idioma instantáneo (Español, Inglés, Francés)",
+    "Enlaces URL compartibles con lista de opciones y colores personalizados",
+    "Eliminación de ganadores en un clic para sorteos, rifas y dinámicas",
+    "Modo pantalla completa para presentaciones en vivo y streaming"
+  ] : (isFr ? [
+    "Tirage au sort cryptographique ultra-équitable avec window.crypto",
+    "Effets sonores de cliquet mécanique et fanfare de célébration",
+    "Animations de confettis festifs haute résolution",
+    "Support multilingue instantané (Français, Anglais, Espagnol)",
+    "Partage par lien URL direct avec tranches et couleurs personnalisées",
+    "Retrait du gagnant en un clic pour concours, tombolas et tirages",
+    "Mode plein écran immersif pour présentations et diffusions en direct"
+  ] : [
+    "Cryptographically secure randomness with window.crypto",
+    "Synthesized audio ticking and victory fanfare",
+    "Confetti celebration animations",
+    "Instant multi-language support (English, Spanish, French)",
+    "Shareable URL wheels with custom slice options",
+    "One-click winner elimination for raffles and giveaways",
+    "Fullscreen distraction-free presentation mode"
+  ]);
+
+  const breadcrumbs = isEs ? [
+    { "@type": "ListItem", "position": 1, "name": "Inicio ecn-apps", "item": "https://ecn-apps.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Ruleta de Decisiones RollyPop", "item": url }
+  ] : (isFr ? [
+    { "@type": "ListItem", "position": 1, "name": "Accueil ecn-apps", "item": "https://ecn-apps.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Roue de Décision RollyPop", "item": url }
+  ] : [
+    { "@type": "ListItem", "position": 1, "name": "ecn-apps Home", "item": "https://ecn-apps.com/" },
+    { "@type": "ListItem", "position": 2, "name": "RollyPop Decision Wheel", "item": url }
+  ]);
+
+  const faqs = [
+    { q: dict.faq1Q, a: dict.faq1A },
+    { q: dict.faq2Q, a: dict.faq2A },
+    { q: dict.faq3Q, a: dict.faq3A },
+    { q: dict.faq4Q, a: dict.faq4A },
+    { q: dict.faq5Q, a: dict.faq5A },
+    { q: dict.faq6Q, a: dict.faq6A }
+  ].filter(f => f.q && f.a);
+
+  return JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${url}#website`,
+        "url": url,
+        "name": siteName,
+        "alternateName": ["Ruleta de la Suerte", "Roue de la Fortune", "Decision Roulette", "Spin The Wheel"],
+        "description": dict.siteDesc,
+        "inLanguage": inLanguage,
+        "publisher": {
+          "@type": "Organization",
+          "name": "ecn-apps",
+          "url": "https://ecn-apps.com/"
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "@id": `${url}#webapp`,
+        "name": appName,
+        "url": url,
+        "applicationCategory": "UtilitiesApplication, EntertainmentApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+        "description": dict.siteDesc,
+        "inLanguage": inLanguage,
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "worstRating": "1",
+          "ratingCount": "1420"
+        },
+        "featureList": featureList,
+        "publisher": {
+          "@type": "Organization",
+          "name": "ecn-apps",
+          "url": "https://ecn-apps.com/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        "itemListElement": breadcrumbs
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        "mainEntity": faqs.map(f => ({
+          "@type": "Question",
+          "name": f.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": f.a
+          }
+        }))
+      }
+    ]
+  }, null, 2);
+}
+
 // Function to replace i18n placeholders in HTML
 function renderHtmlForLang(template, lang) {
   const dict = I18N[lang];
@@ -46,13 +168,19 @@ function renderHtmlForLang(template, lang) {
   // Replace <html lang="...">
   html = html.replace(/<html lang="[^"]*">/, `<html lang="${lang}">`);
 
-  // Canonical and hreflangs
+  // Canonical and comprehensive regional hreflangs
   const hreflangs = `  <link rel="canonical" href="${urlFor(lang)}">
   <link rel="alternate" type="application/rss+xml" title="RollyPop RSS" href="https://rollypop.ecn-apps.com/feed.xml">
   <link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/">
   <link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/">
+  <link rel="alternate" hreflang="en-US" href="https://rollypop.ecn-apps.com/">
+  <link rel="alternate" hreflang="en-CA" href="https://rollypop.ecn-apps.com/">
   <link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/">
-  <link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/">`;
+  <link rel="alternate" hreflang="es-ES" href="https://rollypop.ecn-apps.com/es/">
+  <link rel="alternate" hreflang="es-MX" href="https://rollypop.ecn-apps.com/es/">
+  <link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/">
+  <link rel="alternate" hreflang="fr-FR" href="https://rollypop.ecn-apps.com/fr/">
+  <link rel="alternate" hreflang="fr-CA" href="https://rollypop.ecn-apps.com/fr/">`;
 
   html = html.replace(/<link rel="canonical"[\s\S]*?<link rel="alternate" hreflang="fr"[^>]*>/, hreflangs);
 
@@ -68,13 +196,42 @@ function renderHtmlForLang(template, lang) {
     html = html.replace(/<meta name="twitter:description" content="[^"]*">/, `<meta name="twitter:description" content="${dict.siteDesc}">`);
   }
 
-  // Open Graph URL & Locale
+  // Meta Keywords localized
+  if (dict.metaKeywords) {
+    html = html.replace(/<meta name="keywords" content="[^"]*">/, `<meta name="keywords" content="${dict.metaKeywords}">`);
+  }
+
+  // Open Graph URL & Locales per country/region
   html = html.replace(/<meta property="og:url" content="[^"]*">/, `<meta property="og:url" content="${urlFor(lang)}">`);
-  const ogLocale = lang === 'es' ? 'es_ES' : (lang === 'fr' ? 'fr_FR' : 'en_US');
-  html = html.replace(/<meta property="og:locale" content="[^"]*">/, `<meta property="og:locale" content="${ogLocale}">`);
+  
+  let ogLocales = '';
+  if (lang === 'es') {
+    ogLocales = `  <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="es_MX">
+  <meta property="og:locale:alternate" content="es_LA">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">`;
+  } else if (lang === 'fr') {
+    ogLocales = `  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="fr_CA">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="es_ES">`;
+  } else {
+    ogLocales = `  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="en_CA">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="es_MX">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="fr_CA">`;
+  }
+  html = html.replace(/<meta property="og:locale" content="[^"]*">[\s\S]*?<meta property="og:locale:alternate" content="fr_CA">/, ogLocales.trim());
+
+  // Replace Schema.org JSON-LD with dedicated localized graph
+  const localizedSchema = generateSchemaJsonLd(lang);
+  html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, `<script type="application/ld+json">\n${localizedSchema}\n  </script>`);
 
   // Update current language label in the dropdown
-  const flagLabel = lang === 'es' ? '\u{1F30E}/\u{1F1F2}\u{1F1FD} ES' : (lang === 'fr' ? '\u{1F1E8}\u{1F1E6}/\u{1F1EB}\u{1F1F7} FR' : '\u{1F1FA}\u{1F1F8}/\u{1F1E8}\u{1F1E6} EN');
+  const flagLabel = lang === 'es' ? '🌎/🇲🇽 ES' : (lang === 'fr' ? '🇨🇦/🇫🇷 FR' : '🇺🇸/🇨🇦 EN');
   html = html.replace(/<span id="currentLangLabel">[^<]*<\/span>/, `<span id="currentLangLabel">${flagLabel}</span>`);
 
   // Update active class on dropdown options
@@ -92,55 +249,18 @@ function renderHtmlForLang(template, lang) {
     html = html.replace(regexPh, `$1${val.replace(/"/g, '&quot;')}$2`);
     const regexPh2 = new RegExp(`(placeholder=")[^"]*("[^>]*?\\bdata-i18n-ph="${key}")`, 'g');
     html = html.replace(regexPh2, `$1${val.replace(/"/g, '&quot;')}$2`);
-  }
 
-  // SEO FAQ & Content blocks translation for es and fr
-  if (lang === 'es') {
-    html = html.replace(/Why Choose RollyPop Decisions\?/g, '¿Por qué elegir RollyPop?');
-    html = html.replace(/Frequently Asked Questions/g, 'Preguntas Frecuentes');
-    html = html.replace(/How to use RollyPop decision wheel\?/g, '¿Cómo usar la ruleta de decisiones RollyPop?');
-    html = html.replace(/Enter your choices, names, or options in the list, then click the central SPIN button or press Spacebar\. The realistic wheel spins with friction physics, ticking sound effects, and announces a fair random winner with celebratory confetti\./g,
-      'Ingresa tus opciones o nombres en la lista y haz clic en el botón central GIRAR o presiona la barra espaciadora. La ruleta gira con física realista, efectos de sonido y anuncia un ganador justo con confeti.');
-    html = html.replace(/Is RollyPop truly random and fair\?/g, '¿Es RollyPop realmente aleatorio y justo?');
-    html = html.replace(/Yes\. RollyPop utilizes cryptographic pseudo-random number generation \(Web Crypto API\) where each slice has a mathematically uniform probability proportional to its arc size\. No bias, no rigged outcomes\./g,
-      'Sí. RollyPop utiliza generación de números pseudoaleatorios criptográficos (Web Crypto API) donde cada opción tiene una probabilidad matemáticamente uniforme.');
-    html = html.replace(/Can I share or save my custom wheel\?/g, '¿Puedo compartir o guardar mi ruleta personalizada?');
-    html = html.replace(/Yes! Click the Share tab to copy a custom URL containing your exact slices and configuration\. You can share it via WhatsApp, classroom portals, or social media with no account needed\./g,
-      '¡Sí! Haz clic en la pestaña Compartir para copiar un enlace con tus opciones y configuración exactas para compartir por WhatsApp o redes.');
-    html = html.replace(/How many choices can I put on the wheel\?/g, '¿Cuántas opciones puedo agregar a la ruleta?');
-    html = html.replace(/You can add from 2 up to 100 choices! The wheel dynamically adjusts label sizes, colors, and font rendering for maximum readability\./g,
-      '¡Puedes agregar desde 2 hasta 100 opciones! La ruleta adapta automáticamente el tamaño de fuente y colores.');
-    html = html.replace(/Explore More From ecn-apps/g, 'Explora más herramientas de ecn-apps');
-    html = html.replace(/Step-by-Step Instructions/g, 'Instrucciones paso a paso');
-    html = html.replace(/Step 1: Customize Choices/g, 'Paso 1: Personaliza tus opciones');
-    html = html.replace(/Type choices individually or use the Import tab to paste bulk lists\./g, 'Escribe las opciones o usa la pestaña Importar para pegar listas completas.');
-    html = html.replace(/Step 2: Spin the Wheel/g, 'Paso 2: Gira la ruleta');
-    html = html.replace(/Hit the SPIN button or press Spacebar to trigger the physics-based wheel\./g, 'Haz clic en GIRAR o pulsa la barra espaciadora para girar la ruleta.');
-    html = html.replace(/Step 3: Celebrate the Winner/g, 'Paso 3: Celebra al ganador');
-    html = html.replace(/Enjoy winner fanfare, confetti, and optionally remove the winner for elimination rounds\./g, 'Disfruta la fanfarria, el confeti y elimina al ganador si juegas por rondas.');
-  } else if (lang === 'fr') {
-    html = html.replace(/Why Choose RollyPop Decisions\?/g, 'Pourquoi choisir RollyPop ?');
-    html = html.replace(/Frequently Asked Questions/g, 'Foire aux Questions (FAQ)');
-    html = html.replace(/How to use RollyPop decision wheel\?/g, 'Comment utiliser la roue de décision RollyPop ?');
-    html = html.replace(/Enter your choices, names, or options in the list, then click the central SPIN button or press Spacebar\. The realistic wheel spins with friction physics, ticking sound effects, and announces a fair random winner with celebratory confetti\./g,
-      'Entrez vos choix ou noms dans la liste, puis cliquez sur TOURNER ou appuyez sur Espace. La roue tourne avec une physique réaliste, des effets sonores et annonce un gagnant aléatoire équitable avec des confettis.');
-    html = html.replace(/Is RollyPop truly random and fair\?/g, 'RollyPop est-il vraiment aléatoire et équitable ?');
-    html = html.replace(/Yes\. RollyPop utilizes cryptographic pseudo-random number generation \(Web Crypto API\) where each slice has a mathematically uniform probability proportional to its arc size\. No bias, no rigged outcomes\./g,
-      'Oui. RollyPop utilise une génération cryptographique de nombres pseudo-aléatoires (Web Crypto API) garantissant un tirage équitable et sans biais.');
-    html = html.replace(/Can I share or save my custom wheel\?/g, 'Puis-je partager ou enregistrer ma roue personnalisée ?');
-    html = html.replace(/Yes! Click the Share tab to copy a custom URL containing your exact slices and configuration\. You can share it via WhatsApp, classroom portals, or social media with no account needed\./g,
-      'Oui ! Cliquez sur l\'onglet Partager pour copier une URL personnalisée contenant exactement vos choix.');
-    html = html.replace(/How many choices can I put on the wheel\?/g, 'Combien de choix puis-je ajouter sur la roue ?');
-    html = html.replace(/You can add from 2 up to 100 choices! The wheel dynamically adjusts label sizes, colors, and font rendering for maximum readability\./g,
-      'Vous pouvez ajouter de 2 à 100 choix ! La roue ajuste dynamiquement la taille du texte et les couleurs.');
-    html = html.replace(/Explore More From ecn-apps/g, 'Découvrez d\'autres outils ecn-apps');
-    html = html.replace(/Step-by-Step Instructions/g, 'Instructions étape par étape');
-    html = html.replace(/Step 1: Customize Choices/g, 'Étape 1 : Personnalisez vos choix');
-    html = html.replace(/Type choices individually or use the Import tab to paste bulk lists\./g, 'Saisissez vos options ou utilisez l\'onglet Importer pour coller des listes complètes.');
-    html = html.replace(/Step 2: Spin the Wheel/g, 'Étape 2 : Lancez la roue');
-    html = html.replace(/Hit the SPIN button or press Spacebar to trigger the physics-based wheel\./g, 'Cliquez sur TOURNER ou appuyez sur Espace pour lancer la roue.');
-    html = html.replace(/Step 3: Celebrate the Winner/g, 'Étape 3 : Célébrez le gagnant');
-    html = html.replace(/Enjoy winner fanfare, confetti, and optionally remove the winner for elimination rounds\./g, 'Profitez de la fanfare, des confettis et éliminez le gagnant si nécessaire.');
+    // 3. Tooltips with data-i18n-title="key"
+    const regexTitle = new RegExp(`(\\bdata-i18n-title="${key}"[^>]*?title=")[^"]*(")`, 'g');
+    html = html.replace(regexTitle, `$1${val.replace(/"/g, '&quot;')}$2`);
+    const regexTitle2 = new RegExp(`(title=")[^"]*("[^>]*?\\bdata-i18n-title="${key}")`, 'g');
+    html = html.replace(regexTitle2, `$1${val.replace(/"/g, '&quot;')}$2`);
+
+    // 4. Accessibility aria-label with data-i18n-aria="key"
+    const regexAria = new RegExp(`(\\bdata-i18n-aria="${key}"[^>]*?aria-label=")[^"]*(")`, 'g');
+    html = html.replace(regexAria, `$1${val.replace(/"/g, '&quot;')}$2`);
+    const regexAria2 = new RegExp(`(aria-label=")[^"]*("[^>]*?\\bdata-i18n-aria="${key}")`, 'g');
+    html = html.replace(regexAria2, `$1${val.replace(/"/g, '&quot;')}$2`);
   }
 
   return html;
@@ -196,7 +316,7 @@ rootHtml = rootHtml.replace('<head>', '<head>\n' + routingScript);
 fs.writeFileSync('index.html', rootHtml, 'utf8');
 console.log(`Updated root index.html (English default + router) (${rootHtml.length} bytes)`);
 
-// 5. Update sitemap.xml
+// 5. Update sitemap.xml with xhtml:link annotations for all regional alternatives
 const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -207,8 +327,14 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://rollypop.ecn-apps.com/" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://rollypop.ecn-apps.com/es/" />
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://rollypop.ecn-apps.com/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://rollypop.ecn-apps.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://rollypop.ecn-apps.com/fr/" />
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/es/</loc>
@@ -217,8 +343,14 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://rollypop.ecn-apps.com/" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://rollypop.ecn-apps.com/es/" />
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://rollypop.ecn-apps.com/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://rollypop.ecn-apps.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://rollypop.ecn-apps.com/fr/" />
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/fr/</loc>
@@ -227,8 +359,14 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://rollypop.ecn-apps.com/" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://rollypop.ecn-apps.com/es/" />
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://rollypop.ecn-apps.com/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://rollypop.ecn-apps.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://rollypop.ecn-apps.com/fr/" />
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/feed.xml</loc>
@@ -239,6 +377,6 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 </urlset>
 `;
 fs.writeFileSync('sitemap.xml', sitemapContent, 'utf8');
-console.log('Updated sitemap.xml with dedicated language URLs');
+console.log('Updated sitemap.xml with dedicated language & regional URLs');
 
 console.log('Multilanguage build complete!');

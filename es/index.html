@@ -84,7 +84,7 @@
   <!-- Primary Meta Tags -->
   <title>RollyPop — Ruleta Aleatoria de Decisiones y Sorteos Online</title>
   <meta name="description" content="Toma decisiones al azar, sortea nombres, decide qué comer y haz sorteos con la ruleta virtual más interactiva, rápida y responsive.">
-  <meta name="keywords" content="spin the wheel, decision roulette, ruleta de la suerte, roue de la fortune, random picker, lucky wheel, random choice generator, giveaways wheel, classroom picker, decision maker, random name picker, ecn-apps">
+  <meta name="keywords" content="ruleta de la suerte, ruleta aleatoria, ruleta de decisiones, tomar decisiones, sorteos online, generador de opciones al azar, ruleta personalizada, sorteo de nombres, ruleta si o no, rifas online, ecn-apps">
   <meta name="author" content="ecn-apps">
   <meta name="application-name" content="RollyPop">
   <meta name="apple-mobile-web-app-title" content="RollyPop">
@@ -96,8 +96,14 @@
   <link rel="alternate" type="application/rss+xml" title="RollyPop RSS" href="https://rollypop.ecn-apps.com/feed.xml">
   <link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/">
   <link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/">
+  <link rel="alternate" hreflang="en-US" href="https://rollypop.ecn-apps.com/">
+  <link rel="alternate" hreflang="en-CA" href="https://rollypop.ecn-apps.com/">
   <link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/">
+  <link rel="alternate" hreflang="es-ES" href="https://rollypop.ecn-apps.com/es/">
+  <link rel="alternate" hreflang="es-MX" href="https://rollypop.ecn-apps.com/es/">
   <link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/">
+  <link rel="alternate" hreflang="fr-FR" href="https://rollypop.ecn-apps.com/fr/">
+  <link rel="alternate" hreflang="fr-CA" href="https://rollypop.ecn-apps.com/fr/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -111,10 +117,10 @@
   <meta property="og:image:height" content="512">
   <meta property="og:image:alt" content="RollyPop Interactive Decision Wheel">
   <meta property="og:locale" content="es_ES">
+  <meta property="og:locale:alternate" content="es_MX">
   <meta property="og:locale:alternate" content="es_LA">
-  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
-  <meta property="og:locale:alternate" content="fr_CA">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -138,119 +144,148 @@
 
   <!-- Structured Data: WebApplication, WebSite, Breadcrumbs & FAQPage JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://rollypop.ecn-apps.com/#website",
-        "url": "https://rollypop.ecn-apps.com/",
-        "name": "RollyPop",
-        "alternateName": ["Ruleta de la Suerte", "Roue de la Fortune", "Decision Roulette", "Spin The Wheel"],
-        "description": "Free interactive online decision wheel and random picker with realistic physics.",
-        "inLanguage": ["en", "es", "fr"],
-        "publisher": {
-          "@type": "Organization",
-          "name": "ecn-apps",
-          "url": "https://ecn-apps.com/"
-        }
-      },
-      {
-        "@type": "WebApplication",
-        "@id": "https://rollypop.ecn-apps.com/#webapp",
-        "name": "RollyPop Decision Wheel",
-        "url": "https://rollypop.ecn-apps.com/",
-        "applicationCategory": "UtilitiesApplication, EntertainmentApplication",
-        "operatingSystem": "All",
-        "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
-        "description": "High-precision online decision wheel and random picker with realistic physics, audio synthesis, and custom slice presets.",
-        "inLanguage": ["en", "es", "fr"],
-        "isAccessibleForFree": true,
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "bestRating": "5",
-          "worstRating": "1",
-          "ratingCount": "1420"
-        },
-        "featureList": [
-          "Cryptographically secure randomness with window.crypto",
-          "Synthesized audio ticking and victory fanfare",
-          "Confetti celebration animations",
-          "Instant multi-language support (English, Spanish, French)",
-          "Shareable URL wheels with custom slice options",
-          "One-click winner elimination for raffles and giveaways",
-          "Fullscreen distraction-free presentation mode"
-        ],
-        "publisher": {
-          "@type": "Organization",
-          "name": "ecn-apps",
-          "url": "https://ecn-apps.com/"
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://rollypop.ecn-apps.com/#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "ecn-apps Home",
-            "item": "https://ecn-apps.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "RollyPop Decision Wheel",
-            "item": "https://rollypop.ecn-apps.com/"
-          }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://rollypop.ecn-apps.com/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Is RollyPop completely free to use?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, RollyPop is 100% free with unlimited spins, no advertisements blocking your view, and no signup required."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How fair is the wheel spin?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "RollyPop utilizes native browser cryptographic random numbers (Crypto.getRandomValues) to compute the final landing angle, guaranteeing true mathematical randomness without bias."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I save or share my customized wheel?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes! Use the Share tab to generate a direct URL that encodes your exact list of slices and colors. You can send this link to anyone or bookmark it for instant access."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I remove winners for giveaways or raffles?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Absolutely. When the wheel lands on a winner, simply click 'Remove Winner' in the celebration modal to take it off the wheel for the next round."
-            }
-          }
-        ]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://rollypop.ecn-apps.com/es/#website",
+      "url": "https://rollypop.ecn-apps.com/es/",
+      "name": "RollyPop — Ruleta de la Suerte y Decisiones",
+      "alternateName": [
+        "Ruleta de la Suerte",
+        "Roue de la Fortune",
+        "Decision Roulette",
+        "Spin The Wheel"
+      ],
+      "description": "Toma decisiones al azar, sortea nombres, decide qué comer y haz sorteos con la ruleta virtual más interactiva, rápida y responsive.",
+      "inLanguage": [
+        "es-ES",
+        "es-MX",
+        "es-419"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "ecn-apps",
+        "url": "https://ecn-apps.com/"
       }
-    ]
-  }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://rollypop.ecn-apps.com/es/#webapp",
+      "name": "RollyPop — Ruleta Aleatoria de Decisiones y Sorteos",
+      "url": "https://rollypop.ecn-apps.com/es/",
+      "applicationCategory": "UtilitiesApplication, EntertainmentApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas.",
+      "description": "Toma decisiones al azar, sortea nombres, decide qué comer y haz sorteos con la ruleta virtual más interactiva, rápida y responsive.",
+      "inLanguage": [
+        "es-ES",
+        "es-MX",
+        "es-419"
+      ],
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1420"
+      },
+      "featureList": [
+        "Generación de números aleatorios criptográficos seguros (window.crypto)",
+        "Efectos de sonido de engranaje mecánico y fanfarria de victoria sintetizados",
+        "Animaciones festivas de confeti en alta resolución",
+        "Soporte multi-idioma instantáneo (Español, Inglés, Francés)",
+        "Enlaces URL compartibles con lista de opciones y colores personalizados",
+        "Eliminación de ganadores en un clic para sorteos, rifas y dinámicas",
+        "Modo pantalla completa para presentaciones en vivo y streaming"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "ecn-apps",
+        "url": "https://ecn-apps.com/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://rollypop.ecn-apps.com/es/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio ecn-apps",
+          "item": "https://ecn-apps.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ruleta de Decisiones RollyPop",
+          "item": "https://rollypop.ecn-apps.com/es/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://rollypop.ecn-apps.com/es/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Es RollyPop gratis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, RollyPop es 100% gratuita, sin límites de giros y sin necesidad de crear cuenta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué tan justo es el giro de la ruleta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RollyPop emplea números aleatorios seguros mediante crypto.getRandomValues, lo que garantiza resultados sin sesgos matemáticos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo guardar o compartir mi ruleta creada?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "¡Claro! En la pestaña 'Compartir' puedes generar un enlace único con tu lista y colores para enviarlo o guardarlo en favoritos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo elimino a los ganadores en sorteos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cuando la ruleta se detenga, haz clic en el botón 'Eliminar Ganador' del cuadro de diálogo para sacarlo de la lista para el siguiente sorteo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo instalar RollyPop como aplicación en mi teléfono móvil?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "¡Sí! RollyPop es una Progressive Web App (PWA). Puedes instalarla en Android y iPhone/iPad para usarla sin conexión y a pantalla completa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿RollyPop almacena mis listas o datos en algún servidor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Todas tus listas, plantillas y configuraciones se guardan exclusivamente en la memoria de tu navegador de forma 100% privada."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 <body>
@@ -264,7 +299,7 @@
   <!-- Header / Navigation Bar -->
   <header class="header">
     <div class="container header__content">
-      <a href="https://rollypop.ecn-apps.com/" class="brand" aria-label="RollyPop Home">
+      <a href="https://rollypop.ecn-apps.com/" class="brand" aria-label="Inicio de RollyPop" data-i18n-aria="ariaBrandHome">
         <svg class="brand__logo-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="32" cy="32" r="26" stroke="url(#hG1)" stroke-width="3"/>
           <path d="M32 32 L32 8 A24 24 0 0 1 52 20 Z" fill="#f43f5e"/>
@@ -289,27 +324,10 @@
       </a>
 
       <div class="header__actions">
-        <!-- Language Selector -->
-        <div class="lang-selector">
-          <button id="langDropdownBtn" class="lang-btn-current" type="button" aria-haspopup="true" aria-expanded="false">
-            <span id="currentLangLabel">🌎/🇲🇽 ES</span>
-            <span>▾</span>
-          </button>
-          <div id="langDropdown" class="lang-dropdown">
-            <button type="button" class="lang-option" data-lang="en">
-              <span>🇺🇸 / 🇨🇦</span> English
-            </button>
-            <button type="button" class="lang-option active" data-lang="es">
-              <span>🌎 / 🇲🇽</span> Español
-            </button>
-            <button type="button" class="lang-option" data-lang="fr">
-              <span>🇨🇦 / 🇫🇷</span> Français
-            </button>
-          </div>
-        </div>
+        
 
         <!-- Fullscreen Button -->
-        <button id="fullscreenBtn" class="btn-icon" type="button" title="Toggle Fullscreen" aria-label="Toggle Fullscreen">
+        <button id="fullscreenBtn" class="btn-icon" type="button" title="Pantalla Completa" aria-label="Pantalla Completa" data-i18n-title="btnToggleFullscreen" data-i18n-aria="btnToggleFullscreen">
           ⛶
         </button>
       </div>
@@ -319,7 +337,7 @@
   <!-- Top Responsive Ad Container -->
   <div class="container ad-slot-wrapper">
     <div class="ad-slot-container" id="topAdSlot">
-      <span class="ad-slot-label">Advertisement</span>
+      <span class="ad-slot-label" data-i18n="adLabel">Publicidad</span>
       <!-- Google AdSense Live Slot -->
       <ins class="adsbygoogle"
            style="display:block; width:100%; max-height:90px;"
@@ -366,7 +384,7 @@
           <canvas id="wheelCanvas"></canvas>
 
           <!-- 3D Center Hub Spin Button -->
-          <button id="wheelCenterBtn" class="wheel-center-btn" type="button" aria-label="Spin the wheel">
+          <button id="wheelCenterBtn" class="wheel-center-btn" type="button" aria-label="Girar Ruleta" data-i18n-aria="btnSpin">
             <span data-i18n="btnSpinShort">GIRAR</span>
           </button>
         </div>
@@ -377,11 +395,11 @@
             <span>🎲</span>
             <span data-i18n="btnSpin">Girar Ruleta</span>
           </button>
-          <button id="shuffleBtn" class="btn-secondary" type="button" title="Shuffle Slices">
+          <button id="shuffleBtn" class="btn-secondary" type="button" title="Mezclar opciones" data-i18n-title="titleShuffle">
             <span>🔀</span>
             <span data-i18n="btnShuffle">Mezclar</span>
           </button>
-          <button id="sortBtn" class="btn-secondary" type="button" title="Sort Alphabetically">
+          <button id="sortBtn" class="btn-secondary" type="button" title="Ordenar alfabéticamente" data-i18n-title="titleSort">
             <span>🔤</span>
             <span data-i18n="btnSort">Ordenar A-Z</span>
           </button>
@@ -449,42 +467,42 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
             <button type="button" class="preset-card" data-preset="yesno">
               <span class="preset-icon">⚖️</span>
               <span class="preset-name" data-i18n="presetYesNo">Sí o No</span>
-              <span class="preset-count">4 items</span>
+              <span class="preset-count" data-i18n="presetCount4">4 opciones</span>
             </button>
             <button type="button" class="preset-card" data-preset="food">
               <span class="preset-icon">🍕</span>
               <span class="preset-name" data-i18n="presetFood">¿Qué comemos hoy?</span>
-              <span class="preset-count">8 items</span>
+              <span class="preset-count" data-i18n="presetCount8">8 opciones</span>
             </button>
             <button type="button" class="preset-card" data-preset="numbers">
               <span class="preset-icon">🔢</span>
               <span class="preset-name" data-i18n="presetNumbers">Números de la Suerte 1-10</span>
-              <span class="preset-count">10 items</span>
+              <span class="preset-count" data-i18n="presetCount10">10 opciones</span>
             </button>
             <button type="button" class="preset-card" data-preset="truthdare">
               <span class="preset-icon">🔥</span>
               <span class="preset-name" data-i18n="presetTruthDare">Verdad o Reto</span>
-              <span class="preset-count">6 items</span>
+              <span class="preset-count" data-i18n="presetCount6">6 opciones</span>
             </button>
             <button type="button" class="preset-card" data-preset="magic8">
               <span class="preset-icon">🎱</span>
               <span class="preset-name" data-i18n="presetMagic8">Bola 8 Mágica</span>
-              <span class="preset-count">6 items</span>
+              <span class="preset-count" data-i18n="presetCount6">6 opciones</span>
             </button>
             <button type="button" class="preset-card" data-preset="dice">
               <span class="preset-icon">🎲</span>
               <span class="preset-name" data-i18n="presetDice">Dado Virtual (1-6)</span>
-              <span class="preset-count">6 items</span>
+              <span class="preset-count" data-i18n="presetCount6">6 opciones</span>
             </button>
             <button type="button" class="preset-card" data-preset="team">
               <span class="preset-icon">👥</span>
               <span class="preset-name" data-i18n="presetTeam">Asignar Equipos (1-8)</span>
-              <span class="preset-count">8 items</span>
+              <span class="preset-count" data-i18n="presetCount8">8 opciones</span>
             </button>
             <button type="button" class="preset-card" data-preset="rainbow">
               <span class="preset-icon">🌈</span>
               <span class="preset-name" data-i18n="presetRainbow">Colores del Arcoíris</span>
-              <span class="preset-count">8 items</span>
+              <span class="preset-count" data-i18n="presetCount8">8 opciones</span>
             </button>
           </div>
         </div>
@@ -546,7 +564,7 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
     <!-- Celebration Winner Dialog (Native HTML5 <dialog> with modern top-layer entry) -->
     <dialog id="winnerModal">
       <div class="modal-content">
-        <button id="modalCloseBtn" class="modal-close-btn" type="button" aria-label="Close modal">✕</button>
+        <button id="modalCloseBtn" class="modal-close-btn" type="button" aria-label="Cerrar ventana emergente" data-i18n-aria="ariaCloseModal">✕</button>
         <div class="winner-crown">👑</div>
         <div class="winner-subtitle" data-i18n="winnerAnnounce">¡GANADOR!</div>
         <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:0.75rem;" data-i18n="winnerTitle">La ruleta ha decidido:</p>
@@ -562,7 +580,7 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
 
     <!-- Amazon Associates Recommendations Section -->
     <section class="amazon-affiliate-section" id="amazonProducts">
-      <div class="section-badge">🛍️ Amazon Associates Picks</div>
+      <div class="section-badge" data-i18n="affiliateBadge">🛍️ Destacados de Amazon Afiliados</div>
       <h2 class="section-title" data-i18n="affiliateTitle">Accesorios Recomendados & Juegos de Mesa</h2>
       <p class="section-subtitle" data-i18n="affiliateSubtitle">Selección especial de juegos de fiesta, dados de decisión y periféricos desde nuestra red de afiliados Amazon.</p>
 
@@ -572,9 +590,9 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
           <div class="product-img-wrapper">
             <img src="https://ecn-apps.com/api/og-image?url=https%3A%2F%2Fwww.amazon.com%2Fdp%2FB0DHVM575Z%3Ftag%3Decnapps-20" alt="Keychron K2 Wireless Mechanical Keyboard" class="product-img" loading="lazy" width="160" height="160" referrerpolicy="no-referrer" onerror="const c=this.closest('.product-card');if(c)c.remove();const g=document.querySelector('.products-grid');if(g&&g.querySelectorAll('.product-card').length===0)document.getElementById('amazonProducts')?.remove();" onload="if(this.naturalWidth<=1){const c=this.closest('.product-card');if(c)c.remove();const g=document.querySelector('.products-grid');if(g&&g.querySelectorAll('.product-card').length===0)document.getElementById('amazonProducts')?.remove();}">
           </div>
-          <span class="product-category">Gaming & Typing</span>
-          <h3 class="product-title">Keychron K2 Wireless Bluetooth/USB Mechanical Keyboard</h3>
-          <p class="product-desc">Tactile typing feedback, compact 75% layout, seamless Bluetooth switching, and long-lasting battery for marathon gaming and work sessions.</p>
+          <span class="product-category" data-i18n="prod1Category">Juegos y Teclados</span>
+          <h3 class="product-title" data-i18n="prod1Title">Teclado Mecánico Inalámbrico Keychron K2 Bluetooth/USB</h3>
+          <p class="product-desc" data-i18n="prod1Desc">Respuesta táctil precisa, formato compacto al 75%, cambio rápido por Bluetooth y batería duradera para jugar y trabajar.</p>
           <a href="https://www.amazon.com/dp/B0DHVM575Z?tag=ecnapps-20" target="_blank" rel="sponsored noopener noreferrer" class="product-cta">
             <span data-i18n="btnViewAmazon">Ver en Amazon</span> &rarr;
           </a>
@@ -585,9 +603,9 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
           <div class="product-img-wrapper">
             <img src="https://ecn-apps.com/api/og-image?url=https%3A%2F%2Fwww.amazon.com%2Fdp%2FB0CRSNCJ6Y%3Ftag%3Decnapps-20" alt="Raspberry Pi 5 Desktop Starter Kit" class="product-img" loading="lazy" width="160" height="160" referrerpolicy="no-referrer" onerror="const c=this.closest('.product-card');if(c)c.remove();const g=document.querySelector('.products-grid');if(g&&g.querySelectorAll('.product-card').length===0)document.getElementById('amazonProducts')?.remove();" onload="if(this.naturalWidth<=1){const c=this.closest('.product-card');if(c)c.remove();const g=document.querySelector('.products-grid');if(g&&g.querySelectorAll('.product-card').length===0)document.getElementById('amazonProducts')?.remove();}">
           </div>
-          <span class="product-category">Retro Gaming & Tech</span>
-          <h3 class="product-title">Raspberry Pi 5 (8GB RAM) Complete Starter Kit</h3>
-          <p class="product-desc">Fast 64-bit quad-core mini PC powerhouse for retro arcade emulation, home decision servers, and automated Discord bots.</p>
+          <span class="product-category" data-i18n="prod2Category">Gaming Retro y Tecnología</span>
+          <h3 class="product-title" data-i18n="prod2Title">Kit de Inicio Completo Raspberry Pi 5 (8GB RAM)</h3>
+          <p class="product-desc" data-i18n="prod2Desc">Mini PC de cuatro núcleos y 64 bits para emuladores arcade retro, servidores locales de decisiones y bots automatizados.</p>
           <a href="https://www.amazon.com/dp/B0CRSNCJ6Y?tag=ecnapps-20" target="_blank" rel="sponsored noopener noreferrer" class="product-cta">
             <span data-i18n="btnViewAmazon">Ver en Amazon</span> &rarr;
           </a>
@@ -598,9 +616,9 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
           <div class="product-img-wrapper">
             <img src="https://ecn-apps.com/api/og-image?url=https%3A%2F%2Fwww.amazon.com%2Fdp%2FB09HM94VDS%3Ftag%3Decnapps-20" alt="Logitech MX Master 3S Mouse" class="product-img" loading="lazy" width="160" height="160" referrerpolicy="no-referrer" onerror="const c=this.closest('.product-card');if(c)c.remove();const g=document.querySelector('.products-grid');if(g&&g.querySelectorAll('.product-card').length===0)document.getElementById('amazonProducts')?.remove();" onload="if(this.naturalWidth<=1){const c=this.closest('.product-card');if(c)c.remove();const g=document.querySelector('.products-grid');if(g&&g.querySelectorAll('.product-card').length===0)document.getElementById('amazonProducts')?.remove();}">
           </div>
-          <span class="product-category">Workstation</span>
-          <h3 class="product-title">Logitech MX Master 3S Wireless Performance Mouse</h3>
-          <p class="product-desc">Ultra-quiet clicks, 8K DPI glass tracking, and MagSpeed electromagnetic scroll wheel for peak workstation productivity.</p>
+          <span class="product-category" data-i18n="prod3Category">Productividad y Oficina</span>
+          <h3 class="product-title" data-i18n="prod3Title">Ratón Inalámbrico de Rendimiento Logitech MX Master 3S</h3>
+          <p class="product-desc" data-i18n="prod3Desc">Clics ultrasilenciosos, sensor 8K DPI sobre cristal y rueda electromagnética MagSpeed para máxima productividad.</p>
           <a href="https://www.amazon.com/dp/B09HM94VDS?tag=ecnapps-20" target="_blank" rel="sponsored noopener noreferrer" class="product-cta">
             <span data-i18n="btnViewAmazon">Ver en Amazon</span> &rarr;
           </a>
@@ -611,9 +629,9 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
           <div class="product-img-wrapper">
             <img src="https://ecn-apps.com/api/og-image?url=https%3A%2F%2Fwww.amazon.com%2Fdp%2FB00K4DS5KU%3Ftag%3Decnapps-20" alt="TP-Link Gigabit Smart Managed Switch" class="product-img" loading="lazy" width="160" height="160" referrerpolicy="no-referrer" onerror="const c=this.closest('.product-card');if(c)c.remove();const g=document.querySelector('.products-grid');if(g&&g.querySelectorAll('.product-card').length===0)document.getElementById('amazonProducts')?.remove();" onload="if(this.naturalWidth<=1){const c=this.closest('.product-card');if(c)c.remove();const g=document.querySelector('.products-grid');if(g&&g.querySelectorAll('.product-card').length===0)document.getElementById('amazonProducts')?.remove();}">
           </div>
-          <span class="product-category">Gaming Network</span>
-          <h3 class="product-title">TP-Link 8-Port Gigabit Easy Smart Managed Switch</h3>
-          <p class="product-desc">Low-latency hardware QoS traffic prioritization and VLAN traffic management to eliminate lag for competitive gaming and streaming.</p>
+          <span class="product-category" data-i18n="prod4Category">Redes y Conexión Gaming</span>
+          <h3 class="product-title" data-i18n="prod4Title">Switch Gestionable Gigabit de 8 Puertos TP-Link</h3>
+          <p class="product-desc" data-i18n="prod4Desc">Priorización de tráfico QoS por hardware y soporte de VLAN para eliminar el retardo en juegos competitivos y streaming.</p>
           <a href="https://www.amazon.com/dp/B00K4DS5KU?tag=ecnapps-20" target="_blank" rel="sponsored noopener noreferrer" class="product-cta">
             <span data-i18n="btnViewAmazon">Ver en Amazon</span> &rarr;
           </a>
@@ -625,11 +643,9 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
 
     <!-- SEO Rich Features & Benefits Section -->
     <section class="seo-section">
-      <div class="section-badge">⚡ Why Choose RollyPop</div>
-      <h2 class="section-title">The Fastest, Fairest Decision Roulette on the Web</h2>
-      <p class="section-subtitle">
-        Engineered specifically for creators, educators, gaming streams, and indecisive groups who demand smooth animation, realistic audio, and privacy.
-      </p>
+      <div class="section-badge" data-i18n="seoBadge">⚡ ¿Por qué elegir RollyPop?</div>
+      <h2 class="section-title" data-i18n="seoSectionTitle">La ruleta de decisiones más rápida, justa y divertida de la web</h2>
+      <p class="section-subtitle" data-i18n="seoSectionSubtitle">Diseñada especialmente para creadores de contenido, educadores, transmisiones en vivo y grupos indecisos que buscan animaciones fluidas, sonido realista y total privacidad.</p>
 
       <div class="features-grid">
         <div class="feature-box">
@@ -653,35 +669,27 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
 
       <!-- Use Cases for Organic Search Intent -->
       <div style="margin-top: 2.5rem; text-align: center;">
-        <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);">Popular Ways to Spin & Decide</h3>
-        <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 600px; margin: 0 auto 1.5rem;">
-          From daily choices to classroom activities and live stream raffles:
-        </p>
+        <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);" data-i18n="useCasesTitle">Usos Populares de la Ruleta</h3>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 600px; margin: 0 auto 1.5rem;" data-i18n="useCasesSubtitle">Desde decisiones cotidianas hasta actividades escolares y sorteos en vivo:</p>
       </div>
 
       <div class="features-grid" style="margin-bottom: 2.5rem;">
         <div class="feature-box">
           <div class="feature-icon-wrapper">🎓</div>
-          <h4 class="feature-title">Classroom Random Name Picker</h4>
-          <p class="feature-text">
-            Teachers paste student lists to choose volunteers, assign speaking turns, and maintain unbiased classroom participation.
-          </p>
+          <h4 class="feature-title" data-i18n="useCaseClassroomTitle">Selector de Alumnos al Azar</h4>
+          <p class="feature-text" data-i18n="useCaseClassroomDesc">Profesores y maestros pegan listas de alumnos para elegir turnos de participación justa y sin preferencias.</p>
         </div>
 
         <div class="feature-box">
           <div class="feature-icon-wrapper">🎁</div>
-          <h4 class="feature-title">Giveaways & Stream Raffles</h4>
-          <p class="feature-text">
-            Twitch, YouTube, and TikTok creators host live prize giveaways using distraction-free fullscreen mode with realistic ratchet audio.
-          </p>
+          <h4 class="feature-title" data-i18n="useCaseGiveawayTitle">Sorteos y Rifas en Vivo</h4>
+          <p class="feature-text" data-i18n="useCaseGiveawayDesc">Creadores de Twitch, YouTube y TikTok realizan sorteos en directo con modo pantalla completa y sonido realista.</p>
         </div>
 
         <div class="feature-box">
           <div class="feature-icon-wrapper">🍕</div>
-          <h4 class="feature-title">Food & Restaurant Roulette</h4>
-          <p class="feature-text">
-            Solve meal indecision with friends or coworkers. Spin between takeout, sushi, pizza, tacos, and burgers in seconds.
-          </p>
+          <h4 class="feature-title" data-i18n="useCaseFoodTitle">Ruleta de Comida y Restaurantes</h4>
+          <p class="feature-text" data-i18n="useCaseFoodDesc">Resuelve el dilema de qué comer con amigos o en la oficina entre tacos, pizza, sushi o hamburguesas en segundos.</p>
         </div>
       </div>
 
@@ -705,6 +713,16 @@ Tacos" data-i18n-ph="bulkPlaceholder"></textarea>
         <details class="faq-item">
           <summary class="faq-summary" data-i18n="faq4Q">¿Cómo elimino a los ganadores en sorteos?</summary>
           <div class="faq-content" data-i18n="faq4A">Cuando la ruleta se detenga, haz clic en el botón 'Eliminar Ganador' del cuadro de diálogo para sacarlo de la lista para el siguiente sorteo.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary" data-i18n="faq5Q">¿Puedo instalar RollyPop como aplicación en mi teléfono móvil?</summary>
+          <div class="faq-content" data-i18n="faq5A">¡Sí! RollyPop es una Progressive Web App (PWA). Puedes instalarla en Android y iPhone/iPad para usarla sin conexión y a pantalla completa.</div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-summary" data-i18n="faq6Q">¿RollyPop almacena mis listas o datos en algún servidor?</summary>
+          <div class="faq-content" data-i18n="faq6A">No. Todas tus listas, plantillas y configuraciones se guardan exclusivamente en la memoria de tu navegador de forma 100% privada.</div>
         </details>
       </div>
     </section>

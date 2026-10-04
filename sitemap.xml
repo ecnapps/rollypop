@@ -8,8 +8,14 @@
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://rollypop.ecn-apps.com/" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://rollypop.ecn-apps.com/es/" />
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://rollypop.ecn-apps.com/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://rollypop.ecn-apps.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://rollypop.ecn-apps.com/fr/" />
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/es/</loc>
@@ -18,8 +24,14 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://rollypop.ecn-apps.com/" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://rollypop.ecn-apps.com/es/" />
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://rollypop.ecn-apps.com/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://rollypop.ecn-apps.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://rollypop.ecn-apps.com/fr/" />
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/fr/</loc>
@@ -28,8 +40,14 @@
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://rollypop.ecn-apps.com/" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://rollypop.ecn-apps.com/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
+    <xhtml:link rel="alternate" hreflang="es-ES" href="https://rollypop.ecn-apps.com/es/" />
+    <xhtml:link rel="alternate" hreflang="es-MX" href="https://rollypop.ecn-apps.com/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="fr-FR" href="https://rollypop.ecn-apps.com/fr/" />
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://rollypop.ecn-apps.com/fr/" />
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/feed.xml</loc>

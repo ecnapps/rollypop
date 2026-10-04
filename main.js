@@ -119,7 +119,50 @@
       faq5Q: "Can I install RollyPop on my mobile phone?",
       faq5A: "Yes! RollyPop is a Progressive Web App (PWA). You can install it on Android and iOS (iPhone/iPad) to spin offline and enjoy an immersive full-screen experience.",
       faq6Q: "Does RollyPop store my entries or private lists on a server?",
-      faq6A: "No. All your wheel entries, presets, and settings remain 100% private in your local browser storage. We never upload or track your lists."
+      faq6A: "No. All your wheel entries, presets, and settings remain 100% private in your local browser storage. We never upload or track your lists.",
+      footerBrandDesc: "Free, privacy-focused interactive decision roulette and wheel spinner. Part of the ecn-apps suite of modern browser utilities.",
+      footerColEcosystem: "Ecosystem Tools",
+      footerToolBgRemover: "Background Remover",
+      footerToolColorPicker: "Color Picker & Palette",
+      footerToolPassGen: "Password Generator",
+      footerToolWordCounter: "Word & Character Counter",
+      footerToolQrGen: "QR Code Generator",
+      footerColPlatform: "Platform",
+      footerPlatformSitemap: "Sitemap",
+      footerCopyright: "© 2026 ecn-apps. All rights reserved. RollyPop is a registered product of ecn-apps.com.",
+      footerPoweredBy: "Powered by",
+      affiliateBadge: "🛍️ Amazon Associates Picks",
+      seoBadge: "⚡ Why Choose RollyPop",
+      seoSectionTitle: "The Fastest, Fairest Decision Roulette on the Web",
+      seoSectionSubtitle: "Engineered specifically for creators, educators, gaming streams, and indecisive groups who demand smooth animation, realistic audio, and privacy.",
+      adLabel: "Advertisement",
+      presetCount4: "4 items",
+      presetCount6: "6 items",
+      presetCount8: "8 items",
+      presetCount10: "10 items",
+      prod1Category: "Gaming & Typing",
+      prod1Title: "Keychron K2 Wireless Bluetooth/USB Mechanical Keyboard",
+      prod1Desc: "Tactile typing feedback, compact 75% layout, seamless Bluetooth switching, and long-lasting battery for marathon gaming and work sessions.",
+      prod2Category: "Retro Gaming & Tech",
+      prod2Title: "Raspberry Pi 5 (8GB RAM) Complete Starter Kit",
+      prod2Desc: "Fast 64-bit quad-core mini PC powerhouse for retro arcade emulation, home decision servers, and automated Discord bots.",
+      prod3Category: "Workstation",
+      prod3Title: "Logitech MX Master 3S Wireless Performance Mouse",
+      prod3Desc: "Ultra-quiet clicks, 8K DPI glass tracking, and MagSpeed electromagnetic scroll wheel for peak workstation productivity.",
+      prod4Category: "Gaming Network",
+      prod4Title: "TP-Link 8-Port Gigabit Easy Smart Managed Switch",
+      prod4Desc: "Low-latency hardware QoS traffic prioritization and VLAN traffic management to eliminate lag for competitive gaming and streaming.",
+      minEntryAlert: "You need at least 1 entry on the wheel.",
+      copyUrlPrompt: "Copy this URL:",
+      entryChangeColor: "Change color",
+      entryDuplicate: "Duplicate",
+      entryDelete: "Delete",
+      metaKeywords: "spin the wheel, decision roulette, random picker, lucky wheel, random choice generator, giveaways wheel, classroom picker, decision maker, random name picker, raffle wheel, ecn-apps",
+      titleShuffle: "Shuffle Slices",
+      titleSort: "Sort Alphabetically",
+      ariaBrandHome: "RollyPop Home",
+      ariaCloseModal: "Close modal",
+      btnToggleFullscreen: "Toggle Fullscreen"
     },
     es: {
       siteTitle: "RollyPop — Ruleta Aleatoria de Decisiones y Sorteos Online",
@@ -240,7 +283,39 @@
       footerColPlatform: "Plataforma",
       footerPlatformSitemap: "Mapa del Sitio (Sitemap)",
       footerCopyright: "© 2026 ecn-apps. Todos los derechos reservados. RollyPop es un producto registrado de ecn-apps.com.",
-      footerPoweredBy: "Desarrollado por"
+      footerPoweredBy: "Desarrollado por",
+      affiliateBadge: "🛍️ Destacados de Amazon Afiliados",
+      seoBadge: "⚡ ¿Por qué elegir RollyPop?",
+      seoSectionTitle: "La ruleta de decisiones más rápida, justa y divertida de la web",
+      seoSectionSubtitle: "Diseñada especialmente para creadores de contenido, educadores, transmisiones en vivo y grupos indecisos que buscan animaciones fluidas, sonido realista y total privacidad.",
+      adLabel: "Publicidad",
+      presetCount4: "4 opciones",
+      presetCount6: "6 opciones",
+      presetCount8: "8 opciones",
+      presetCount10: "10 opciones",
+      prod1Category: "Juegos y Teclados",
+      prod1Title: "Teclado Mecánico Inalámbrico Keychron K2 Bluetooth/USB",
+      prod1Desc: "Respuesta táctil precisa, formato compacto al 75%, cambio rápido por Bluetooth y batería duradera para jugar y trabajar.",
+      prod2Category: "Gaming Retro y Tecnología",
+      prod2Title: "Kit de Inicio Completo Raspberry Pi 5 (8GB RAM)",
+      prod2Desc: "Mini PC de cuatro núcleos y 64 bits para emuladores arcade retro, servidores locales de decisiones y bots automatizados.",
+      prod3Category: "Productividad y Oficina",
+      prod3Title: "Ratón Inalámbrico de Rendimiento Logitech MX Master 3S",
+      prod3Desc: "Clics ultrasilenciosos, sensor 8K DPI sobre cristal y rueda electromagnética MagSpeed para máxima productividad.",
+      prod4Category: "Redes y Conexión Gaming",
+      prod4Title: "Switch Gestionable Gigabit de 8 Puertos TP-Link",
+      prod4Desc: "Priorización de tráfico QoS por hardware y soporte de VLAN para eliminar el retardo en juegos competitivos y streaming.",
+      minEntryAlert: "Necesitas al menos 1 opción en la ruleta.",
+      copyUrlPrompt: "Copia este enlace:",
+      entryChangeColor: "Cambiar color",
+      entryDuplicate: "Duplicar",
+      entryDelete: "Eliminar",
+      metaKeywords: "ruleta de la suerte, ruleta aleatoria, ruleta de decisiones, tomar decisiones, sorteos online, generador de opciones al azar, ruleta personalizada, sorteo de nombres, ruleta si o no, rifas online, ecn-apps",
+      titleShuffle: "Mezclar opciones",
+      titleSort: "Ordenar alfabéticamente",
+      ariaBrandHome: "Inicio de RollyPop",
+      ariaCloseModal: "Cerrar ventana emergente",
+      btnToggleFullscreen: "Pantalla Completa"
     },
     fr: {
       siteTitle: "RollyPop — Roue de la Fortune & Roulette de Décision en Ligne",
@@ -361,7 +436,39 @@
       footerColPlatform: "Plateforme",
       footerPlatformSitemap: "Plan du Site (Sitemap)",
       footerCopyright: "© 2026 ecn-apps. Tous droits réservés. RollyPop est une marque déposée d'ecn-apps.com.",
-      footerPoweredBy: "Propulsé par"
+      footerPoweredBy: "Propulsé par",
+      affiliateBadge: "🛍️ Sélection Partenaires Amazon",
+      seoBadge: "⚡ Pourquoi Choisir RollyPop",
+      seoSectionTitle: "La Roulette de Décision la Plus Rapide et Équitable du Web",
+      seoSectionSubtitle: "Spécialement conçue pour les créateurs, enseignants, streamers et groupes indécis exigeant fluidité, bruitages réalistes et respect de la vie privée.",
+      adLabel: "Publicité",
+      presetCount4: "4 options",
+      presetCount6: "6 options",
+      presetCount8: "8 options",
+      presetCount10: "10 options",
+      prod1Category: "Gaming & Clavier",
+      prod1Title: "Clavier Mécanique Sans Fil Keychron K2 Bluetooth/USB",
+      prod1Desc: "Frappe tactile agréable, format compact 75%, connexion Bluetooth rapide et batterie longue durée pour le travail et le jeu.",
+      prod2Category: "Rétrogaming & Tech",
+      prod2Title: "Kit de Démarrage Complet Raspberry Pi 5 (8 Go RAM)",
+      prod2Desc: "Mini PC 64 bits quatre cœurs idéal pour émulation de bornes arcade, serveurs maison et bots automatisés.",
+      prod3Category: "Bureautique & Ergonomie",
+      prod3Title: "Souris Sans Fil Haute Performance Logitech MX Master 3S",
+      prod3Desc: "Clics ultra-silencieux, capteur 8K DPI sur verre et molette électromagnétique MagSpeed pour une productivité maximale.",
+      prod4Category: "Réseau & Gaming",
+      prod4Title: "Switch Gigabit Intelligent 8 Ports TP-Link",
+      prod4Desc: "Priorisation du trafic QoS matériel à faible latence et gestion VLAN pour éliminer le lag en jeu et streaming.",
+      minEntryAlert: "Il vous faut au moins 1 élément sur la roue.",
+      copyUrlPrompt: "Copiez cette URL :",
+      entryChangeColor: "Changer la couleur",
+      entryDuplicate: "Dupliquer",
+      entryDelete: "Supprimer",
+      metaKeywords: "roue de la fortune, roulette de decision, tirage au sort en ligne, choix aleatoire, roue personnalisee, generateur aleatoire, tirage au sort prenom, roue oui ou non, roulette hasard, ecn-apps",
+      titleShuffle: "Mélanger les options",
+      titleSort: "Trier par ordre alphabétique",
+      ariaBrandHome: "Accueil RollyPop",
+      ariaCloseModal: "Fermer la boîte de dialogue",
+      btnToggleFullscreen: "Plein Écran"
     }
   };
 
@@ -868,12 +975,15 @@
     state.slices.forEach((slice, idx) => {
       const row = document.createElement('div');
       row.className = 'entry-row';
+      const tColor = (I18N[state.lang] && I18N[state.lang].entryChangeColor) || "Change color";
+      const tClone = (I18N[state.lang] && I18N[state.lang].entryDuplicate) || "Duplicate";
+      const tDelete = (I18N[state.lang] && I18N[state.lang].entryDelete) || "Delete";
       row.innerHTML = `
-        <input type="color" class="entry-color-picker" value="${slice.color}" data-id="${slice.id}" title="Change color">
+        <input type="color" class="entry-color-picker" value="${slice.color}" data-id="${slice.id}" title="${tColor}">
         <input type="text" class="entry-text-input" value="${escapeHtml(slice.text)}" data-id="${slice.id}" maxlength="60">
         <div class="entry-actions">
-          <button type="button" class="entry-btn clone" data-id="${slice.id}" title="Duplicate">📋</button>
-          <button type="button" class="entry-btn delete" data-id="${slice.id}" title="Delete">✕</button>
+          <button type="button" class="entry-btn clone" data-id="${slice.id}" title="${tClone}">📋</button>
+          <button type="button" class="entry-btn delete" data-id="${slice.id}" title="${tDelete}">✕</button>
         </div>
       `;
 
@@ -940,7 +1050,8 @@
 
   function deleteSlice(id) {
     if (state.slices.length <= 1) {
-      alert("You need at least 1 entry on the wheel.");
+      const msg = (I18N[state.lang] && I18N[state.lang].minEntryAlert) || "You need at least 1 entry on the wheel.";
+      alert(msg);
       return;
     }
     state.slices = state.slices.filter(s => s.id !== id);
@@ -1035,10 +1146,27 @@
       }
     });
 
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+      const key = el.getAttribute('data-i18n-title');
+      if (dict[key]) {
+        el.setAttribute('title', dict[key]);
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+      const key = el.getAttribute('data-i18n-aria');
+      if (dict[key]) {
+        el.setAttribute('aria-label', dict[key]);
+      }
+    });
+
     if (dict.siteTitle) document.title = dict.siteTitle;
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc && dict.siteDesc) metaDesc.setAttribute('content', dict.siteDesc);
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords && dict.metaKeywords) metaKeywords.setAttribute('content', dict.metaKeywords);
 
+    renderEntriesList();
     checkAndTranslateDefaultPreset(lang);
     trackEvent('language_changed', { lang: lang });
   }
@@ -1254,7 +1382,8 @@
           setTimeout(() => { copyLinkBtn.textContent = orig; }, 2500);
           trackEvent('share_link_copied');
         } catch (err) {
-          prompt("Copy this URL:", link);
+          const promptMsg = (I18N[state.lang] && I18N[state.lang].copyUrlPrompt) || "Copy this URL:";
+          prompt(promptMsg, link);
         }
       });
     }
