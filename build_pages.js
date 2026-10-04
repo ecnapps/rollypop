@@ -156,6 +156,67 @@ function generateSchemaJsonLd(lang) {
   }, null, 2);
 }
 
+function generateRssFeed(lang) {
+  const dict = I18N[lang];
+  const url = urlFor(lang);
+  const feedUrl = lang === 'en' ? 'https://rollypop.ecn-apps.com/feed.xml' : `https://rollypop.ecn-apps.com/${lang}/feed.xml`;
+  const localeLang = lang === 'es' ? 'es-ES' : (lang === 'fr' ? 'fr-FR' : 'en-US');
+  const now = new Date().toUTCString();
+
+  const item1Title = lang === 'es'
+    ? 'RollyPop — Ruleta Aleatoria para Decidir lo que Sea'
+    : (lang === 'fr' ? 'RollyPop — Faites Tourner la Roue pour Tout Décider' : 'RollyPop — Spin the Wheel to Decide Anything');
+  const item1Desc = dict.heroSubtitle || dict.siteDesc;
+
+  const item2Title = lang === 'es'
+    ? 'Física con Azar Criptográfico y Efectos de Sonido Realistas'
+    : (lang === 'fr' ? 'Hasard Cryptographique Équitable et Bruitages Réalistes' : 'Cryptographic RNG Physics & Realistic Sound FX');
+  const item2Desc = lang === 'es'
+    ? 'Generación de números verdaderamente aleatorios con el API criptográfico nativo de tu navegador, fanfarria y confeti.'
+    : (lang === 'fr' ? 'Génération de nombres purement aléatoires avec Web Crypto API, cliquet mécanique et pluie de confettis.' : 'Mathematically fair and unbiased spins using window.crypto, ratchet sound synthesis, and confetti celebrations.');
+
+  const item3Title = lang === 'es'
+    ? 'Plantillas Predefinidas y Soporte Multilenguaje Instantáneo'
+    : (lang === 'fr' ? 'Modèles Prêts à l\'Emploi et Support Multilingue' : 'Custom Slice Presets & Instant Multi-Language Support');
+  const item3Desc = lang === 'es'
+    ? 'Opciones para comida, dados, números, asignación de equipos, verdad o reto y ruedas para compartir por enlace directo.'
+    : (lang === 'fr' ? 'Modèles pour repas, dés, tirages au sort de prénoms, oui ou non et partage direct par lien URL.' : 'Ready presets for food, dice rolls, classroom raffles, yes/no decisions, and shareable wheel links.');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${dict.siteTitle}</title>
+    <link>${url}</link>
+    <description>${dict.siteDesc}</description>
+    <language>${localeLang}</language>
+    <lastBuildDate>${now}</lastBuildDate>
+    <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />
+    <item>
+      <title>${item1Title}</title>
+      <link>${url}</link>
+      <guid isPermaLink="true">${url}</guid>
+      <pubDate>${now}</pubDate>
+      <description>${item1Desc}</description>
+    </item>
+    <item>
+      <title>${item2Title}</title>
+      <link>${url}#features</link>
+      <guid isPermaLink="true">${url}#features</guid>
+      <pubDate>${now}</pubDate>
+      <description>${item2Desc}</description>
+    </item>
+    <item>
+      <title>${item3Title}</title>
+      <link>${url}#presets</link>
+      <guid isPermaLink="true">${url}#presets</guid>
+      <pubDate>${now}</pubDate>
+      <description>${item3Desc}</description>
+    </item>
+  </channel>
+</rss>
+`;
+}
+
 // Function to replace i18n placeholders in HTML
 function renderHtmlForLang(template, lang) {
   const dict = I18N[lang];
@@ -164,9 +225,12 @@ function renderHtmlForLang(template, lang) {
   // Replace <html lang="...">
   html = html.replace(/<html lang="[^"]*">/, `<html lang="${lang}">`);
 
-  // Canonical and comprehensive regional hreflangs
+  // Canonical and comprehensive regional hreflangs & RSS
+  const rssHref = lang === 'en' ? 'https://rollypop.ecn-apps.com/feed.xml' : `https://rollypop.ecn-apps.com/${lang}/feed.xml`;
+  const rssTitle = lang === 'es' ? 'RollyPop RSS (Español)' : (lang === 'fr' ? 'RollyPop RSS (Français)' : 'RollyPop RSS');
+
   const hreflangs = `  <link rel="canonical" href="${urlFor(lang)}">
-  <link rel="alternate" type="application/rss+xml" title="RollyPop RSS" href="https://rollypop.ecn-apps.com/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="${rssTitle}" href="${rssHref}">
   <link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/">
   <link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/">
   <link rel="alternate" hreflang="en-US" href="https://rollypop.ecn-apps.com/">
@@ -233,6 +297,9 @@ function renderHtmlForLang(template, lang) {
   // Update active class on dropdown options
   html = html.replace(/class="lang-option active"/g, 'class="lang-option"');
   html = html.replace(new RegExp(`class="lang-option"(\\s+data-lang="${lang}")`), 'class="lang-option active"$1');
+
+  // Update footer RSS Feed link URL
+  html = html.replace(/href="[^"]*"\s+id="footerRssLink"/, `href="${rssHref}" id="footerRssLink"`);
 
   // Translate all elements with data-i18n
   for (const [key, val] of Object.entries(dict)) {
@@ -312,7 +379,13 @@ rootHtml = rootHtml.replace('<head>', '<head>\n' + routingScript);
 fs.writeFileSync('index.html', rootHtml, 'utf8');
 console.log(`Updated root index.html (English default + router) (${rootHtml.length} bytes)`);
 
-// 5. Update sitemap.xml with xhtml:link annotations for all regional alternatives
+// 5. Generate localized RSS feeds (feed.xml, es/feed.xml, fr/feed.xml)
+fs.writeFileSync('feed.xml', generateRssFeed('en'), 'utf8');
+fs.writeFileSync(path.join('es', 'feed.xml'), generateRssFeed('es'), 'utf8');
+fs.writeFileSync(path.join('fr', 'feed.xml'), generateRssFeed('fr'), 'utf8');
+console.log('Generated localized RSS feeds: feed.xml, es/feed.xml, fr/feed.xml');
+
+// 6. Update sitemap.xml with xhtml:link annotations for all regional alternatives & feeds
 const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
@@ -370,9 +443,21 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/es/feed.xml</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/fr/feed.xml</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
 `;
 fs.writeFileSync('sitemap.xml', sitemapContent, 'utf8');
-console.log('Updated sitemap.xml with dedicated language & regional URLs');
+console.log('Updated sitemap.xml with dedicated language & regional URLs and RSS feeds');
 
 console.log('Multilanguage build complete!');
