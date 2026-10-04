@@ -334,21 +334,25 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
   }
 }
 
-/* Ad Containers */
+/* Ad Containers: collapsed by default, only shown if an ad is filled */
 .ad-slot-wrapper {
-  margin: 0.75rem auto;
-  min-height: 90px;
-  display: flex;
+  margin: 0 auto;
+  display: none;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  contain: layout;
+}
+
+.ad-slot-wrapper.is-filled,
+.ad-slot-wrapper:has(ins[data-ad-status="filled"]),
+.ad-slot-wrapper:has(iframe) {
+  display: flex;
+  margin: 0.5rem auto;
 }
 
 .ad-slot-container {
   width: 100%;
   max-width: 970px;
-  min-height: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -366,21 +370,22 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
   margin-bottom: 0.25rem;
 }
 
-.ad-slot-container:has(ins[data-ad-status="filled"]) .ad-slot-label {
+.ad-slot-container:has(ins[data-ad-status="filled"]) .ad-slot-label,
+.ad-slot-wrapper.is-filled .ad-slot-label {
   display: block;
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 1.5rem 0 1rem;
+  padding: 0.65rem 0 0.4rem;
 }
 
 .hero__title {
-  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  font-size: clamp(1.6rem, 3.2vw, 2.3rem);
   font-weight: 900;
   line-height: 1.15;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
 .hero__title span {
@@ -391,7 +396,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 
 .hero__subtitle {
   color: var(--text-secondary);
-  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
   max-width: 680px;
   margin: 0 auto;
 }
@@ -400,8 +405,8 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 .app-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
-  padding: 1rem 0 3rem;
+  gap: 1.5rem;
+  padding: 0.65rem 0 2.5rem;
   align-items: start;
 }
 

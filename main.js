@@ -1657,7 +1657,24 @@
     checkAndTranslateDefaultPreset(initialLang);
     resizeWheelCanvas();
     validateAffiliateAds();
+    monitorAdSlots();
     initPWA();
+  }
+
+  function monitorAdSlots() {
+    const topAd = document.getElementById('topAdSlot');
+    if (!topAd) return;
+    const checkFilled = () => {
+      const ins = topAd.querySelector('ins.adsbygoogle');
+      if (ins && (ins.getAttribute('data-ad-status') === 'filled' || ins.querySelector('iframe'))) {
+        topAd.closest('.ad-slot-wrapper')?.classList.add('is-filled');
+      }
+    };
+    checkFilled();
+    try {
+      const observer = new MutationObserver(checkFilled);
+      observer.observe(topAd, { childList: true, subtree: true, attributes: true });
+    } catch (e) {}
   }
 
   // Validate Amazon affiliate product cards: omit any card whose product is 404 or missing
