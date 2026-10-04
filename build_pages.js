@@ -12,13 +12,11 @@ const snippet = mainJsContent.substring(startIdx, endIdx).replace('const I18N ='
 eval(snippet);
 const I18N = global.I18N;
 
-// 2. Read base index.html
-let baseHtml = fs.readFileSync('index.html', 'utf8');
+// 2. Read clean base HTML (index.base.html)
+let baseHtml = fs.readFileSync('index.base.html', 'utf8');
 
 // Remove existing lang dropdown
 baseHtml = baseHtml.replace(/<!-- Language Selector -->[\s\S]*?<\/div>\s*<\/div>/, '');
-
-// Clean up any remaining lang-selector block if present
 baseHtml = baseHtml.replace(/<div class="lang-selector">[\s\S]*?<\/div>\s*<\/div>/, '');
 
 // Add clean Language links into footer if not present
@@ -44,9 +42,6 @@ baseHtml = baseHtml.replace(/href="site\.webmanifest"/g, 'href="/site.webmanifes
 baseHtml = baseHtml.replace(/href="icons\//g, 'href="/icons/');
 baseHtml = baseHtml.replace(/src="icons\//g, 'src="/icons/');
 
-// Clean up any old routing script from baseHtml before generating language files
-baseHtml = baseHtml.replace(/<!-- Instant Browser Language Detection & Auto-Routing -->[\s\S]*?<\/noscript>\s*/, '');
-
 // Ensure directories exist
 ['en', 'es', 'fr'].forEach(dir => {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
@@ -61,7 +56,6 @@ function renderHtmlForLang(template, lang) {
   html = html.replace(/<html lang="[^"]*">/, `<html lang="${lang}">`);
 
   // Canonical and hreflangs
-  const canonicalTag = `<link rel="canonical" href="https://rollypop.ecn-apps.com/${lang}/">`;
   const hreflangs = `  <link rel="canonical" href="https://rollypop.ecn-apps.com/${lang}/">
   <link rel="alternate" type="application/rss+xml" title="RollyPop RSS" href="https://rollypop.ecn-apps.com/feed.xml">
   <link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/">
@@ -101,10 +95,60 @@ function renderHtmlForLang(template, lang) {
     html = html.replace(regexPh2, `$1${val.replace(/"/g, '&quot;')}$2`);
   }
 
+  // SEO FAQ & Content blocks translation for es and fr
+  if (lang === 'es') {
+    html = html.replace(/Why Choose RollyPop Decisions\?/g, '¿Por qué elegir RollyPop?');
+    html = html.replace(/Frequently Asked Questions/g, 'Preguntas Frecuentes');
+    html = html.replace(/How to use RollyPop decision wheel\?/g, '¿Cómo usar la ruleta de decisiones RollyPop?');
+    html = html.replace(/Enter your choices, names, or options in the list, then click the central SPIN button or press Spacebar\. The realistic wheel spins with friction physics, ticking sound effects, and announces a fair random winner with celebratory confetti\./g,
+      'Ingresa tus opciones o nombres en la lista y haz clic en el botón central GIRAR o presiona la barra espaciadora. La ruleta gira con física realista, efectos de sonido y anuncia un ganador justo con confeti.');
+    html = html.replace(/Is RollyPop truly random and fair\?/g, '¿Es RollyPop realmente aleatorio y justo?');
+    html = html.replace(/Yes\. RollyPop utilizes cryptographic pseudo-random number generation \(Web Crypto API\) where each slice has a mathematically uniform probability proportional to its arc size\. No bias, no rigged outcomes\./g,
+      'Sí. RollyPop utiliza generación de números pseudoaleatorios criptográficos (Web Crypto API) donde cada opción tiene una probabilidad matemáticamente uniforme.');
+    html = html.replace(/Can I share or save my custom wheel\?/g, '¿Puedo compartir o guardar mi ruleta personalizada?');
+    html = html.replace(/Yes! Click the Share tab to copy a custom URL containing your exact slices and configuration\. You can share it via WhatsApp, classroom portals, or social media with no account needed\./g,
+      '¡Sí! Haz clic en la pestaña Compartir para copiar un enlace con tus opciones y configuración exactas para compartir por WhatsApp o redes.');
+    html = html.replace(/How many choices can I put on the wheel\?/g, '¿Cuántas opciones puedo agregar a la ruleta?');
+    html = html.replace(/You can add from 2 up to 100 choices! The wheel dynamically adjusts label sizes, colors, and font rendering for maximum readability\./g,
+      '¡Puedes agregar desde 2 hasta 100 opciones! La ruleta adapta automáticamente el tamaño de fuente y colores.');
+    html = html.replace(/Explore More From ecn-apps/g, 'Explora más herramientas de ecn-apps');
+    html = html.replace(/Step-by-Step Instructions/g, 'Instrucciones paso a paso');
+    html = html.replace(/Step 1: Customize Choices/g, 'Paso 1: Personaliza tus opciones');
+    html = html.replace(/Type choices individually or use the Import tab to paste bulk lists\./g, 'Escribe las opciones o usa la pestaña Importar para pegar listas completas.');
+    html = html.replace(/Step 2: Spin the Wheel/g, 'Paso 2: Gira la ruleta');
+    html = html.replace(/Hit the SPIN button or press Spacebar to trigger the physics-based wheel\./g, 'Haz clic en GIRAR o pulsa la barra espaciadora para girar la ruleta.');
+    html = html.replace(/Step 3: Celebrate the Winner/g, 'Paso 3: Celebra al ganador');
+    html = html.replace(/Enjoy winner fanfare, confetti, and optionally remove the winner for elimination rounds\./g, 'Disfruta la fanfarria, el confeti y elimina al ganador si juegas por rondas.');
+  } else if (lang === 'fr') {
+    html = html.replace(/Why Choose RollyPop Decisions\?/g, 'Pourquoi choisir RollyPop ?');
+    html = html.replace(/Frequently Asked Questions/g, 'Foire aux Questions (FAQ)');
+    html = html.replace(/How to use RollyPop decision wheel\?/g, 'Comment utiliser la roue de décision RollyPop ?');
+    html = html.replace(/Enter your choices, names, or options in the list, then click the central SPIN button or press Spacebar\. The realistic wheel spins with friction physics, ticking sound effects, and announces a fair random winner with celebratory confetti\./g,
+      'Entrez vos choix ou noms dans la liste, puis cliquez sur TOURNER ou appuyez sur Espace. La roue tourne avec une physique réaliste, des effets sonores et annonce un gagnant aléatoire équitable avec des confettis.');
+    html = html.replace(/Is RollyPop truly random and fair\?/g, 'RollyPop est-il vraiment aléatoire et équitable ?');
+    html = html.replace(/Yes\. RollyPop utilizes cryptographic pseudo-random number generation \(Web Crypto API\) where each slice has a mathematically uniform probability proportional to its arc size\. No bias, no rigged outcomes\./g,
+      'Oui. RollyPop utilise une génération cryptographique de nombres pseudo-aléatoires (Web Crypto API) garantissant un tirage équitable et sans biais.');
+    html = html.replace(/Can I share or save my custom wheel\?/g, 'Puis-je partager ou enregistrer ma roue personnalisée ?');
+    html = html.replace(/Yes! Click the Share tab to copy a custom URL containing your exact slices and configuration\. You can share it via WhatsApp, classroom portals, or social media with no account needed\./g,
+      'Oui ! Cliquez sur l\'onglet Partager pour copier une URL personnalisée contenant exactement vos choix.');
+    html = html.replace(/How many choices can I put on the wheel\?/g, 'Combien de choix puis-je ajouter sur la roue ?');
+    html = html.replace(/You can add from 2 up to 100 choices! The wheel dynamically adjusts label sizes, colors, and font rendering for maximum readability\./g,
+      'Vous pouvez ajouter de 2 à 100 choix ! La roue ajuste dynamiquement la taille du texte et les couleurs.');
+    html = html.replace(/Explore More From ecn-apps/g, 'Découvrez d\'autres outils ecn-apps');
+    html = html.replace(/Step-by-Step Instructions/g, 'Instructions étape par étape');
+    html = html.replace(/Step 1: Customize Choices/g, 'Étape 1 : Personnalisez vos choix');
+    html = html.replace(/Type choices individually or use the Import tab to paste bulk lists\./g, 'Saisissez vos options ou utilisez l\'onglet Importer pour coller des listes complètes.');
+    html = html.replace(/Step 2: Spin the Wheel/g, 'Étape 2 : Lancez la roue');
+    html = html.replace(/Hit the SPIN button or press Spacebar to trigger the physics-based wheel\./g, 'Cliquez sur TOURNER ou appuyez sur Espace pour lancer la roue.');
+    html = html.replace(/Step 3: Celebrate the Winner/g, 'Étape 3 : Célébrez le gagnant');
+    html = html.replace(/Enjoy winner fanfare, confetti, and optionally remove the winner for elimination rounds\./g, 'Profitez de la fanfare, des confettis et éliminez le gagnant si nécessaire.');
+  }
+
   return html;
 }
 
 // 3. Render en/index.html, es/index.html, fr/index.html
+// Notice: THESE DO NOT CONTAIN ANY REDIRECT SCRIPT!
 ['en', 'es', 'fr'].forEach(lang => {
   const langHtml = renderHtmlForLang(baseHtml, lang);
   fs.writeFileSync(path.join(lang, 'index.html'), langHtml, 'utf8');
@@ -112,6 +156,7 @@ function renderHtmlForLang(template, lang) {
 });
 
 // 4. Render root index.html with language detection script
+// Only index.html gets this script, and only executes if pathname is root!
 const routingScript = `  <!-- Instant Browser Language Detection & Auto-Routing -->
   <script>
     (function() {
@@ -214,31 +259,5 @@ const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 `;
 fs.writeFileSync('sitemap.xml', sitemapContent, 'utf8');
 console.log('Updated sitemap.xml with dedicated language URLs');
-
-// 6. Update sw.js to precache new language routes
-let swContent = fs.readFileSync('sw.js', 'utf8');
-if (!swContent.includes("'/es/'")) {
-  swContent = swContent.replace(
-    /const PRECACHE_ASSETS = \[[\s\S]*?\];/,
-    `const PRECACHE_ASSETS = [
-  '/',
-  '/en/',
-  '/es/',
-  '/fr/',
-  '/styles.css',
-  '/main.js',
-  '/site.webmanifest',
-  '/favicon.svg',
-  '/favicon.ico',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png',
-  '/icons/icon-maskable-192x192.png',
-  '/icons/icon-maskable-512x512.png',
-  '/icons/apple-touch-icon.png'
-];`
-  );
-  fs.writeFileSync('sw.js', swContent, 'utf8');
-  console.log('Updated sw.js precache list');
-}
 
 console.log('Multilanguage build complete!');
