@@ -1644,6 +1644,7 @@
     confettiEnabled: true,
     eliminateWinner: false,
     lastWinnerIndex: -1,
+    lastWinnerId: null,
     audioCtx: null
   };
 
@@ -1797,10 +1798,12 @@
   const wheelPointer = document.getElementById('wheelPointer');
 
   function resizeWheelCanvas() {
-    if (!wheelCanvas) return;
+    if (!wheelCanvas || !wheelCanvas.parentElement) return;
     const rect = wheelCanvas.parentElement.getBoundingClientRect();
+    if (!rect.width || rect.width <= 0) return;
     const dpr = window.devicePixelRatio || 1;
     const size = Math.min(rect.width, 520);
+    if (size <= 0) return;
 
     wheelCanvas.width = size * dpr;
     wheelCanvas.height = size * dpr;
@@ -1819,6 +1822,7 @@
     const centerX = width / 2;
     const centerY = height / 2;
     const radius = Math.min(centerX, centerY) - 8;
+    if (radius <= 0) return;
 
     wheelCtx.clearRect(0, 0, width, height);
 
@@ -1968,8 +1972,10 @@
 
     const winningIndex = Math.floor(randomFraction * count);
     state.lastWinnerIndex = winningIndex;
+    state.lastWinnerId = state.slices[winningIndex]?.id || null;
 
-    const sliceCenter = winningIndex * arcStep + (arcStep / 2);
+    const sliceJitter = (Math.random() - 0.5) * (arcStep * 0.6);
+    const sliceCenter = winningIndex * arcStep + (arcStep / 2) + sliceJitter;
     const pointerAngle = (3 * Math.PI) / 2;
     let targetRelativeAngle = pointerAngle - sliceCenter;
     while (targetRelativeAngle < 0) targetRelativeAngle += 2 * Math.PI;
@@ -2115,6 +2121,7 @@
       row.querySelector('.entry-color-picker').addEventListener('input', (e) => {
         slice.color = e.target.value;
         drawWheel();
+        clearShareHashIfPresent();
         saveToStorage();
       });
 
@@ -2123,6 +2130,7 @@
         if (val) {
           slice.text = val;
           drawWheel();
+          clearShareHashIfPresent();
           saveToStorage();
         } else {
           deleteSlice(slice.id);
@@ -2152,6 +2160,7 @@
     renderEntriesList();
     drawWheel();
     updateButtonStates();
+    clearShareHashIfPresent();
     saveToStorage();
     trackEvent('entry_added', { total: state.slices.length });
   }
@@ -2169,6 +2178,7 @@
       renderEntriesList();
       drawWheel();
       updateButtonStates();
+      clearShareHashIfPresent();
       saveToStorage();
     }
   }
@@ -2183,6 +2193,7 @@
     renderEntriesList();
     drawWheel();
     updateButtonStates();
+    clearShareHashIfPresent();
     saveToStorage();
   }
 
@@ -2194,6 +2205,7 @@
     }
     renderEntriesList();
     drawWheel();
+    clearShareHashIfPresent();
     saveToStorage();
     trackEvent('wheel_shuffled', { count: state.slices.length });
   }
@@ -2203,6 +2215,7 @@
     state.slices.sort((a, b) => a.text.localeCompare(b.text));
     renderEntriesList();
     drawWheel();
+    clearShareHashIfPresent();
     saveToStorage();
   }
 
@@ -2212,9 +2225,14 @@
       alert(msg);
       return;
     }
-    if (state.lastWinnerIndex >= 0 && state.lastWinnerIndex < state.slices.length) {
-      state.slices.splice(state.lastWinnerIndex, 1);
+    const targetIdx = state.lastWinnerId 
+      ? state.slices.findIndex(s => s.id === state.lastWinnerId) 
+      : state.lastWinnerIndex;
+
+    if (targetIdx >= 0 && targetIdx < state.slices.length) {
+      state.slices.splice(targetIdx, 1);
       state.lastWinnerIndex = -1;
+      state.lastWinnerId = null;
       renderEntriesList();
       drawWheel();
       updateButtonStates();
@@ -2239,6 +2257,7 @@
     const preset = PRESET_DATA[key];
     if (!preset) return;
     const items = preset[state.lang] || preset['en'];
+    clearShareHashIfPresent();
     setSlices(items);
     trackEvent('preset_selected', { preset_key: key, lang: state.lang });
   }
@@ -2441,12 +2460,18 @@
   }
 
   function escapeHtml(str) {
-    return str
+    return String(str ?? '')
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#039;');
+  }
+
+  function clearShareHashIfPresent() {
+    if (window.location.hash && window.location.hash.startsWith('#wheel=') && window.history && history.replaceState) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   }
 
   function setupEventListeners() {
@@ -2485,6 +2510,7 @@
           .filter(t => t.length > 0);
 
         if (items.length > 0) {
+          clearShareHashIfPresent();
           setSlices(items);
           bulkInput.value = '';
           document.querySelector('[data-tab="entries"]').click();
