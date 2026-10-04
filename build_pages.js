@@ -517,22 +517,7 @@ ${makeXhtmlLinks()}
   </url>`);
 });
 
-// Feeds
-sitemapUrls.push(`  <url>
-    <loc>https://rollypop.ecn-apps.com/feed.xml</loc>
-    <lastmod>${todayIso}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.3</priority>
-  </url>`);
-
-ALL_LANGS.forEach(l => {
-  sitemapUrls.push(`  <url>
-    <loc>https://rollypop.ecn-apps.com/${l}/feed.xml</loc>
-    <lastmod>${todayIso}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.3</priority>
-  </url>`);
-});
+// Sitemap XML generation
 
 const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
