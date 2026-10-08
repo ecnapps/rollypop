@@ -1723,3 +1723,13 @@ body.is-pwa-standalone .btn-install,
 body.is-pwa-standalone .pwa-banner {
   display: none !important;
 }
+
+/* ============================================
+   ADSENSE AUTO ADS - RESPONSIVE FIXES
+   Prevención de saltos de contenido (CLS) y overflow
+   ============================================ */
+ins.adsbygoogle {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  display: block !important;
+}
