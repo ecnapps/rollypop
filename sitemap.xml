@@ -1,202 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://rollypop.ecn-apps.com/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://rollypop.ecn-apps.com/de/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rollypop.ecn-apps.com/pt/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://rollypop.ecn-apps.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://rollypop.ecn-apps.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://rollypop.ecn-apps.com/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://rollypop.ecn-apps.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://rollypop.ecn-apps.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://rollypop.ecn-apps.com/ru/" />
+  </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/feed.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/es/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://rollypop.ecn-apps.com/de/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rollypop.ecn-apps.com/pt/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://rollypop.ecn-apps.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://rollypop.ecn-apps.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://rollypop.ecn-apps.com/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://rollypop.ecn-apps.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://rollypop.ecn-apps.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://rollypop.ecn-apps.com/ru/" />
+  </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/es/feed.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/fr/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://rollypop.ecn-apps.com/de/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rollypop.ecn-apps.com/pt/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://rollypop.ecn-apps.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://rollypop.ecn-apps.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://rollypop.ecn-apps.com/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://rollypop.ecn-apps.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://rollypop.ecn-apps.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://rollypop.ecn-apps.com/ru/" />
+  </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/fr/feed.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/de/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://rollypop.ecn-apps.com/de/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rollypop.ecn-apps.com/pt/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://rollypop.ecn-apps.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://rollypop.ecn-apps.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://rollypop.ecn-apps.com/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://rollypop.ecn-apps.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://rollypop.ecn-apps.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://rollypop.ecn-apps.com/ru/" />
+  </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/de/feed.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/pt/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://rollypop.ecn-apps.com/de/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rollypop.ecn-apps.com/pt/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://rollypop.ecn-apps.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://rollypop.ecn-apps.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://rollypop.ecn-apps.com/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://rollypop.ecn-apps.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://rollypop.ecn-apps.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://rollypop.ecn-apps.com/ru/" />
+  </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/pt/feed.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/it/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://rollypop.ecn-apps.com/de/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rollypop.ecn-apps.com/pt/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://rollypop.ecn-apps.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://rollypop.ecn-apps.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://rollypop.ecn-apps.com/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://rollypop.ecn-apps.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://rollypop.ecn-apps.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://rollypop.ecn-apps.com/ru/" />
+  </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/it/feed.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/nl/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://rollypop.ecn-apps.com/de/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rollypop.ecn-apps.com/pt/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://rollypop.ecn-apps.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://rollypop.ecn-apps.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://rollypop.ecn-apps.com/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://rollypop.ecn-apps.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://rollypop.ecn-apps.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://rollypop.ecn-apps.com/ru/" />
+  </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/nl/feed.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/ja/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://rollypop.ecn-apps.com/de/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rollypop.ecn-apps.com/pt/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://rollypop.ecn-apps.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://rollypop.ecn-apps.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://rollypop.ecn-apps.com/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://rollypop.ecn-apps.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://rollypop.ecn-apps.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://rollypop.ecn-apps.com/ru/" />
+  </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/ja/feed.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/ko/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://rollypop.ecn-apps.com/de/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rollypop.ecn-apps.com/pt/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://rollypop.ecn-apps.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://rollypop.ecn-apps.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://rollypop.ecn-apps.com/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://rollypop.ecn-apps.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://rollypop.ecn-apps.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://rollypop.ecn-apps.com/ru/" />
+  </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/ko/feed.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/zh/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://rollypop.ecn-apps.com/de/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rollypop.ecn-apps.com/pt/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://rollypop.ecn-apps.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://rollypop.ecn-apps.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://rollypop.ecn-apps.com/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://rollypop.ecn-apps.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://rollypop.ecn-apps.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://rollypop.ecn-apps.com/ru/" />
+  </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/zh/feed.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://rollypop.ecn-apps.com/ru/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://rollypop.ecn-apps.com/es/" />
-    <xhtml:link rel="alternate" hreflang="fr" href="https://rollypop.ecn-apps.com/fr/" />
-    <xhtml:link rel="alternate" hreflang="de" href="https://rollypop.ecn-apps.com/de/" />
-    <xhtml:link rel="alternate" hreflang="pt" href="https://rollypop.ecn-apps.com/pt/" />
-    <xhtml:link rel="alternate" hreflang="it" href="https://rollypop.ecn-apps.com/it/" />
-    <xhtml:link rel="alternate" hreflang="nl" href="https://rollypop.ecn-apps.com/nl/" />
-    <xhtml:link rel="alternate" hreflang="ja" href="https://rollypop.ecn-apps.com/ja/" />
-    <xhtml:link rel="alternate" hreflang="ko" href="https://rollypop.ecn-apps.com/ko/" />
-    <xhtml:link rel="alternate" hreflang="zh" href="https://rollypop.ecn-apps.com/zh/" />
-    <xhtml:link rel="alternate" hreflang="ru" href="https://rollypop.ecn-apps.com/ru/" />
+  </url>
+  <url>
+    <loc>https://rollypop.ecn-apps.com/ru/feed.xml</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

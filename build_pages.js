@@ -482,46 +482,47 @@ ALL_LANGS.forEach(lang => {
 });
 console.log('Generated localized RSS feeds for all languages');
 
-// 6. Update sitemap.xml with xhtml:link annotations for all regional alternatives & feeds
+// 6. Update sitemap.xml matching standard ecn-apps schema (native XML tree viewer support)
 const sitemapUrls = [];
-
-function makeXhtmlLinks() {
-  let links = [
-    `    <xhtml:link rel="alternate" hreflang="x-default" href="https://rollypop.ecn-apps.com/" />`,
-    `    <xhtml:link rel="alternate" hreflang="en" href="https://rollypop.ecn-apps.com/" />`
-  ];
-  ALL_LANGS.forEach(l => {
-    links.push(`    <xhtml:link rel="alternate" hreflang="${l}" href="https://rollypop.ecn-apps.com/${l}/" />`);
-  });
-  return links.join('\n');
-}
-
-// Root URL entry
 const todayIso = new Date().toISOString().split('T')[0];
+
+// Root URL entries (web & RSS feed)
 sitemapUrls.push(`  <url>
     <loc>https://rollypop.ecn-apps.com/</loc>
     <lastmod>${todayIso}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-${makeXhtmlLinks()}
   </url>`);
 
-// Each language directory entry
+sitemapUrls.push(`  <url>
+    <loc>https://rollypop.ecn-apps.com/feed.xml</loc>
+    <lastmod>${todayIso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>`);
+
+// Each language directory entry & localized RSS feed
 ALL_LANGS.forEach(l => {
   sitemapUrls.push(`  <url>
     <loc>https://rollypop.ecn-apps.com/${l}/</loc>
     <lastmod>${todayIso}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
-${makeXhtmlLinks()}
+  </url>`);
+  sitemapUrls.push(`  <url>
+    <loc>https://rollypop.ecn-apps.com/${l}/feed.xml</loc>
+    <lastmod>${todayIso}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url>`);
 });
 
-// Sitemap XML generation
-
+// Sitemap XML generation matching imagecompressor.ecn-apps.com
 const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 ${sitemapUrls.join('\n')}
 </urlset>
 `;
