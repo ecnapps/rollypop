@@ -432,7 +432,7 @@ ALL_LANGS.forEach(lang => {
 });
 
 // 4. Root index.html = default ENGLISH page (indexable, canonical "/").
-// Script detects browser language and routes automatically to /<lang>/ if preferred.
+// Script routes only if ?lang= is provided or an explicit user preference was saved.
 const okLangsObj = `{ en: 1, es: 1, fr: 1, de: 1, pt: 1, it: 1, nl: 1, ja: 1, ko: 1, zh: 1, ru: 1 }`;
 const routingScript = `  <!-- Browser Language Routing (English is default) -->
   <script>
@@ -443,24 +443,16 @@ const routingScript = `  <!-- Browser Language Routing (English is default) -->
         var q = new URLSearchParams(window.location.search).get('lang');
         var ok = ${okLangsObj};
         var target = null;
+        var stored = null;
+        try { stored = localStorage.getItem('rollypop_lang_pref'); } catch (e) {}
         if (q && ok[q]) {
-          try { localStorage.setItem('rollypop_lang', q); } catch (e) {}
+          try { localStorage.setItem('rollypop_lang_pref', q); } catch (e) {}
           target = q;
           if (q === 'en' && window.history && history.replaceState) {
             history.replaceState(null, '', '/' + window.location.hash);
           }
-        } else {
-          var stored = null;
-          try { stored = localStorage.getItem('rollypop_lang'); } catch (e) {}
-          if (stored && ok[stored]) {
-            target = stored;
-          } else {
-            var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
-            for (var i = 0; i < langs.length; i++) {
-              var c = String(langs[i] || '').toLowerCase().slice(0, 2);
-              if (ok[c]) { target = c; break; }
-            }
-          }
+        } else if (stored && ok[stored]) {
+          target = stored;
         }
         if (target && target !== 'en') {
           window.location.replace('/' + target + '/' + window.location.hash);
