@@ -2262,10 +2262,12 @@
     trackEvent('preset_selected', { preset_key: key, lang: state.lang });
   }
 
-  function setLanguage(lang) {
+  function setLanguage(lang, persist = false) {
     if (!I18N[lang]) lang = 'en';
     state.lang = lang;
-    try { localStorage.setItem('rollypop_lang', lang); } catch (e) {}
+    if (persist) {
+      try { localStorage.setItem('rollypop_lang_pref', lang); } catch (e) {}
+    }
     document.documentElement.lang = lang;
 
     document.querySelectorAll('.lang-option').forEach(opt => {
@@ -2646,7 +2648,7 @@
       document.querySelectorAll('.lang-option').forEach(opt => {
         opt.addEventListener('click', () => {
           const lang = opt.dataset.lang;
-          try { localStorage.setItem('rollypop_lang', lang); } catch (e) {}
+          try { localStorage.setItem('rollypop_lang_pref', lang); } catch (e) {}
           langDropdown.classList.remove('active');
           const targetUrl = lang === 'en' ? '/' : ('/' + lang + '/');
           if (window.location.pathname !== targetUrl) {
