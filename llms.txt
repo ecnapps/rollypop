@@ -1,0 +1,15 @@
+# RollyPop by ecn-apps
+> Make random choices, pick names, decide what to eat, and run giveaways with the most responsive, animated online decision wheel.
+> 100% private, client-side browser utility. Zero server uploads, zero sign-up.
+
+## Canonical URL
+- https://rollypop.ecn-apps.com/
+
+## Platform Hub
+- ecn-apps Developer Tools Directory: https://ecn-apps.com/pages/products.html
+
+## Related Tools
+- TabSnap: https://tabsnap.ecn-apps.com/
+- PassGen: https://passgen.ecn-apps.com/
+- QR Generator: https://qr-generator.ecn-apps.com/
+- GlyphVault: https://glyphvault.ecn-apps.com/
