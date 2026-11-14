@@ -9,27 +9,27 @@
 
   /* Color Palette */
   --bg-primary: #090d16;
-  --bg-secondary: #0f172a;
-  --bg-tertiary: #1e293b;
-  --bg-card: rgba(15, 23, 42, 0.75);
-  --bg-card-hover: rgba(30, 41, 59, 0.85);
+  --bg-secondary: #0f1623;
+  --bg-tertiary: #141c2b;
+  --bg-card: rgba(20, 28, 43, 0.82);
+  --bg-card-hover: rgba(26, 36, 56, 0.92);
   --bg-glass: rgba(255, 255, 255, 0.04);
   --border-glass: rgba(255, 255, 255, 0.08);
-  --border-accent: rgba(139, 92, 246, 0.3);
+  --border-accent: rgba(34, 211, 238, 0.28);
 
-  --text-primary: #f8fafc;
+  --text-primary: #f1f5f9;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
 
-  --accent-primary: #8b5cf6;
-  --accent-primary-hover: #7c3aed;
-  --accent-primary-glow: rgba(139, 92, 246, 0.35);
-  --accent-cyan: #06b6d4;
+  --accent-primary: #22d3ee;
+  --accent-primary-hover: #38bdf8;
+  --accent-primary-glow: rgba(34, 211, 238, 0.28);
+  --accent-cyan: #22d3ee;
   --accent-pink: #ec4899;
   --accent-amber: #f59e0b;
   --accent-emerald: #10b981;
 
-  --wheel-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 40px rgba(139, 92, 246, 0.2);
+  --wheel-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 40px rgba(34, 211, 238, 0.18);
   --glass-blur: blur(16px);
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -168,7 +168,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
   text-transform: uppercase;
   padding: 0.15rem 0.5rem;
   border-radius: var(--radius-full);
-  background: rgba(139, 92, 246, 0.2);
+  background: rgba(34, 211, 238, 0.18);
   border: 1px solid rgba(139, 92, 246, 0.4);
   color: #c4b5fd;
   -webkit-text-fill-color: #c4b5fd;
@@ -312,7 +312,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
   cursor: pointer;
   white-space: nowrap;
   transition: all var(--transition-normal);
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.18);
 }
 
 .btn-install:hover {
@@ -733,7 +733,7 @@ html[lang="es"] .wheel-center-btn {
   }
 
   .tab-btn.active {
-    background: rgba(139, 92, 246, 0.2);
+    background: rgba(34, 211, 238, 0.18);
     border: 1px solid rgba(139, 92, 246, 0.4);
   }
 }
