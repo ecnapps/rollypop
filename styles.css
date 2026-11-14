@@ -1866,3 +1866,16 @@ ins.adsbygoogle {
 @media (max-width: 640px) {
   .ecn-top-nav .btn-nav-cta { display: none; }
 }
+
+/* === CLS & ADSENSE LAYOUT RESERVATION === */
+.ad-container,
+.ad-slot,
+.ad-wrapper,
+.ad-banner,
+.ad-unit {
+  min-height: 100px;
+  contain: layout;
+}
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}
